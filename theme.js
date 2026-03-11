@@ -2,26 +2,26 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
-  
+
   // Check for saved user preference, else check OS preference
   const savedTheme = localStorage.getItem('theme');
   const osPreference = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   const initialTheme = savedTheme || osPreference;
-  
+
   document.documentElement.setAttribute('data-theme', initialTheme);
   updateButtonIcon(initialTheme);
-  
+
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
       let currentTheme = document.documentElement.getAttribute('data-theme');
       let targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
+
       document.documentElement.setAttribute('data-theme', targetTheme);
       localStorage.setItem('theme', targetTheme);
       updateButtonIcon(targetTheme);
     });
   }
-  
+
   function updateButtonIcon(theme) {
     if (!themeToggleBtn) return;
     if (theme === 'light') {
