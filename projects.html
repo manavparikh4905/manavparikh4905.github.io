@@ -6,153 +6,174 @@
   <title>Projects — Manav Parikh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <aside class="sidebar">
-  <a href="index.html" class="sidebar-name">Manav Parikh</a>
-  <p class="sidebar-sub">B.Tech Mechanical Engineering<br>Nirma University, Ahmedabad</p>
-  <ul class="sidebar-nav">
+  <a href="index.html" class="s-name">Manav Parikh</a>
+  <p class="s-sub">B.Tech Mechanical Engineering<br>Nirma University, Ahmedabad</p>
+  <ul class="s-nav">
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
     <li><a href="achievements.html">Achievements</a></li>
     <li><a href="skills.html">Skills</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="sidebar-contact">
-    <a href="https://github.com/manavparikh4905" target="_blank">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank">LinkedIn ↗</a>
-    <a href="mailto:parikhmanav72@gmail.com">parikhmanav72@gmail.com</a>
+  <div class="s-links">
+    <a href="https://github.com/manavparikh4905" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank">LinkedIn</a>
+    <a href="mailto:parikhmanav72@gmail.com">Email</a>
   </div>
 </aside>
 
 <main>
-  <div class="page">
+<div class="page">
 
-    <p class="page-label">Projects</p>
-    <h1 class="page-title">Current <em>Work</em></h1>
-    <p class="page-desc">Robotics engineering projects spanning custom path planning, autonomous navigation, and mechanical design for competition robots.</p>
+  <span class="p-eyebrow reveal">Projects</span>
+  <h1 class="p-title reveal">Current <em>Work</em></h1>
+  <p class="p-lead reveal">
+    Robotics engineering projects spanning custom path planning, autonomous navigation stacks,
+    and mechanical design for competition hardware. All active or recently completed.
+  </p>
 
-    <!-- PROJECT 01 -->
-    <div class="card project">
-      <div class="card-number">01</div>
-      <div class="card-meta">Ongoing · ROS2 · C++</div>
-      <div class="card-title">Path Planner — Differential Drive Robot</div>
-      <p class="card-desc">
-        A from-scratch path planning algorithm for differential drive robots, implemented as a
-        Nav2 plugin. Focuses on smooth trajectory generation, real-time obstacle avoidance, and
-        velocity profiling tuned for non-holonomic constraints. Goes beyond Nav2's default DWB
-        local planner by implementing a custom spline-based trajectory sampler with curvature
-        limits and dynamic lookahead adjustment.
-      </p>
-      <p class="card-desc" style="margin-top:0.8rem;">
-        The planner integrates directly with the Nav2 lifecycle and costmap2d infrastructure,
-        allowing seamless drop-in replacement in any standard ROS2 navigation setup.
-      </p>
-      <div class="tag-row">
-        <span class="tag">ROS2</span>
-        <span class="tag">C++</span>
-        <span class="tag">Nav2 Plugin</span>
-        <span class="tag">Trajectory Planning</span>
-        <span class="tag">Costmap2D</span>
-        <span class="tag">Non-holonomic</span>
-      </div>
-      <a href="https://github.com/manavparikh4905" target="_blank" class="card-link">View on GitHub →</a>
+  <!-- 01 -->
+  <div class="project-entry reveal">
+    <div class="pe-header">
+      <span class="pe-num">01</span>
+      <span class="pe-title">Path Planner for Differential Drive Robots</span>
     </div>
-
-    <!-- PROJECT 02 -->
-    <div class="card project">
-      <div class="card-number">02</div>
-      <div class="card-meta">Ongoing · ROS2 · Kinematics</div>
-      <div class="card-title">Path Planner — 3-Wheel Omnidirectional (Swerve) Drive</div>
-      <p class="card-desc">
-        Extending path planning to the kinematically richer 3-wheel omnidirectional swerve
-        configuration — a holonomic platform capable of translating and rotating independently.
-        Involves custom kinematic modeling of the 3WD geometry, holonomic velocity decomposition
-        into individual wheel velocity/angle commands, and heading-independent motion planning.
-      </p>
-      <p class="card-desc" style="margin-top:0.8rem;">
-        The planner supports arbitrary heading control decoupled from velocity direction —
-        a key advantage for competition tasks requiring precise positioning while maintaining
-        field orientation.
-      </p>
-      <div class="tag-row">
-        <span class="tag">ROS2</span>
-        <span class="tag">C++</span>
-        <span class="tag">Holonomic Kinematics</span>
-        <span class="tag">Swerve Drive</span>
-        <span class="tag">Heading Control</span>
-        <span class="tag">3WD Geometry</span>
-      </div>
-      <a href="https://github.com/manavparikh4905" target="_blank" class="card-link">View on GitHub →</a>
+    <div class="pe-meta">Ongoing · ROS2 · C++ · Nav2 Plugin</div>
+    <p class="pe-body">
+      A from-scratch path planning algorithm for differential drive robots, implemented as a
+      drop-in Nav2 global planner plugin in C++. The planner generates smooth, curvature-continuous
+      trajectories using spline interpolation with non-holonomic curvature bounds, adaptive lookahead
+      distance, and dynamic velocity profiling tuned to the robot's physical constraints.
+    </p>
+    <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
+      The implementation integrates directly with Nav2's lifecycle management and the Costmap2D
+      infrastructure, allowing seamless drop-in replacement in any standard ROS2 navigation setup
+      without changes to the broader stack.
+    </p>
+    <div class="pe-tags">
+      <span class="pe-tag">ROS2</span>
+      <span class="pe-tag">C++</span>
+      <span class="pe-tag">Nav2 Plugin API</span>
+      <span class="pe-tag">Spline Trajectories</span>
+      <span class="pe-tag">Costmap2D</span>
+      <span class="pe-tag">Non-holonomic</span>
+      <span class="pe-tag">Velocity Profiling</span>
     </div>
-
-    <!-- PROJECT 03 -->
-    <div class="card project">
-      <div class="card-number">03</div>
-      <div class="card-meta">Robocon 2024–2025 · Full Stack Navigation</div>
-      <div class="card-title">Robocon Autonomous Navigation Stack</div>
-      <p class="card-desc">
-        Complete ROS2 autonomous navigation stack built for competition robots at DD Robocon.
-        The stack integrates SLAM Toolbox for real-time map building, AMCL for probabilistic
-        Monte Carlo localization within a known map, and an Extended Kalman Filter for fusing
-        wheel odometry with IMU data into a reliable pose estimate.
-      </p>
-      <p class="card-desc" style="margin-top:0.8rem;">
-        Nav2's BehaviorTree-based mission executor handles high-level task sequencing.
-        Tuned and deployed on hardware under competition conditions — contributed to the
-        National Championship win in 2024 and Runners Up finish in 2025.
-      </p>
-      <div class="tag-row">
-        <span class="tag">ROS2</span>
-        <span class="tag">SLAM Toolbox</span>
-        <span class="tag">AMCL</span>
-        <span class="tag">EKF</span>
-        <span class="tag">Nav2</span>
-        <span class="tag">Sensor Fusion</span>
-        <span class="tag">BehaviorTree</span>
-      </div>
-      <a href="https://github.com/manavparikh4905" target="_blank" class="card-link">View on GitHub →</a>
-    </div>
-
-    <!-- PROJECT 04 -->
-    <div class="card project">
-      <div class="card-number">04</div>
-      <div class="card-meta">SolidWorks · Mechanical Design</div>
-      <div class="card-title">Robot CAD Design — Competition Hardware</div>
-      <p class="card-desc">
-        End-to-end mechanical design of competition robots in SolidWorks. Responsible for
-        full CAD assembly including chassis layout, custom drivetrain design for both differential
-        and swerve configurations, bearing and shaft sizing, and structural subsystems.
-      </p>
-      <p class="card-desc" style="margin-top:0.8rem;">
-        Designs are iterated against competition constraints — weight limits, footprint
-        requirements, and field interactions — with manufacturing tolerances considered
-        throughout. Final assemblies are fabricated and directly used in competition.
-      </p>
-      <div class="tag-row">
-        <span class="tag">SolidWorks</span>
-        <span class="tag">CAD Assembly</span>
-        <span class="tag">Drivetrain Design</span>
-        <span class="tag">Structural Analysis</span>
-        <span class="tag">Manufacturing</span>
-      </div>
-      <a href="https://github.com/manavparikh4905" target="_blank" class="card-link">View on GitHub →</a>
-    </div>
-
+    <a href="https://github.com/manavparikh4905" target="_blank" class="pe-link">View on GitHub →</a>
   </div>
+
+  <!-- 02 -->
+  <div class="project-entry reveal">
+    <div class="pe-header">
+      <span class="pe-num">02</span>
+      <span class="pe-title">Path Planner for 3-Wheel Omnidirectional (Swerve) Drive</span>
+    </div>
+    <div class="pe-meta">Ongoing · ROS2 · C++ · Holonomic Kinematics</div>
+    <p class="pe-body">
+      Extension of the path planner to the kinematically richer three-wheel omnidirectional
+      swerve configuration — a holonomic platform capable of simultaneous independent translation
+      and rotation. The work involves custom kinematic modelling of the 3WD geometry, holonomic
+      velocity decomposition into per-wheel speed and heading commands, and heading-independent
+      motion planning.
+    </p>
+    <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
+      The planner supports fully decoupled heading control — the robot can translate in any direction
+      while maintaining an arbitrary field-relative orientation — which is critical for competition
+      tasks requiring precise positioning while facing a fixed target.
+    </p>
+    <div class="pe-tags">
+      <span class="pe-tag">ROS2</span>
+      <span class="pe-tag">C++</span>
+      <span class="pe-tag">Holonomic Kinematics</span>
+      <span class="pe-tag">3WD Swerve Geometry</span>
+      <span class="pe-tag">Heading Decoupling</span>
+      <span class="pe-tag">Velocity Decomposition</span>
+    </div>
+    <a href="https://github.com/manavparikh4905" target="_blank" class="pe-link">View on GitHub →</a>
+  </div>
+
+  <!-- 03 -->
+  <div class="project-entry reveal">
+    <div class="pe-header">
+      <span class="pe-num">03</span>
+      <span class="pe-title">Robocon Autonomous Navigation Stack</span>
+    </div>
+    <div class="pe-meta">DD Robocon 2024–2025 · ROS2 · Full Stack</div>
+    <p class="pe-body">
+      Complete ROS2 autonomous navigation stack built for and deployed on competition robots
+      at DD Robocon. SLAM Toolbox runs online to build a live occupancy grid of the competition
+      field. Once a map is established, AMCL provides probabilistic Monte Carlo localisation
+      within it. An Extended Kalman Filter from the <code style="font-family:monospace; font-size:0.82rem; background:rgba(0,0,0,0.05); padding:0.1rem 0.3rem; border-radius:2px;">robot_localization</code> package fuses
+      wheel odometry and IMU data into a robust pose estimate.
+    </p>
+    <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
+      Nav2's BehaviorTree-based mission executor handles high-level task sequencing.
+      The full stack was tuned, tested, and deployed on hardware under competition conditions —
+      contributing directly to the National Championship win in 2024 and the Runners Up
+      finish in 2025.
+    </p>
+    <div class="pe-tags">
+      <span class="pe-tag">ROS2</span>
+      <span class="pe-tag">SLAM Toolbox</span>
+      <span class="pe-tag">AMCL</span>
+      <span class="pe-tag">EKF · robot_localization</span>
+      <span class="pe-tag">Nav2</span>
+      <span class="pe-tag">BehaviorTree.CPP</span>
+      <span class="pe-tag">IMU Fusion</span>
+    </div>
+    <a href="https://github.com/manavparikh4905" target="_blank" class="pe-link">View on GitHub →</a>
+  </div>
+
+  <!-- 04 -->
+  <div class="project-entry reveal">
+    <div class="pe-header">
+      <span class="pe-num">04</span>
+      <span class="pe-title">Competition Robot Mechanical Design — SolidWorks</span>
+    </div>
+    <div class="pe-meta">SolidWorks · CAD Assembly · Drivetrain Engineering</div>
+    <p class="pe-body">
+      End-to-end mechanical design of Robocon competition robots in SolidWorks. Responsible
+      for full parametric CAD assembly — chassis layout and structural frame, custom drivetrain
+      design for both differential and swerve configurations, bearing and shaft sizing, fastener
+      selection, and subsystem interfaces.
+    </p>
+    <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
+      Designs are developed against competition constraints — footprint limits, weight budgets,
+      and field interaction requirements — with manufacturing tolerances embedded throughout.
+      Final assemblies are fabricated directly and fielded in competition.
+    </p>
+    <div class="pe-tags">
+      <span class="pe-tag">SolidWorks</span>
+      <span class="pe-tag">Parametric CAD</span>
+      <span class="pe-tag">Drivetrain Design</span>
+      <span class="pe-tag">Swerve Geometry</span>
+      <span class="pe-tag">Structural Analysis</span>
+      <span class="pe-tag">Manufacturing Tolerancing</span>
+    </div>
+    <a href="https://github.com/manavparikh4905" target="_blank" class="pe-link">View on GitHub →</a>
+  </div>
+
+</div>
 </main>
 
 <footer>
   <span>© 2025 Manav Parikh · Nirma University · Ahmedabad, Gujarat, India</span>
   <span>
-    <a href="index.html" style="color:var(--faint); margin-right:1rem;">Home</a>
-    <a href="achievements.html" style="color:var(--faint); margin-right:1rem;">Achievements</a>
-    <a href="contact.html" style="color:var(--faint);">Contact</a>
+    <a href="index.html">Home</a> &nbsp;·&nbsp;
+    <a href="achievements.html">Achievements</a> &nbsp;·&nbsp;
+    <a href="contact.html">Contact</a>
   </span>
 </footer>
 
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }}), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

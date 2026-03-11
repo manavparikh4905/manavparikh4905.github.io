@@ -6,154 +6,144 @@
   <title>Manav Parikh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ── SIDEBAR ── -->
 <aside class="sidebar">
-  <a href="index.html" class="sidebar-name">Manav Parikh</a>
-  <p class="sidebar-sub">B.Tech Mechanical Engineering<br>Nirma University, Ahmedabad</p>
-  <ul class="sidebar-nav">
+  <a href="index.html" class="s-name">Manav Parikh</a>
+  <p class="s-sub">B.Tech Mechanical Engineering<br>Nirma University, Ahmedabad</p>
+  <ul class="s-nav">
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="achievements.html">Achievements</a></li>
     <li><a href="skills.html">Skills</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="sidebar-contact">
-    <a href="https://github.com/manavparikh4905" target="_blank">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank">LinkedIn ↗</a>
-    <a href="mailto:parikhmanav72@gmail.com">parikhmanav72@gmail.com</a>
+  <div class="s-links">
+    <a href="https://github.com/manavparikh4905" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank">LinkedIn</a>
+    <a href="mailto:parikhmanav72@gmail.com">Email</a>
   </div>
 </aside>
 
-<!-- ── MAIN ── -->
 <main>
-  <div class="page">
+<div class="page">
 
-    <p class="page-label">Robotics · Autonomous Systems · Mechanical Engineering</p>
-    <h1 class="page-title">Manav<br><em>Parikh</em></h1>
+  <span class="p-eyebrow reveal">Robotics · Autonomous Systems · Mechanical Engineering</span>
 
-    <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.2rem;">
-      <li><span class="tag">DD Robocon 2024 National Champions</span></li>
-      <li><span class="tag">DD Robocon 2025 Runners Up</span></li>
-      <li><span class="tag">ROS2 · Nav2 · SLAM</span></li>
-    </ul>
+  <h1 class="p-title reveal">Manav<br><em>Parikh</em></h1>
 
-    <p class="page-desc">
-      Third-year Mechanical Engineering student at Nirma University. My work lives at the boundary of
-      mechanical design and software — ROS2 navigation stacks, SLAM pipelines, EKF sensor fusion, and
-      custom path planners for differential and 3-wheel swerve drives. Two-time national podium finisher
-      at DD Robocon.
-    </p>
+  <p class="p-lead reveal">
+    Third-year Mechanical Engineering student at Nirma University. I build autonomous robots —
+    full ROS2 navigation stacks using SLAM, AMCL, and EKF sensor fusion, and custom path planning
+    algorithms for differential and three-wheel omnidirectional drives. Two-time national podium
+    finisher at DD Robocon (2024 Champions · 2025 Runners Up).
+  </p>
 
-    <div class="stats-row">
-      <div class="stat">
-        <div class="stat-val">7.72</div>
-        <div class="stat-lbl">CGPA / 10</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">2×</div>
-        <div class="stat-lbl">National Podium</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">#1</div>
-        <div class="stat-lbl">Robocon 2024</div>
-      </div>
+  <div class="stats reveal">
+    <div class="stat">
+      <div class="stat-n">7.72</div>
+      <div class="stat-l">CGPA / 10</div>
     </div>
-
-    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem;">
-      <a href="projects.html" style="display:inline-block; padding:0.75rem 2rem; background:var(--terra); color:var(--cream); border-radius:4px; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; transition:all 0.2s;"
-        onmouseover="this.style.background='var(--rust)'" onmouseout="this.style.background='var(--terra)'">
-        View Projects
-      </a>
-      <a href="https://github.com/manavparikh4905" target="_blank"
-        style="display:inline-block; padding:0.75rem 2rem; border:1.5px solid var(--sand); color:var(--bark); border-radius:4px; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; transition:all 0.2s;"
-        onmouseover="this.style.borderColor='var(--terra)';this.style.color='var(--terra)'"
-        onmouseout="this.style.borderColor='var(--sand)';this.style.color='var(--bark)'">
-        GitHub ↗
-      </a>
+    <div class="stat">
+      <div class="stat-n">2×</div>
+      <div class="stat-l">National Podium</div>
     </div>
-
-    <!-- HIGHLIGHTS -->
-    <div class="highlights">
-      <p class="highlights-title">At a Glance</p>
-
-      <div class="highlight-item">
-        <span class="highlight-num">01</span>
-        <div class="highlight-body">
-          <h4>Custom Path Planning</h4>
-          <p>Building from-scratch path planners for both differential drive and 3-wheel swerve robots — extending beyond Nav2's default planners with smooth trajectory generation and real-time obstacle avoidance.</p>
-        </div>
-      </div>
-
-      <div class="highlight-item">
-        <span class="highlight-num">02</span>
-        <div class="highlight-body">
-          <h4>DD Robocon 2024 — National Champions</h4>
-          <p>Secured 1st place at DD Robocon 2024 as part of Nirma University's team. Followed by 1st Runners Up at Robocon 2025 — two consecutive years on the national podium.</p>
-        </div>
-      </div>
-
-      <div class="highlight-item">
-        <span class="highlight-num">03</span>
-        <div class="highlight-body">
-          <h4>ROS2 Navigation Stack</h4>
-          <p>Full autonomous navigation stack for competition robots integrating SLAM for mapping, AMCL for localization, EKF for IMU and odometry fusion, and Nav2 for mission execution.</p>
-        </div>
-      </div>
-
-      <div class="highlight-item">
-        <span class="highlight-num">04</span>
-        <div class="highlight-body">
-          <h4>CAD & Mechanical Design</h4>
-          <p>End-to-end robot mechanical design in SolidWorks — chassis layout, drivetrain assemblies, and structural subsystems engineered for real-world competition performance.</p>
-        </div>
-      </div>
+    <div class="stat">
+      <div class="stat-n">ROS2</div>
+      <div class="stat-l">Primary Stack</div>
     </div>
-
-    <!-- SECTION GRID -->
-    <p class="highlights-title" style="margin-top:4rem;">Explore</p>
-    <div class="section-grid">
-      <a href="about.html" class="section-tile">
-        <div class="tile-num">01</div>
-        <div class="tile-title">About</div>
-        <div class="tile-desc">Background, education, CGPA, and research focus in autonomous robotics.</div>
-        <span class="tile-link">View →</span>
-      </a>
-      <a href="projects.html" class="section-tile">
-        <div class="tile-num">02</div>
-        <div class="tile-title">Projects</div>
-        <div class="tile-desc">Custom path planners, ROS2 navigation stacks, and SolidWorks CAD design.</div>
-        <span class="tile-link">View →</span>
-      </a>
-      <a href="achievements.html" class="section-tile">
-        <div class="tile-num">03</div>
-        <div class="tile-title">Achievements</div>
-        <div class="tile-desc">DD Robocon 2024 National Champions and 2025 Runners Up.</div>
-        <span class="tile-link">View →</span>
-      </a>
-      <a href="skills.html" class="section-tile">
-        <div class="tile-num">04</div>
-        <div class="tile-title">Skills</div>
-        <div class="tile-desc">ROS2, Nav2, SLAM, AMCL, EKF, SolidWorks, C++, Python, and more.</div>
-        <span class="tile-link">View →</span>
-      </a>
+    <div class="stat">
+      <div class="stat-n">NU</div>
+      <div class="stat-l">Nirma University</div>
     </div>
-
   </div>
+
+  <div class="btn-row reveal">
+    <a href="projects.html" class="btn btn-solid">View Projects</a>
+    <a href="https://github.com/manavparikh4905" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+    <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+  </div>
+
+  <div style="margin-top:5rem;">
+    <p class="hl-label reveal">At a Glance</p>
+    <div class="hl-item reveal">
+      <span class="hl-n">01</span>
+      <div class="hl-body">
+        <h4>Custom Path Planning — Differential &amp; Swerve</h4>
+        <p>Building from-scratch path planners for both differential drive and three-wheel omnidirectional swerve robots. Smooth trajectory generation, real-time obstacle avoidance, and velocity profiling — implemented as Nav2 plugins in C++.</p>
+      </div>
+    </div>
+    <div class="hl-item reveal">
+      <span class="hl-n">02</span>
+      <div class="hl-body">
+        <h4>DD Robocon 2024 — National Champions</h4>
+        <p>Secured first place at India's premier robotics competition. Returned in 2025 as first runners up. Two consecutive podium finishes from Nirma University's team, built on a full autonomous navigation stack deployed on real hardware.</p>
+      </div>
+    </div>
+    <div class="hl-item reveal">
+      <span class="hl-n">03</span>
+      <div class="hl-body">
+        <h4>Full ROS2 Autonomous Navigation Stack</h4>
+        <p>SLAM Toolbox for live map building, AMCL for probabilistic Monte Carlo localisation, Extended Kalman Filter for fusing wheel odometry with IMU data, and Nav2's BehaviorTree executor for mission sequencing.</p>
+      </div>
+    </div>
+    <div class="hl-item reveal">
+      <span class="hl-n">04</span>
+      <div class="hl-body">
+        <h4>Mechanical Design in SolidWorks</h4>
+        <p>End-to-end CAD design of competition robots — chassis layout, custom drivetrain assemblies for differential and swerve configurations, and structural subsystems engineered to competition tolerances and weight constraints.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:5rem;">
+    <p class="hl-label reveal">Explore</p>
+    <div class="tiles reveal" style="margin-top:1.5rem;">
+      <a href="about.html" class="tile">
+        <div class="tile-n">01</div>
+        <div class="tile-t">About</div>
+        <div class="tile-d">Background, education, CGPA, and research focus in autonomous robotics and robot navigation.</div>
+        <span class="tile-a">View →</span>
+      </a>
+      <a href="projects.html" class="tile">
+        <div class="tile-n">02</div>
+        <div class="tile-t">Projects</div>
+        <div class="tile-d">Custom path planners, ROS2 navigation stacks, and competition robot CAD design.</div>
+        <span class="tile-a">View →</span>
+      </a>
+      <a href="achievements.html" class="tile">
+        <div class="tile-n">03</div>
+        <div class="tile-t">Achievements</div>
+        <div class="tile-d">DD Robocon 2024 National Champions and 2025 First Runners Up.</div>
+        <span class="tile-a">View →</span>
+      </a>
+      <a href="skills.html" class="tile">
+        <div class="tile-n">04</div>
+        <div class="tile-t">Skills</div>
+        <div class="tile-d">ROS2, Nav2, SLAM, AMCL, EKF, SolidWorks, C++, Python, and embedded systems.</div>
+        <span class="tile-a">View →</span>
+      </a>
+    </div>
+  </div>
+
+</div>
 </main>
 
 <footer>
   <span>© 2025 Manav Parikh · Nirma University · Ahmedabad, Gujarat, India</span>
   <span>
-    <a href="about.html" style="color:var(--faint); margin-right:1rem;">About</a>
-    <a href="projects.html" style="color:var(--faint); margin-right:1rem;">Projects</a>
-    <a href="contact.html" style="color:var(--faint);">Contact</a>
+    <a href="about.html">About</a> &nbsp;·&nbsp;
+    <a href="projects.html">Projects</a> &nbsp;·&nbsp;
+    <a href="contact.html">Contact</a>
   </span>
 </footer>
 
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }}), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
