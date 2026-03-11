@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Manav Parikh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<aside class="sidebar">
+  <a href="index.html" class="sidebar-name">Manav Parikh</a>
+  <p class="sidebar-sub">B.Tech Mechanical Engineering<br>Nirma University, Ahmedabad</p>
+  <ul class="sidebar-nav">
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="sidebar-contact">
+    <a href="https://github.com/manavparikh4905" target="_blank">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank">LinkedIn ↗</a>
+    <a href="mailto:parikhmanav72@gmail.com">parikhmanav72@gmail.com</a>
+  </div>
+</aside>
+
+<main>
+  <div class="page">
+
+    <p class="page-label">Contact</p>
+    <h1 class="page-title">Get in <em>Touch</em></h1>
+    <p class="page-desc">Whether you're working on autonomous robots, curious about Robocon, or want to collaborate — reach out anytime.</p>
+
+    <!-- CONTACT LINKS -->
+    <a href="mailto:parikhmanav72@gmail.com" class="contact-row">
+      <span class="contact-icon">✉</span>
+      parikhmanav72@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank" class="contact-row">
+      <span class="contact-icon">in</span>
+      linkedin.com/in/manav-parikh-7a2b44289
+    </a>
+    <a href="https://github.com/manavparikh4905" target="_blank" class="contact-row">
+      <span class="contact-icon">⌥</span>
+      github.com/manavparikh4905
+    </a>
+
+    <!-- QR CODES -->
+    <div class="qr-section">
+      <div class="qr-section-title">Scan to Connect</div>
+      <div class="qr-grid">
+
+        <div class="qr-item">
+          <div class="qr-box" id="qr-linkedin"></div>
+          <div class="qr-lbl">LinkedIn</div>
+          <div class="qr-val">Scan to Connect</div>
+        </div>
+
+        <div class="qr-item">
+          <div class="qr-box" id="qr-email"></div>
+          <div class="qr-lbl">Email</div>
+          <div class="qr-val">parikhmanav72@gmail.com</div>
+        </div>
+
+        <div class="qr-item">
+          <div class="qr-box" id="qr-github"></div>
+          <div class="qr-lbl">GitHub</div>
+          <div class="qr-val">manavparikh4905</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <span>© 2025 Manav Parikh · Nirma University · Ahmedabad, Gujarat, India</span>
+  <span>
+    <a href="index.html" style="color:var(--faint); margin-right:1rem;">Home</a>
+    <a href="about.html" style="color:var(--faint); margin-right:1rem;">About</a>
+    <a href="projects.html" style="color:var(--faint);">Projects</a>
+  </span>
+</footer>
+
+<script>
+  const opts = {
+    width: 132, height: 132,
+    colorDark: "#F7F1E6",
+    colorLight: "#3E2410",
+    correctLevel: QRCode.CorrectLevel.H
+  };
+  new QRCode(document.getElementById("qr-linkedin"), {
+    ...opts, text: "https://www.linkedin.com/in/manav-parikh-7a2b44289/"
+  });
+  new QRCode(document.getElementById("qr-email"), {
+    ...opts, text: "mailto:parikhmanav72@gmail.com"
+  });
+  new QRCode(document.getElementById("qr-github"), {
+    ...opts, text: "https://github.com/manavparikh4905"
+  });
+</script>
+
+</body>
+</html>
