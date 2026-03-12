@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         avatarPreview.style.display = 'block';
         avatarPlaceholder.style.display = 'none';
         try { sessionStorage.setItem('localUserAvatar', evt.target.result); }
-        catch(err) { console.warn('File too large for sessionStorage'); }
+        catch (err) { console.warn('File too large for sessionStorage'); }
       };
       reader.readAsDataURL(file);
     });
