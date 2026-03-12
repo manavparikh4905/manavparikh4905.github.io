@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Manav Parikh</title>
+  <meta name="description"
+    content="Competition photos, hardware builds, CAD designs, and field testing media from Manav Parikh's robotics career.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="n-brand">
+      <a href="index.html" class="n-name">Manav Parikh</a>
+      <span class="n-sub">Robotics Engineer</span>
+    </div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger active">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link active"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+
+      <span class="p-eyebrow reveal">Gallery</span>
+      <h1 class="p-title reveal">Competition <em>Gallery</em></h1>
+      <p class="p-lead reveal">
+        Photos and videos from DD Robocon competitions, hardware builds, CAD designs,
+        and field testing sessions. Upload your own media to preview it here!
+      </p>
+
+      <div class="gallery-filters reveal">
+        <button class="gf-btn active" data-filter="all">All</button>
+        <button class="gf-btn" data-filter="competition">Competitions</button>
+        <button class="gf-btn" data-filter="hardware">Hardware</button>
+        <button class="gf-btn" data-filter="cad">CAD</button>
+        <button class="gf-btn" data-filter="testing">Field Testing</button>
+      </div>
+
+      <div class="gallery-masonry reveal" id="gallery-masonry">
+
+        <div class="gallery-card" data-category="competition">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop" alt="Robot on competition field">
+            <div class="gallery-caption"><span>DD Robocon 2024 — National Finals</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="hardware">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" alt="Hardware assembly process">
+            <div class="gallery-caption"><span>Drivetrain Assembly — Swerve Module</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="cad">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop" alt="CAD design render">
+            <div class="gallery-caption"><span>SolidWorks Full Assembly Render</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="competition">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?q=80&w=600&auto=format&fit=crop" alt="Robotics competition arena">
+            <div class="gallery-caption"><span>DD Robocon 2025 — Arena Setup</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="testing">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=600&auto=format&fit=crop" alt="Field testing workshop">
+            <div class="gallery-caption"><span>Autonomous Navigation Field Test</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="hardware">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="Electronics and circuit boards">
+            <div class="gallery-caption"><span>Electronics Layout — Motor Drivers</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="cad">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=600&auto=format&fit=crop" alt="Precision engineering">
+            <div class="gallery-caption"><span>Chassis Design — Differential Drive</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="testing">
+          <div class="gallery-card-inner">
+            <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?q=80&w=600&auto=format&fit=crop" alt="Lab work">
+            <div class="gallery-caption"><span>SLAM Mapping Test Session</span></div>
+          </div>
+        </div>
+
+        <!-- Upload Card -->
+        <div class="gallery-card gallery-upload-card">
+          <div class="gallery-card-inner">
+            <span>+ Add Media</span>
+            <input type="file" id="gallery-upload-input" accept="image/*,video/*" multiple>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close">&times;</button>
+    <button class="lb-prev">&#8249;</button>
+    <button class="lb-next">&#8250;</button>
+    <div class="lb-content">
+      <img id="lb-img" src="" alt="Lightbox Image">
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>
+      <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="projects.html">Projects</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="contact.html">Contact</a>
+    </span>
+  </footer>
+
+</body>
+
+</html>

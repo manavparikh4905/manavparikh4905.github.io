@@ -20,19 +20,23 @@
   <header class="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
-      <span class="n-sub">Robotics Engineeer</span>
+      <span class="n-sub">Robotics Engineer</span>
     </div>
     <ul class="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="skills.html">Skills</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <div class="n-actions">
-      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-        <!-- Icon injected via theme.js -->
-      </button>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
@@ -49,29 +53,68 @@
         and collaborative projects. Reach out via any of the channels below.
       </p>
 
-      <div class="contact-card reveal">
-        <a href="mailto:parikhmanav72@gmail.com" class="contact-row">
-          <span class="cr-label">Email</span>
-          parikhmanav72@gmail.com
+      <div class="section-divider reveal"></div>
+
+      <!-- Icon Card Grid -->
+      <div class="contact-grid reveal">
+
+        <a href="mailto:parikhmanav72@gmail.com" class="contact-icon-card">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+          </div>
+          <div class="cic-label">Email</div>
+          <div class="cic-value">parikhmanav72@gmail.com</div>
         </a>
-        <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank" class="contact-row">
-          <span class="cr-label">LinkedIn</span>
-          linkedin.com/in/manav-parikh-7a2b44289
+
+        <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank" class="contact-icon-card">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="cic-label">LinkedIn</div>
+          <div class="cic-value">manav-parikh</div>
         </a>
-        <a href="https://github.com/manavparikh4905" target="_blank" class="contact-row">
-          <span class="cr-label">GitHub</span>
-          github.com/manavparikh4905
+
+        <a href="https://github.com/manavparikh4905" target="_blank" class="contact-icon-card">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <div class="cic-label">GitHub</div>
+          <div class="cic-value">manavparikh4905</div>
         </a>
-        <div class="contact-row" style="cursor:default; color:var(--ink-2);">
-          <span class="cr-label">Location</span>
-          Ahmedabad, Gujarat, India
+
+        <div class="contact-icon-card" style="cursor: default;">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="cic-label">Location</div>
+          <div class="cic-value">Ahmedabad, Gujarat, India</div>
         </div>
-        <div class="contact-row"
-          style="cursor:default; color:var(--ink-2); border-bottom: none; padding-bottom: 0.5rem;">
-          <span class="cr-label">Institution</span>
-          Nirma University · B.Tech Mechanical Engineering · 2023–2027
+
+        <div class="contact-icon-card" style="cursor: default;">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+          </div>
+          <div class="cic-label">Institution</div>
+          <div class="cic-value">Nirma University · B.Tech ME · 2023–2027</div>
         </div>
+
       </div>
+
+      <!-- Send a Message -->
+      <div class="contact-form-section reveal">
+        <h2>Send a <em>Message</em></h2>
+        <p>Leave your details and I'll get back to you as soon as possible.</p>
+        <form class="contact-form" id="contact-form">
+          <div class="cf-row">
+            <input type="text" class="cf-input" placeholder="Your Name" required>
+            <input type="email" class="cf-input" placeholder="Your Email" required>
+          </div>
+          <textarea class="cf-textarea" placeholder="Your Message..." required></textarea>
+          <button type="submit" class="btn btn-solid">Send Message</button>
+        </form>
+      </div>
+
+      <div class="section-divider reveal"></div>
 
       <!-- QR CODES -->
       <div class="qr-section reveal">
@@ -79,22 +122,18 @@
           style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 2rem; border-bottom: 1px solid var(--border-soft); padding-bottom: 1rem; width: 100%; max-width: 700px; margin: 0 auto;">
           SCAN TO CONNECT</div>
         <div class="qr-row">
-
           <div class="qr-item">
             <div class="qr-box" id="qr-linkedin"></div>
             <div style="font-weight: 600; letter-spacing: 0.1em; color: var(--ink); font-size: 0.8rem;">LinkedIn</div>
           </div>
-
           <div class="qr-item">
             <div class="qr-box" id="qr-email"></div>
             <div style="font-weight: 600; letter-spacing: 0.1em; color: var(--ink); font-size: 0.8rem;">Email</div>
           </div>
-
           <div class="qr-item">
             <div class="qr-box" id="qr-github"></div>
             <div style="font-weight: 600; letter-spacing: 0.1em; color: var(--ink); font-size: 0.8rem;">GitHub</div>
           </div>
-
         </div>
       </div>
 
@@ -111,16 +150,11 @@
   </footer>
 
   <script>
-    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }), { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    // Base setup
+    // QR Codes
     const opts = { width: 124, height: 124, colorDark: "#111111", colorLight: "#FFFFFF", correctLevel: QRCode.CorrectLevel.H };
-
-    // Render immediately for visual structure
-    let qrl = new QRCode(document.getElementById("qr-linkedin"), { ...opts, text: "https://www.linkedin.com/in/manav-parikh-7a2b44289/" });
-    let qre = new QRCode(document.getElementById("qr-email"), { ...opts, text: "mailto:parikhmanav72@gmail.com" });
-    let qrg = new QRCode(document.getElementById("qr-github"), { ...opts, text: "https://github.com/manavparikh4905" });
+    new QRCode(document.getElementById("qr-linkedin"), { ...opts, text: "https://www.linkedin.com/in/manav-parikh-7a2b44289/" });
+    new QRCode(document.getElementById("qr-email"), { ...opts, text: "mailto:parikhmanav72@gmail.com" });
+    new QRCode(document.getElementById("qr-github"), { ...opts, text: "https://github.com/manavparikh4905" });
   </script>
 </body>
 

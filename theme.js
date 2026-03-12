@@ -1,50 +1,66 @@
-// theme.js - Handles Light/Dark Mode toggling
+// theme.js — Portfolio interactions: theme, menu, animations, gallery, effects
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ═══════════════════════════════════
+  //  THEME TOGGLE
+  // ═══════════════════════════════════
   const themeToggleBtn = document.getElementById('theme-toggle');
-
-  // Check for saved user preference, else check OS preference
-  const savedTheme = localStorage.getItem('theme');
-  const osPreference = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  const initialTheme = savedTheme || osPreference;
-
-  document.documentElement.setAttribute('data-theme', initialTheme);
-  updateButtonIcon(initialTheme);
+  const saved = localStorage.getItem('theme');
+  const os = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  const initial = saved || os;
+  document.documentElement.setAttribute('data-theme', initial);
+  setIcon(initial);
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      let currentTheme = document.documentElement.getAttribute('data-theme');
-      let targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-      document.documentElement.setAttribute('data-theme', targetTheme);
-      localStorage.setItem('theme', targetTheme);
-      updateButtonIcon(targetTheme);
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
     });
   }
 
-  function updateButtonIcon(theme) {
+  function setIcon(t) {
     if (!themeToggleBtn) return;
-    if (theme === 'light') {
-      themeToggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-    } else {
-      themeToggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
-    }
+    themeToggleBtn.innerHTML = t === 'light'
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
   }
 
-  // Mobile Menu Logic
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  // ═══════════════════════════════════
+  //  MOBILE MENU + DROPDOWN
+  // ═══════════════════════════════════
+  const mobileBtn = document.getElementById('mobile-menu-btn');
   const nNav = document.querySelector('.n-nav');
-  if (mobileMenuBtn && nNav) {
-    mobileMenuBtn.addEventListener('click', () => {
+
+  if (mobileBtn && nNav) {
+    mobileBtn.addEventListener('click', () => {
       nNav.classList.toggle('nav-open');
     });
   }
 
-  // Avatar Upload / Preview Logic
+  // Mobile dropdown toggle
+  document.querySelectorAll('.has-dropdown').forEach(dd => {
+    const trigger = dd.querySelector('.dropdown-trigger');
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          dd.classList.toggle('open');
+        }
+      });
+    }
+  });
+
+  // ═══════════════════════════════════
+  //  AVATAR UPLOAD
+  // ═══════════════════════════════════
   const avatarUpload = document.getElementById('avatar-upload');
   const avatarPreview = document.getElementById('avatar-preview');
   const avatarPlaceholder = document.getElementById('avatar-placeholder');
-  
+
   if (avatarUpload && avatarPreview && avatarPlaceholder) {
     const savedAvatar = sessionStorage.getItem('localUserAvatar');
     if (savedAvatar) {
@@ -52,76 +68,319 @@ document.addEventListener('DOMContentLoaded', () => {
       avatarPreview.style.display = 'block';
       avatarPlaceholder.style.display = 'none';
     }
-
     avatarUpload.addEventListener('change', (e) => {
       const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          const res = evt.target.result;
-          avatarPreview.src = res;
-          avatarPreview.style.display = 'block';
-          avatarPlaceholder.style.display = 'none';
-          try {
-            sessionStorage.setItem('localUserAvatar', res);
-          } catch(err) {
-            console.warn('File too large for sessionStorage');
-          }
-        };
-        reader.readAsDataURL(file);
-      }
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        avatarPreview.src = evt.target.result;
+        avatarPreview.style.display = 'block';
+        avatarPlaceholder.style.display = 'none';
+        try { sessionStorage.setItem('localUserAvatar', evt.target.result); }
+        catch(err) { console.warn('File too large for sessionStorage'); }
+      };
+      reader.readAsDataURL(file);
     });
   }
 
-  // Project Media Upload Logic
-  const mediaInputs = document.querySelectorAll('.pe-media-input');
-  mediaInputs.forEach(input => {
+  // ═══════════════════════════════════
+  //  PROJECT / GALLERY MEDIA UPLOAD
+  // ═══════════════════════════════════
+  document.querySelectorAll('.pe-media-input').forEach(input => {
     input.addEventListener('change', (e) => {
-      const targetId = input.getAttribute('data-target');
-      const targetGrid = document.getElementById(targetId);
-      if (!targetGrid) return;
-      
+      const grid = document.getElementById(input.getAttribute('data-target'));
+      if (!grid) return;
       Array.from(e.target.files).forEach(file => {
         const reader = new FileReader();
-        reader.onload = function(evt) {
-          const fileData = evt.target.result;
+        reader.onload = (evt) => {
           const col = document.createElement('div');
-          
-          // Use 'gallery-item' for main gallery and 'pe-media-item' for project gallery
-          if (targetGrid.classList.contains('gallery-grid')) {
-            col.className = 'gallery-item';
-          } else {
-            col.className = 'pe-media-item';
-          }
-          
+          col.className = grid.classList.contains('gallery-grid') ? 'gallery-item' : 'pe-media-item';
           if (file.type.startsWith('video/')) {
             const vid = document.createElement('video');
-            vid.src = fileData;
-            vid.controls = true;
-            vid.autoplay = true;
-            vid.muted = true;
-            vid.loop = true;
+            vid.src = evt.target.result; vid.controls = true; vid.autoplay = true; vid.muted = true; vid.loop = true;
             col.appendChild(vid);
           } else {
             const img = document.createElement('img');
-            img.src = fileData;
+            img.src = evt.target.result;
             col.appendChild(img);
           }
-          
-          // Insert before the dropzone
-          const dropzone = targetGrid.querySelector('.pe-media-dropzone');
-          if (dropzone) {
-            targetGrid.insertBefore(col, dropzone);
-          } else {
-            targetGrid.appendChild(col);
-          }
+          const dz = grid.querySelector('.pe-media-dropzone');
+          dz ? grid.insertBefore(col, dz) : grid.appendChild(col);
         };
         reader.readAsDataURL(file);
       });
-      
-      // Reset input to allow uploading same file again
       input.value = '';
     });
   });
+
+  // ═══════════════════════════════════
+  //  CURSOR GLOW TRAIL
+  // ═══════════════════════════════════
+  if (window.innerWidth > 900) {
+    const glow = document.createElement('div');
+    glow.id = 'cursor-glow';
+    document.body.appendChild(glow);
+    let gx = 0, gy = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', (e) => { gx = e.clientX; gy = e.clientY; });
+    (function glowLoop() {
+      cx += (gx - cx) * 0.12;
+      cy += (gy - cy) * 0.12;
+      glow.style.left = cx + 'px';
+      glow.style.top = cy + 'px';
+      requestAnimationFrame(glowLoop);
+    })();
+  }
+
+  // ═══════════════════════════════════
+  //  CLICK RIPPLE
+  // ═══════════════════════════════════
+  document.addEventListener('click', (e) => {
+    const ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = e.clientX + 'px';
+    ripple.style.top = e.clientY + 'px';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 650);
+  });
+
+  // ═══════════════════════════════════
+  //  MAGNETIC HOVER ON BUTTONS/TILES
+  // ═══════════════════════════════════
+  if (window.innerWidth > 900) {
+    document.querySelectorAll('.btn, .tile, .contact-icon-card').forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width / 2) * 0.15;
+        const dy = (e.clientY - r.top - r.height / 2) * 0.15;
+        el.style.transform = `translate(${dx}px, ${dy}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  // ═══════════════════════════════════
+  //  STAGGERED REVEAL (IntersectionObserver)
+  // ═══════════════════════════════════
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.classList.add('stagger-' + ((i % 8) + 1));
+    obs.observe(el);
+  });
+
+  // ═══════════════════════════════════
+  //  ANIMATED STAT COUNTERS
+  // ═══════════════════════════════════
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const text = el.textContent.trim();
+      const num = parseFloat(text);
+      if (isNaN(num)) return;
+      countObs.unobserve(el);
+      const isFloat = text.includes('.');
+      const suffix = text.replace(/[\d.]/g, '');
+      const dur = 1200;
+      const start = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = num * ease;
+        el.textContent = (isFloat ? val.toFixed(2) : Math.round(val)) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-n').forEach(el => countObs.observe(el));
+
+  // ═══════════════════════════════════
+  //  TILT PARALLAX ON CARDS
+  // ═══════════════════════════════════
+  if (window.innerWidth > 900) {
+    document.querySelectorAll('.hl-item, .ic, .skill-group, .gallery-card').forEach(el => {
+      el.style.transition = 'transform 0.15s ease';
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
+        const ry = ((e.clientX - r.left) / r.width - 0.5) * 6;
+        el.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  // ═══════════════════════════════════
+  //  PAGE TRANSITION
+  // ═══════════════════════════════════
+  const overlay = document.createElement('div');
+  overlay.className = 'page-transition';
+  document.body.appendChild(overlay);
+
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http') || a.getAttribute('target') === '_blank') return;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      overlay.classList.add('active');
+      setTimeout(() => { window.location.href = href; }, 300);
+    });
+  });
+
+  // Fade in on page load
+  window.addEventListener('pageshow', () => {
+    overlay.classList.remove('active');
+  });
+
+  // ═══════════════════════════════════
+  //  GALLERY FILTER TABS
+  // ═══════════════════════════════════
+  const filterBtns = document.querySelectorAll('.gf-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      galleryCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // ═══════════════════════════════════
+  //  GALLERY LIGHTBOX
+  // ═══════════════════════════════════
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    const lbImg = document.getElementById('lb-img');
+    const lbClose = lightbox.querySelector('.lb-close');
+    const lbPrev = lightbox.querySelector('.lb-prev');
+    const lbNext = lightbox.querySelector('.lb-next');
+    let items = [];
+    let currentIdx = 0;
+
+    function collectItems() {
+      items = Array.from(document.querySelectorAll('.gallery-card:not(.gallery-upload-card):not(.hidden) .gallery-card-inner img'));
+    }
+
+    function openLB(idx) {
+      collectItems();
+      if (idx < 0 || idx >= items.length) return;
+      currentIdx = idx;
+      lbImg.src = items[idx].src;
+      lbImg.alt = items[idx].alt || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLB() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Attach click to gallery cards
+    document.querySelectorAll('.gallery-card:not(.gallery-upload-card)').forEach((card, i) => {
+      card.addEventListener('click', () => openLB(i));
+    });
+
+    if (lbClose) lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLB(); });
+    if (lbPrev) lbPrev.addEventListener('click', (e) => { e.stopPropagation(); openLB(currentIdx - 1); });
+    if (lbNext) lbNext.addEventListener('click', (e) => { e.stopPropagation(); openLB(currentIdx + 1); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLB();
+      if (e.key === 'ArrowLeft') openLB(currentIdx - 1);
+      if (e.key === 'ArrowRight') openLB(currentIdx + 1);
+    });
+  }
+
+  // ═══════════════════════════════════
+  //  GALLERY PAGE MEDIA UPLOAD
+  // ═══════════════════════════════════
+  const galleryUploadInput = document.getElementById('gallery-upload-input');
+  const galleryMasonry = document.getElementById('gallery-masonry');
+  if (galleryUploadInput && galleryMasonry) {
+    galleryUploadInput.addEventListener('change', (e) => {
+      const uploadCard = galleryMasonry.querySelector('.gallery-upload-card');
+      Array.from(e.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          const card = document.createElement('div');
+          card.className = 'gallery-card';
+          card.setAttribute('data-category', 'uploaded');
+          const inner = document.createElement('div');
+          inner.className = 'gallery-card-inner';
+          if (file.type.startsWith('video/')) {
+            const vid = document.createElement('video');
+            vid.src = evt.target.result; vid.controls = true; vid.muted = true; vid.loop = true;
+            inner.appendChild(vid);
+          } else {
+            const img = document.createElement('img');
+            img.src = evt.target.result; img.alt = file.name;
+            inner.appendChild(img);
+          }
+          const caption = document.createElement('div');
+          caption.className = 'gallery-caption';
+          caption.innerHTML = '<span>' + file.name + '</span>';
+          inner.appendChild(caption);
+          card.appendChild(inner);
+          if (uploadCard) {
+            galleryMasonry.insertBefore(card, uploadCard);
+          } else {
+            galleryMasonry.appendChild(card);
+          }
+          // Attach lightbox
+          card.addEventListener('click', () => {
+            const allImgs = Array.from(document.querySelectorAll('.gallery-card:not(.gallery-upload-card) .gallery-card-inner img'));
+            const idx = allImgs.indexOf(card.querySelector('img'));
+            if (idx >= 0 && lightbox) {
+              const lbImg = document.getElementById('lb-img');
+              lbImg.src = allImgs[idx].src;
+              lightbox.classList.add('open');
+              document.body.style.overflow = 'hidden';
+            }
+          });
+        };
+        reader.readAsDataURL(file);
+      });
+      e.target.value = '';
+    });
+  }
+
+  // ═══════════════════════════════════
+  //  CONTACT FORM (cosmetic)
+  // ═══════════════════════════════════
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('.btn');
+      if (btn) {
+        btn.textContent = '✓ Message Sent!';
+        btn.style.background = '#22c55e';
+        setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; }, 2500);
+      }
+    });
+  }
 
 });
