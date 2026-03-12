@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Path Planning — Manav Parikh</title>
+  <meta name="description"
+    content="Custom path planning algorithms by Manav Parikh — differential drive and swerve drive Nav2 plugins.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand"><a href="index.html" class="n-name">Manav Parikh</a><span class="n-sub">Robotics
+        Engineer</span></div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
+            fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <div class="topic-hero reveal">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop"
+          alt="Path Planning Algorithms">
+        <div class="topic-hero-overlay">
+          <h1>Custom Path Planning</h1>
+        </div>
+      </div>
+
+      <div class="topic-body reveal">
+        <p>I design and implement <strong>from-scratch path planning algorithms</strong> tailored for specific robot
+          kinematics. Rather than relying on generic planners, I build custom Nav2 plugins that exploit the unique
+          capabilities of each robot platform.</p>
+
+        <h2>Differential <em>Drive</em></h2>
+        <p>For differential drive robots, my planner generates smooth, curvature-continuous trajectories:</p>
+        <ul>
+          <li><strong>A*-based Global Planner</strong> — Grid-based graph search with custom cost functions accounting
+            for turn penalties and clearance from obstacles</li>
+          <li><strong>DWA Local Planner</strong> — Dynamic Window Approach sampling the velocity space for real-time
+            obstacle avoidance</li>
+          <li><strong>Velocity Profiling</strong> — Trapezoidal velocity profiles with configurable acceleration limits
+            for smooth starts, stops, and turns</li>
+        </ul>
+
+        <h2>Swerve <em>Drive</em></h2>
+        <p>For the three-wheel omnidirectional swerve robot used in DD Robocon 2025:</p>
+        <ul>
+          <li><strong>Holonomic Planner</strong> — Exploits the swerve drive's ability to translate in any direction
+            independently of heading</li>
+          <li><strong>Trajectory Optimization</strong> — Minimum-jerk trajectory generation for optimal module steering
+            coordination</li>
+          <li><strong>Module Synchronization</strong> — Coordinated wheel steering to prevent wheel scrub and ensure
+            smooth heading changes</li>
+          <li><strong>Recovery Behaviors</strong> — Custom fallback strategies when the robot gets stuck or encounters
+            unexpected obstacles</li>
+        </ul>
+
+        <h2>Implementation as <em>Nav2 Plugins</em></h2>
+        <p>All planners are implemented as proper <strong>Nav2 lifecycle-managed plugins</strong> in C++. They follow
+          the Nav2 plugin architecture, making them drop-in replaceable and fully compatible with the Nav2 behavior tree
+          navigator.</p>
+
+        <a href="projects.html" class="topic-cta">View Project Details →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="projects.html">Projects</a> &nbsp;·&nbsp; <a
+        href="contact.html">Contact</a></span>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
+</body>
+
+</html>

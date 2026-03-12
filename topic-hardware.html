@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware Design — Manav Parikh</title>
+  <meta name="description"
+    content="Hardware and mechanical design expertise by Manav Parikh — SolidWorks CAD, drivetrain engineering, and chassis fabrication.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand"><a href="index.html" class="n-name">Manav Parikh</a><span class="n-sub">Robotics
+        Engineer</span></div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
+            fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <div class="topic-hero reveal">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
+          alt="Hardware Design">
+        <div class="topic-hero-overlay">
+          <h1>Hardware &amp; CAD Design</h1>
+        </div>
+      </div>
+
+      <div class="topic-body reveal">
+        <p>As a <strong>Mechanical Engineering student</strong>, hardware design is the foundation of my robotics work.
+          I bridge the gap between software and physical systems — every robot I build is designed end-to-end in
+          <strong>SolidWorks</strong> before fabrication.
+        </p>
+
+        <h2>Design <em>Process</em></h2>
+        <ul>
+          <li><strong>Conceptual Design</strong> — Requirements analysis, kinematic studies, and initial sketches based
+            on competition rules and task constraints</li>
+          <li><strong>Detailed CAD</strong> — Full parametric SolidWorks assemblies with tolerances, BOM generation, and
+            interference checks</li>
+          <li><strong>FEA Analysis</strong> — Structural simulation using SolidWorks Simulation for stress, deflection,
+            and factor-of-safety validation</li>
+          <li><strong>Manufacturing Drawings</strong> — Production-ready technical drawings with GD&T for CNC, laser
+            cutting, and 3D printing</li>
+        </ul>
+
+        <h2>Drivetrain <em>Engineering</em></h2>
+        <p>Drivetrain design is critical for competition robots. My experience spans:</p>
+        <ul>
+          <li><strong>Differential Drive</strong> — Two-wheel drive with caster for DD Robocon 2024, featuring brushless
+            DC motors with planetary gearboxes</li>
+          <li><strong>Swerve Drive</strong> — Three-wheel omnidirectional swerve for DD Robocon 2025, with independent
+            steering and drive modules</li>
+          <li><strong>Motor Selection</strong> — Torque-speed analysis, gear ratio optimization, and thermal management
+            for continuous operation</li>
+        </ul>
+
+        <h2>Fabrication <em>Methods</em></h2>
+        <p>I have hands-on experience with multiple fabrication techniques including CNC milling, laser cutting (steel
+          and aluminum), 3D printing (FDM and SLA), and manual machining. The robots are designed for rapid assembly and
+          field-serviceable maintenance.</p>
+
+        <a href="gallery.html" class="topic-cta">View Hardware Gallery →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="projects.html">Projects</a> &nbsp;·&nbsp; <a
+        href="contact.html">Contact</a></span>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
+</body>
+
+</html>

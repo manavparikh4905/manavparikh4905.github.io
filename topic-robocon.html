@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DD Robocon — Manav Parikh</title>
+  <meta name="description"
+    content="Manav Parikh's DD Robocon journey — 2024 National Champions and 2025 First Runners Up representing Nirma University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand"><a href="index.html" class="n-name">Manav Parikh</a><span class="n-sub">Robotics
+        Engineer</span></div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
+            fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <div class="topic-hero reveal">
+        <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?q=80&w=1200&auto=format&fit=crop"
+          alt="DD Robocon Competition">
+        <div class="topic-hero-overlay">
+          <h1>DD Robocon Championships</h1>
+        </div>
+      </div>
+
+      <div class="topic-body reveal">
+        <p><strong>DD Robocon</strong> (Doordarshan Robocon) is India's premier national robotics competition, part of
+          the Asia-Pacific Broadcasting Union Robot Contest. I've competed twice representing <strong>Nirma
+            University</strong>, achieving back-to-back podium finishes.</p>
+
+        <h2>Competition <em>Highlights</em></h2>
+        <ul>
+          <li><strong>DD Robocon 2024</strong> — 🥇 National Champions. Designed and built both manual and autonomous
+            robots for the "Harvest Day" theme. Full autonomous traversal with object detection and placement.</li>
+          <li><strong>DD Robocon 2025</strong> — 🥈 First Runners Up. Engineered a three-wheeled omnidirectional swerve
+            robot with autonomous path planning for the themed challenge.</li>
+        </ul>
+
+        <h2>My <em>Role</em></h2>
+        <p>As the <strong>navigation and controls lead</strong>, I was responsible for:</p>
+        <ul>
+          <li>Designing the complete ROS2 navigation pipeline for the autonomous robot</li>
+          <li>Implementing custom path planners optimized for the competition arena's specific obstacles and constraints
+          </li>
+          <li>Integrating LiDAR and camera sensors for real-time environment perception</li>
+          <li>Tuning PID controllers and velocity profiles for precise trajectory following</li>
+          <li>Testing and iterating the autonomous strategy over 100+ field test hours</li>
+        </ul>
+
+        <h2>Engineering <em>Challenges</em></h2>
+        <p>Competition robotics pushes the limits of rapid engineering. Each season involves 6+ months of design,
+          fabrication, and software development under strict weight, size, and cost constraints. The robots must perform
+          reliably under intense competitive pressure with zero margin for error.</p>
+
+        <a href="achievements.html" class="topic-cta">View All Achievements →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="projects.html">Projects</a> &nbsp;·&nbsp; <a
+        href="contact.html">Contact</a></span>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
+</body>
+
+</html>

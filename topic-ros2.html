@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROS2 Navigation — Manav Parikh</title>
+  <meta name="description"
+    content="Deep dive into Manav Parikh's ROS2 autonomous navigation stack — Nav2, SLAM, AMCL, and EKF sensor fusion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand">
+      <a href="index.html" class="n-name">Manav Parikh</a>
+      <span class="n-sub">Robotics Engineer</span>
+    </div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
+            fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <div class="topic-hero reveal">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop"
+          alt="ROS2 Navigation">
+        <div class="topic-hero-overlay">
+          <h1>ROS2 Autonomous Navigation</h1>
+        </div>
+      </div>
+
+      <div class="topic-body reveal">
+        <p>My core expertise revolves around the <strong>Robot Operating System 2 (ROS2)</strong> and the
+          <strong>Nav2</strong> navigation framework. I build full-stack autonomous navigation pipelines — from
+          lidar-driven mapping to real-time path execution on competition robots.
+        </p>
+
+        <h2>Navigation <em>Stack</em></h2>
+        <p>The Nav2 stack I develop integrates multiple subsystems for robust autonomy:</p>
+        <ul>
+          <li><strong>SLAM Toolbox</strong> — Real-time 2D LiDAR-based cartography for building and updating maps in
+            unknown environments</li>
+          <li><strong>AMCL</strong> — Adaptive Monte Carlo Localization using particle filters for probabilistic pose
+            estimation within known maps</li>
+          <li><strong>EKF Sensor Fusion</strong> — Extended Kalman Filter combining wheel odometry, IMU data, and visual
+            odometry for drift-corrected state estimation</li>
+          <li><strong>Custom Planners</strong> — From-scratch global and local planners implemented as Nav2 plugins for
+            differential drive and swerve kinematics</li>
+          <li><strong>Behavior Trees</strong> — Complex mission logic using Nav2's BT framework for multi-phase
+            autonomous tasks</li>
+        </ul>
+
+        <h2>Technical <em>Details</em></h2>
+        <p>All navigation code is written in <strong>C++</strong> for maximum performance, with Python used for
+          visualization, tuning tools, and high-level mission scripting. The system runs on ROS2 Humble on Ubuntu 22.04,
+          with custom launch configurations for different robot platforms.</p>
+        <p>Key packages I work with: <code>nav2_bringup</code>, <code>slam_toolbox</code>,
+          <code>robot_localization</code>, <code>tf2</code>, <code>nav2_bt_navigator</code>, and custom
+          lifecycle-managed nodes for hardware interfaces.
+        </p>
+
+        <a href="projects.html" class="topic-cta">View Related Projects →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="projects.html">Projects</a> &nbsp;·&nbsp; <a
+        href="contact.html">Contact</a></span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
+</body>
+
+</html>

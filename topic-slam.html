@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLAM & Localization — Manav Parikh</title>
+  <meta name="description"
+    content="SLAM and localization expertise by Manav Parikh — SLAM Toolbox, AMCL, and sensor fusion for robust robot pose estimation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand"><a href="index.html" class="n-name">Manav Parikh</a><span class="n-sub">Robotics
+        Engineer</span></div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
+            fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <div class="topic-hero reveal">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+          alt="SLAM and Localization">
+        <div class="topic-hero-overlay">
+          <h1>SLAM &amp; Localization</h1>
+        </div>
+      </div>
+
+      <div class="topic-body reveal">
+        <p><strong>Simultaneous Localization and Mapping (SLAM)</strong> is the foundational capability that transforms
+          a remote-controlled machine into an autonomous robot. I specialize in deploying and tuning SLAM systems for
+          competition and research environments.</p>
+
+        <h2>Mapping with <em>SLAM Toolbox</em></h2>
+        <p>I use the ROS2 <strong>SLAM Toolbox</strong> for real-time 2D occupancy grid mapping:</p>
+        <ul>
+          <li><strong>Online Synchronous SLAM</strong> — Real-time map building using scan matching for competition
+            arena mapping</li>
+          <li><strong>Loop Closure</strong> — Automatic detection and correction of accumulated drift errors as the
+            robot revisits previously mapped areas</li>
+          <li><strong>Map Serialization</strong> — Saving and loading maps for persistent localization across power
+            cycles</li>
+          <li><strong>Dynamic Environment Handling</strong> — Strategies for dealing with moving obstacles and changing
+            environments during competition</li>
+        </ul>
+
+        <h2>Localization with <em>AMCL</em></h2>
+        <p>For localization within known maps, I deploy <strong>Adaptive Monte Carlo Localization (AMCL)</strong>:</p>
+        <ul>
+          <li><strong>Particle Filter Tuning</strong> — Optimizing particle count, distribution, and resampling
+            parameters for accuracy vs. computation trade-offs</li>
+          <li><strong>Multi-Sensor Fusion</strong> — Combining LiDAR scan matching with wheel odometry for robust pose
+            estimation</li>
+          <li><strong>Global Localization</strong> — Recovering the robot's position from an unknown initial pose using
+            dense particle distributions</li>
+        </ul>
+
+        <h2>Sensor <em>Fusion</em></h2>
+        <p>I integrate <strong>Extended Kalman Filters (EKF)</strong> via <code>robot_localization</code> to fuse
+          multiple odometry sources:</p>
+        <ul>
+          <li>Wheel encoder odometry for short-term accuracy</li>
+          <li>IMU data for orientation and angular velocity</li>
+          <li>Visual odometry from camera systems for drift correction</li>
+          <li>Configurable covariance matrices for sensor reliability weighting</li>
+        </ul>
+
+        <a href="projects.html" class="topic-cta">See SLAM in My Projects →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="projects.html">Projects</a> &nbsp;·&nbsp; <a
+        href="contact.html">Contact</a></span>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
+</body>
+
+</html>
