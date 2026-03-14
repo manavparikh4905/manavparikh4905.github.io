@@ -3,6 +3,24 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ═══════════════════════════════════
+  //  LENIS SMOOTH SCROLLING
+  // ═══════════════════════════════════
+  if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+      mouseMultiplier: 1.5
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
+  // ═══════════════════════════════════
   //  THEME TOGGLE
   // ═══════════════════════════════════
   const themeToggleBtn = document.getElementById('theme-toggle');
@@ -104,9 +122,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ═══════════════════════════════════
-  //  GSAP HERO STAGGER ANIMATIONS
+  //  GSAP SCROLLTRIGGER ANIMATIONS
   // ═══════════════════════════════════
-  if (typeof gsap !== 'undefined') {
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Parallax background for cinematic hero
+    if (document.querySelector('.hero-video-bg')) {
+      gsap.to('.hero-video-bg', {
+        yPercent: 30,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.cinematic-hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
+
+    // Split sections parallax animations
+    document.querySelectorAll('.split-section').forEach(section => {
+      const video = section.querySelector('.split-video img');
+      if (video) {
+        // give the image a negative scale margin to allow vertical panning without edges showing
+        video.style.transform = "scale(1.2)";
+        gsap.to(video, {
+          yPercent: 20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+      }
+    });
+
+    gsap.from('.p-title', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.1 });
+    gsap.from('.p-lead', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.2 });
+    gsap.from('.btn-row .btn', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.4, stagger: 0.15 });
+  } else if (typeof gsap !== 'undefined') {
     gsap.from('.p-title', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.1 });
     gsap.from('.p-lead', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.2 });
     gsap.from('.btn-row .btn', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.4, stagger: 0.15 });

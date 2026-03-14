@@ -8,39 +8,40 @@
 
 /* DEFAULT (DARK) THEME VARIABLES */
 :root {
-  --bg: #07070A;
-  --bg-nav: rgba(10, 10, 15, 0.85);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-soft: rgba(255, 255, 255, 0.04);
+  --bg: #030305;
+  /* True cinematic black/slate */
+  --bg-nav: rgba(3, 3, 5, 0.85);
+  --border: rgba(255, 255, 255, 0.05);
+  /* Very subtle borders */
+  --border-soft: rgba(255, 255, 255, 0.03);
   --ink: #FFFFFF;
-  --ink-2: #A0A0B0;
-  --ink-3: #606070;
-  --accent: #00D4FF;
-  /* Cyber Blue */
-  --accent-glow: rgba(0, 212, 255, 0.35);
-  --accent-alt: #B533FF;
-  /* Cyber Purple */
-  --glass-bg: rgba(20, 20, 30, 0.4);
-  --glass-border: rgba(255, 255, 255, 0.06);
+  --ink-2: #B3B3C1;
+  --ink-3: #757585;
+  --accent: #E2E2E2;
+  /* Clean stark white/silver accent */
+  --accent-glow: rgba(255, 255, 255, 0.15);
+  --accent-alt: #444444;
+  --glass-bg: rgba(25, 25, 30, 0.2);
+  /* Ultra subtle glass */
+  --glass-border: rgba(255, 255, 255, 0.04);
   --btn-text: #000000;
-  --nav-h: 80px;
+  --nav-h: 90px;
 }
 
-/* LIGHT THEME OVERRIDES */
+/* LIGHT THEME OVERRIDES (Optional, keeping dark focused) */
 [data-theme="light"] {
   --bg: #FAFAF8;
-  --bg-nav: rgba(243, 237, 227, 0.85);
-  --border: rgba(0, 0, 0, 0.1);
-  --border-soft: rgba(0, 0, 0, 0.05);
+  --bg-nav: rgba(250, 250, 248, 0.85);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-soft: rgba(0, 0, 0, 0.04);
   --ink: #111111;
-  --ink-2: #444444;
-  --ink-3: #777777;
-  --accent: #007BFF;
-  /* A cleaner blue for light mode */
-  --accent-glow: rgba(0, 123, 255, 0.2);
-  --accent-alt: #7B2CBF;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.06);
+  --ink-2: #555555;
+  --ink-3: #888888;
+  --accent: #111111;
+  --accent-glow: rgba(0, 0, 0, 0.1);
+  --accent-alt: #666666;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.04);
   --btn-text: #FFFFFF;
 }
 
@@ -53,26 +54,24 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+  /* Handled by Lenis now */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--bg);
-  background-image:
-    radial-gradient(circle at 100% 0%, rgba(181, 51, 255, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 0% 100%, rgba(0, 212, 255, 0.04) 0%, transparent 40%);
-  background-attachment: fixed;
   color: var(--ink);
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background 0.6s ease, color 0.6s ease;
+  overflow-x: hidden;
 }
 
 a {
@@ -303,14 +302,79 @@ main {
 
 .page {
   width: 100%;
-  max-width: 860px;
-  padding: 5rem 0 8rem;
+  max-width: 1400px;
+  padding: 8rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Centers children horizontally */
   text-align: center;
-  /* Centers inline text */
+}
+
+/* ══════════════════════════════════
+   CINEMATIC FULLBLEED CONTAINERS
+══════════════════════════════════ */
+.cinematic-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(var(--nav-h) * -1);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.4;
+  filter: grayscale(80%) contrast(1.2);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+  z-index: -1;
+}
+
+.split-section {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: var(--bg);
+}
+
+.split-video {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.split-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.split-content {
+  flex: 1;
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 }
 
 /* ══════════════════════════════════
@@ -331,29 +395,28 @@ main {
 }
 
 .p-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  line-height: 1.15;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
   color: var(--ink);
   margin-bottom: 2rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .p-title em {
   font-style: normal;
-  background: linear-gradient(to right, var(--accent), var(--accent-alt));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: transparent;
+  -webkit-text-stroke: 1px var(--ink-3);
 }
 
 .p-lead {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--ink-2);
-  line-height: 1.8;
-  max-width: 680px;
-  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 4rem;
+  font-weight: 400;
 }
 
 /* ══════════════════════════════════
@@ -491,25 +554,30 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 2.2rem;
-  font-size: 0.85rem;
+  padding: 1rem 2.5rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-solid {
-  background: var(--accent);
-  color: var(--btn-text);
-  box-shadow: 0 0 15px var(--accent-glow);
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--ink);
 }
 
 .btn-solid:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px var(--accent-glow);
-  filter: brightness(1.1);
+  background: transparent;
+  color: var(--ink);
+  transform: translateY(-2px);
 }
 
 .btn-ghost {
@@ -519,10 +587,9 @@ main {
 }
 
 .btn-ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-glow);
-  transform: translateY(-3px);
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: translateY(-2px);
 }
 
 /* ══════════════════════════════════

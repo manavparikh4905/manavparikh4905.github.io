@@ -54,205 +54,87 @@
     </div>
   </header>
 
-  <main>
-    <div class="home-layout">
-      <!-- Sticky Sidebar -->
-      <aside class="profile-sidebar reveal" data-aos="fade-up">
-        <div class="ps-avatar-container">
-          <img src="assets/media/avatar.png" alt="Profile Image" style="display:block; width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div class="ps-name">Manav Parikh</div>
-        <p style="font-size: 0.8rem; color: var(--ink-2); margin-bottom: 1rem;">Robotics & Systems Engineer</p>
-        <div class="ps-badges">
-          <span class="ps-badge">ROS2 Expert</span>
-          <span class="ps-badge">National Champion</span>
-          <span class="ps-badge">Path Planning</span>
-          <span class="ps-badge">Hardware</span>
-        </div>
-      </aside>
+  <main style="padding: 0; max-width: 100%;">
+    <!-- Cinematic Hero -->
+    <section class="cinematic-hero" id="home">
+      <!-- User should replace this img with a <video autoplay loop muted playsinline> element pointing to local media -->
+      <img class="hero-video-bg"
+        src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=2000&auto=format&fit=crop"
+        alt="Cinematic Hero Background">
 
-      <div class="page">
+      <div class="hero-gradient-overlay"></div>
 
-        <span class="p-eyebrow reveal" data-aos="fade-up">Systems · Robotics · Mechanical</span>
-
-        <h1 class="p-title reveal" data-aos="fade-up">Manav <em>Parikh</em></h1>
-
-        <p class="p-lead reveal" data-aos="fade-up">
-          Third-year Mechanical Engineering at Nirma University. I engineer autonomous robots —
-          from full <strong>ROS2 navigation stacks</strong> (SLAM, AMCL, EKF sensor fusion) to custom <strong>path
-            planning algorithms</strong>. Two-time national podium finisher at DD Robocon.
+      <div style="position: relative; z-index: 10; text-align: center; max-width: 1000px; padding: 0 2rem;">
+        <span class="p-eyebrow" data-aos="fade-up">Robotics · Systems · Engineering</span>
+        <h1 class="p-title" data-aos="fade-up" data-aos-delay="100">Manav <em>Parikh</em></h1>
+        <p class="p-lead" data-aos="fade-up" data-aos-delay="200"
+          style="margin: 0 auto 3rem; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+          Architecting autonomous systems, precision hardware, and intelligent navigation for competition-grade
+          robotics.
         </p>
-
-        <div class="btn-row reveal" data-aos="fade-up">
-          <a href="projects.html" class="btn btn-solid">View Projects</a>
-          <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+        <div class="btn-row" data-aos="fade-up" data-aos-delay="300">
+          <a href="#projects-showcase" class="btn btn-solid">Explore Work</a>
         </div>
-
-        <!-- Hero Carousel -->
-        <div class="hero-carousel reveal" data-aos="fade-up" id="hero-carousel">
-          <div class="hc-slide active"
-            style="--bg:url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop')">
-            <div class="hc-overlay"></div>
-            <div class="hc-text">
-              <span class="hc-tag">01 — Navigation</span>
-              <h2>ROS2 Autonomous Navigation</h2>
-              <p>Full-stack Nav2 integration — SLAM, AMCL, EKF sensor fusion for real-time autonomous robots.</p>
-              <a href="topic-ros2.html" class="hc-link">Explore →</a>
-            </div>
-          </div>
-          <div class="hc-slide"
-            style="--bg:url('https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?q=80&w=1200&auto=format&fit=crop')">
-            <div class="hc-overlay"></div>
-            <div class="hc-text">
-              <span class="hc-tag">02 — Competition</span>
-              <h2>DD Robocon Championships</h2>
-              <p>Two-time national podium at India's premier robotics competition — 2024 Champions, 2025 1st Runners Up.
-              </p>
-              <a href="topic-robocon.html" class="hc-link">Explore →</a>
-            </div>
-          </div>
-          <div class="hc-slide"
-            style="--bg:url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop')">
-            <div class="hc-overlay"></div>
-            <div class="hc-text">
-              <span class="hc-tag">03 — Algorithms</span>
-              <h2>Custom Path Planning</h2>
-              <p>From-scratch planners for differential & swerve drive — trajectory generation and velocity profiling as
-                Nav2 plugins.</p>
-              <a href="topic-pathplanning.html" class="hc-link">Explore →</a>
-            </div>
-          </div>
-          <div class="hc-slide"
-            style="--bg:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop')">
-            <div class="hc-overlay"></div>
-            <div class="hc-text">
-              <span class="hc-tag">04 — Mechatronics</span>
-              <h2>Hardware & CAD Design</h2>
-              <p>SolidWorks assemblies, drivetrain engineering, motor selection, and competition-grade chassis
-                fabrication.</p>
-              <a href="topic-hardware.html" class="hc-link">Explore →</a>
-            </div>
-          </div>
-          <div class="hc-slide"
-            style="--bg:url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop')">
-            <div class="hc-overlay"></div>
-            <div class="hc-text">
-              <span class="hc-tag">05 — Perception</span>
-              <h2>SLAM & Localization</h2>
-              <p>SLAM Toolbox cartography, Monte Carlo localization, and Extended Kalman Filter-driven pose estimation.
-              </p>
-              <a href="topic-slam.html" class="hc-link">Explore →</a>
-            </div>
-          </div>
-          <div class="hc-dots" id="hc-dots"></div>
-        </div>
-
-        <div class="stats reveal" data-aos="fade-up">
-          <div class="stat">
-            <div class="stat-n" style="color: var(--accent);">7.72</div>
-            <div class="stat-l">CGPA / 10</div>
-          </div>
-          <div class="stat">
-            <div class="stat-n">2×</div>
-            <div class="stat-l">National Podium</div>
-          </div>
-          <div class="stat">
-            <div class="stat-n" style="color: var(--accent-alt);">ROS2</div>
-            <div class="stat-l">Primary Stack</div>
-          </div>
-        </div>
-
-        <!-- Highlight List -->
-        <div style="width: 100%; margin-top:3rem;">
-          <p class="hl-label reveal" data-aos="fade-up">At a Glance</p>
-          <div class="hl-container reveal" data-aos="fade-up">
-            <div class="hl-item">
-              <span class="hl-n">01</span>
-              <div class="hl-body">
-                <h4>Custom Path Planning — Differential &amp; Swerve</h4>
-                <p>Architecting from-scratch path planners for both differential drive and three-wheel omnidirectional
-                  swerve robots. Engineered trajectory generation and velocity profiling natively as Nav2 plugins.</p>
-              </div>
-            </div>
-            <div class="hl-item">
-              <span class="hl-n">02</span>
-              <div class="hl-body">
-                <h4>DD Robocon 2024 — National Champions</h4>
-                <p>Secured first place at India's premier robotics competition. Returned in 2025 as first runners up.
-                  Two
-                  consecutive podium finishes representing Nirma University.</p>
-              </div>
-            </div>
-            <div class="hl-item">
-              <span class="hl-n">03</span>
-              <div class="hl-body">
-                <h4>Full ROS2 Autonomous Navigation Stack</h4>
-                <p>Extensive experience with SLAM Toolbox for live cartography, AMCL for probabilistic Monte Carlo
-                  localization, and Extended Kalman Filters for robust sensor fusion.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- New Image Gallery Section -->
-        <div style="width: 100%; margin-top:6rem;">
-          <p class="hl-label reveal" data-aos="fade-up">Hardware &amp; Operations Gallery</p>
-          <p style="color: var(--ink-2); font-size: 0.9rem; margin-bottom: 2rem;">A visual placeholder for competition
-            hardware, solidworks designs, and field testing. Add images or videos directly to preview!</p>
-          <div class="gallery-grid reveal" data-aos="fade-up" id="main-gallery">
-            <div class="gallery-item"><img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop"
-                alt="Hardware Assembly"></div>
-            <div class="gallery-item"><img
-                src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=600&auto=format&fit=crop"
-                alt="Manufacturing"></div>
-            <div class="gallery-item"><img
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop"
-                alt="Testing Field"></div>
-            <div class="gallery-item"><img
-                src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?q=80&w=600&auto=format&fit=crop"
-                alt="Electronics Layout"></div>
-
-
-          </div>
-        </div>
-
-        <!-- Explorer Tiles -->
-        <div style="width: 100%; margin-top:6rem;">
-          <p class="hl-label reveal" data-aos="fade-up">Explore</p>
-          <div class="tiles reveal" data-aos="fade-up" style="margin-top:1.5rem;">
-            <a href="about.html" class="tile">
-              <div class="tile-n">01</div>
-              <div class="tile-t">About</div>
-              <div class="tile-d">Discover my background, education, and deep research focus in autonomous systems and
-                robot navigation.</div>
-              <span class="tile-a">Read Bio →</span>
-            </a>
-            <a href="projects.html" class="tile">
-              <div class="tile-n">02</div>
-              <div class="tile-t">Projects</div>
-              <div class="tile-d">Deep dive into custom Nav2 plugins, sophisticated ROS2 stacks, and competition-ready
-                hardware designs.</div>
-              <span class="tile-a">View Work →</span>
-            </a>
-            <a href="achievements.html" class="tile">
-              <div class="tile-n">03</div>
-              <div class="tile-t">Achievements</div>
-              <div class="tile-d">Timeline of competitive robotics milestones, featuring DD Robocon National
-                Championships.</div>
-              <span class="tile-a">View Awards →</span>
-            </a>
-            <a href="skills.html" class="tile">
-              <div class="tile-n">04</div>
-              <div class="tile-t">Skills</div>
-              <div class="tile-d">Comprehensive breakdown of proficiencies across Software (C++, Python, ROS2) and
-                Hardware.</div>
-              <span class="tile-a">View Tech Stack →</span>
-            </a>
-          </div>
-        </div>
-
       </div>
+    </section>
+
+    <!-- Project Presentation -->
+    <div id="projects-showcase" style="width: 100vw;">
+
+      <!-- Project 01 -->
+      <section class="split-section">
+        <div class="split-content" data-aos="fade-right">
+          <span class="hl-label" style="text-align: left;">01 — Autonomous Systems</span>
+          <h2 class="pe-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">ROS2
+            Navigation Stack</h2>
+          <p class="pe-body" style="font-size: 1.1rem; color: var(--ink-2); margin-bottom: 3rem; max-width: 480px;">
+            Integration of SLAM Toolbox for live cartography, AMCL for probabilistic Monte Carlo localization, and
+            Extended Kalman Filters for robust sensor fusion on differential chassis.
+          </p>
+          <a href="topic-ros2.html" class="btn btn-ghost" style="align-self: flex-start;">Deep Dive Overview</a>
+        </div>
+        <div class="split-video" data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop"
+            alt="ROS2 Demonstration">
+        </div>
+      </section>
+
+      <!-- Project 02 -->
+      <section class="split-section" style="flex-direction: row-reverse; background: #010101;">
+        <div class="split-content" data-aos="fade-left">
+          <span class="hl-label" style="text-align: left;">02 — Algorithms</span>
+          <h2 class="pe-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Custom Path
+            Planning</h2>
+          <p class="pe-body" style="font-size: 1.1rem; color: var(--ink-2); margin-bottom: 3rem; max-width: 480px;">
+            From-scratch trajectory generation and velocity profiling for differential drive and three-wheel
+            omnidirectional swerve robots. Engineered natively as ROS2 Nav2 plugins.
+          </p>
+          <a href="topic-pathplanning.html" class="btn btn-ghost" style="align-self: flex-start;">Explore Algorithm</a>
+        </div>
+        <div class="split-video" data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop"
+            alt="Path Planning Visualization">
+        </div>
+      </section>
+
+      <!-- Project 03 -->
+      <section class="split-section">
+        <div class="split-content" data-aos="fade-right">
+          <span class="hl-label" style="text-align: left;">03 — Mechatronics</span>
+          <h2 class="pe-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Competition
+            Hardware</h2>
+          <p class="pe-body" style="font-size: 1.1rem; color: var(--ink-2); margin-bottom: 3rem; max-width: 480px;">
+            Two-time National Podium placements at DD Robocon. Led SolidWorks assemblies, structural stress testing,
+            motor selection, and competition-grade aluminum chassis fabrication.
+          </p>
+          <a href="topic-hardware.html" class="btn btn-ghost" style="align-self: flex-start;">View Hardware Specs</a>
+        </div>
+        <div class="split-video" data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
+            alt="Hardware Assembly">
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -267,6 +149,8 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
   <script>
     AOS.init({
       duration: 800,
