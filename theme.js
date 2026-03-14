@@ -395,6 +395,13 @@ document.addEventListener('DOMContentLoaded', () => {
       lbImg.alt = items[idx].alt || '';
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
+
+      // Update caption
+      const caption = lightbox.querySelector('.lb-caption');
+      if (caption) caption.textContent = items[idx].alt || '';
+      // Update counter
+      const counter = lightbox.querySelector('.lb-counter');
+      if (counter) counter.textContent = (idx + 1) + ' / ' + items.length;
     }
 
     function closeLB() {
@@ -483,5 +490,180 @@ document.addEventListener('DOMContentLoaded', () => {
       lb.addEventListener('click', () => { lb.remove(); document.body.style.overflow = ''; });
     });
   });
+
+  // ═══════════════════════════════════════════════
+  //  SCROLL PROGRESS BAR
+  // ═══════════════════════════════════════════════
+  const scrollProgressFill = document.getElementById('scroll-progress-fill');
+  if (scrollProgressFill) {
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgressFill.style.width = progress + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ═══════════════════════════════════════════════
+  //  CURSOR TRAIL
+  // ═══════════════════════════════════════════════
+  if (window.innerWidth > 900) {
+    const trailCount = 8;
+    const trails = [];
+    const trailPositions = [];
+
+    for (let i = 0; i < trailCount; i++) {
+      const trail = document.createElement('div');
+      trail.className = 'cursor-trail';
+      trail.style.width = (6 - i * 0.5) + 'px';
+      trail.style.height = (6 - i * 0.5) + 'px';
+      trail.style.opacity = (0.3 - i * 0.03);
+      document.body.appendChild(trail);
+      trails.push(trail);
+      trailPositions.push({ x: 0, y: 0 });
+    }
+
+    let trailMx = 0, trailMy = 0;
+    document.addEventListener('mousemove', e => {
+      trailMx = e.clientX;
+      trailMy = e.clientY;
+    });
+
+    (function trailLoop() {
+      trailPositions[0].x += (trailMx - trailPositions[0].x) * 0.25;
+      trailPositions[0].y += (trailMy - trailPositions[0].y) * 0.25;
+      for (let i = 1; i < trailCount; i++) {
+        trailPositions[i].x += (trailPositions[i - 1].x - trailPositions[i].x) * 0.2;
+        trailPositions[i].y += (trailPositions[i - 1].y - trailPositions[i].y) * 0.2;
+      }
+      for (let i = 0; i < trailCount; i++) {
+        trails[i].style.left = trailPositions[i].x + 'px';
+        trails[i].style.top = trailPositions[i].y + 'px';
+      }
+      requestAnimationFrame(trailLoop);
+    })();
+  }
+
+  // ═══════════════════════════════════════════════
+  //  PAGE TITLE TEXT REVEAL ON SCROLL
+  // ═══════════════════════════════════════════════
+  document.querySelectorAll('.p-title').forEach(title => {
+    // Wrap each word in a span for reveal animation
+    const text = title.innerHTML;
+    const words = text.split(/(\s+|<[^>]+>)/);
+    let html = '';
+    words.forEach(part => {
+      if (part.match(/^</) || part.match(/^\s+$/)) {
+        html += part;
+      } else if (part.trim()) {
+        html += `<span class="word"><span class="word-inner">${part}</span></span> `;
+      }
+    });
+    title.innerHTML = html;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          title.classList.add('revealed');
+          obs.unobserve(title);
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(title);
+  });
+
+  // ═══════════════════════════════════════════════
+  //  SECTION DIVIDER ANIMATION
+  // ═══════════════════════════════════════════════
+  document.querySelectorAll('.section-divider.accent-line').forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          el.classList.add('visible');
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  // ═══════════════════════════════════════════════
+  //  SKILL PROFICIENCY BARS (scroll-triggered)
+  // ═══════════════════════════════════════════════
+  const spCards = document.querySelectorAll('.sp-card');
+  if (spCards.length) {
+    const spObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('sp-visible');
+          const fill = e.target.querySelector('.sp-bar-fill');
+          if (fill) {
+            fill.style.width = fill.getAttribute('data-proficiency') + '%';
+          }
+          spObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    spCards.forEach(card => spObs.observe(card));
+  }
+
+  // ═══════════════════════════════════════════════
+  //  PROJECT MODAL
+  // ═══════════════════════════════════════════════
+  document.querySelectorAll('[data-modal-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', e => {
+      e.preventDefault();
+      const modalId = trigger.getAttribute('data-modal-trigger');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  document.querySelectorAll('.project-modal-overlay').forEach(modal => {
+    const closeBtn = modal.querySelector('.pm-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.project-modal-overlay.open').forEach(modal => {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  // ═══════════════════════════════════════════════
+  //  ENHANCED GALLERY LIGHTBOX (with captions + counter)
+  // ═══════════════════════════════════════════════
+  if (lightbox) {
+    // Add caption and counter elements if not present
+    if (!lightbox.querySelector('.lb-caption')) {
+      const caption = document.createElement('div');
+      caption.className = 'lb-caption';
+      lightbox.querySelector('.lb-content').appendChild(caption);
+    }
+    if (!lightbox.querySelector('.lb-counter')) {
+      const counter = document.createElement('div');
+      counter.className = 'lb-counter';
+      lightbox.appendChild(counter);
+    }
+  }
 
 });

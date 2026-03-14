@@ -231,6 +231,132 @@
 
       </div><!-- /skills-showcase -->
 
+      <!-- ═══════════════════════════════════════════
+           PROFICIENCY VISUALIZATION
+      ═══════════════════════════════════════════ -->
+      <div class="section-divider accent-line"></div>
+
+      <div class="skill-proficiency-section" data-aos="fade-up">
+        <div class="sp-header">Proficiency Breakdown</div>
+        <div class="sp-sub">Skills mapped to projects and competition results</div>
+
+        <div class="sp-grid">
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#9881;</div>
+              <div>
+                <div class="sp-card-name">ROS2 Navigation (Nav2)</div>
+                <div class="sp-card-level">Expert</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="92"></div>
+            </div>
+            <div class="sp-card-projects">Used in: <a href="sys-ros-nav.html">Nav Stack</a> · <a href="sys-diff-drive.html">Diff-Drive Planner</a> · <a href="sys-swerve.html">Swerve Planner</a></div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#128269;</div>
+              <div>
+                <div class="sp-card-name">SLAM & Localisation</div>
+                <div class="sp-card-level">Advanced</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="85"></div>
+            </div>
+            <div class="sp-card-projects">Used in: <a href="sys-ros-nav.html">Nav Stack</a> — SLAM Toolbox + AMCL tuning</div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#128736;</div>
+              <div>
+                <div class="sp-card-name">C++ (ROS2 / Nav2 Plugins)</div>
+                <div class="sp-card-level">Advanced</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="88"></div>
+            </div>
+            <div class="sp-card-projects">Used in: All 4 systems — plugin APIs, kinematics, trajectory generation</div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#128295;</div>
+              <div>
+                <div class="sp-card-name">SolidWorks Parametric CAD</div>
+                <div class="sp-card-level">Advanced</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="82"></div>
+            </div>
+            <div class="sp-card-projects">Used in: <a href="sys-mech.html">Mechanical Design</a> — full competition assemblies</div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#127919;</div>
+              <div>
+                <div class="sp-card-name">Path Planning Algorithms</div>
+                <div class="sp-card-level">Expert</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="90"></div>
+            </div>
+            <div class="sp-card-projects">Hybrid A* · Dubins · Holonomic decomposition · Spline trajectories</div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#9889;</div>
+              <div>
+                <div class="sp-card-name">Embedded / STM32</div>
+                <div class="sp-card-level">Intermediate</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="65"></div>
+            </div>
+            <div class="sp-card-projects">Motor drivers, encoder interfacing, serial comms</div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#128039;</div>
+              <div>
+                <div class="sp-card-name">Linux / Ubuntu</div>
+                <div class="sp-card-level">Advanced</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="80"></div>
+            </div>
+            <div class="sp-card-projects">Primary development environment, colcon, bash, networking</div>
+          </div>
+
+          <div class="sp-card">
+            <div class="sp-card-head">
+              <div class="sp-card-icon">&#128200;</div>
+              <div>
+                <div class="sp-card-name">EKF / Sensor Fusion</div>
+                <div class="sp-card-level">Advanced</div>
+              </div>
+            </div>
+            <div class="sp-bar-track">
+              <div class="sp-bar-fill" data-proficiency="78"></div>
+            </div>
+            <div class="sp-card-projects">Used in: <a href="sys-ros-nav.html">Nav Stack</a> — IMU + wheel odometry fusion</div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -247,6 +373,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
   <script>if (typeof gsap === 'undefined') AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
 
