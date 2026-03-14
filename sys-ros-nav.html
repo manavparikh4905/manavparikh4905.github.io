@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robocon Auto Nav Stack — Manav Parikh</title>
+  <meta name="description" content="Technical details on the Robocon Autonomous Navigation Stack.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+  <style>
+    .sys-diagram {
+      background: #111;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      color: #0f0;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .sys-section { margin-bottom: 2rem; }
+    .sys-section h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--ink-1); }
+    .sys-section p { font-size: 1.1rem; color: var(--ink-2); line-height: 1.6; }
+    .video-container { margin: 2rem 0; text-align: center; }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand">
+      <a href="index.html" class="n-name">Manav Parikh</a>
+      <span class="n-sub">Robotics Engineer</span>
+    </div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Systems</a></li>
+      <li><a href="notes.html">Notes</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <div class="page" style="max-width: 800px; margin: 0 auto; padding-top: 6rem;">
+      <a href="projects.html" class="btn btn-ghost" style="margin-bottom: 2rem; display: inline-block;">← Back to Systems</a>
+      
+      <span class="p-eyebrow">Robotics Systems</span>
+      <h1 class="p-title" style="font-size: 3rem; margin-bottom: 1rem;">Robocon Autonomous Navigation Stack</h1>
+      
+      <div class="video-container">
+        <!-- Replaced placeholder with direct <video> tag as per robotics portfolio best practices -->
+        <video controls width="100%" style="border-radius: 8px; border: 1px solid var(--border-color);">
+          <source src="assets/videos/nav_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="color: var(--ink-3); margin-top: 0.5rem; font-size: 0.9rem;">Full navigation stack executing a complete field run autonomously.</p>
+      </div>
+
+      <div class="sys-section">
+        <h3>Problem</h3>
+        <p>The competition field requires robust, online mapping and extremely reliable localization despite dynamic obstacles, collisions, and wheel slip.</p>
+      </div>
+
+      <div class="sys-section">
+        <h3>Approach</h3>
+        <p>Integrated a full ROS2 Navigation stack using SLAM Toolbox for cartography, AMCL for probabilistic localization, and an Extended Kalman Filter (EKF) for sensor fusion.</p>
+      </div>
+
+      <div class="sys-section">
+        <h3>System Architecture</h3>
+        <div class="sys-diagram">
+Lidar                Wheel Encoders         BNO055 IMU
+  ↓                       ↓                     ↓
+SLAM Toolbox         robot_localization EKF (Sensor Fusion)
+  ↓                       ↓                     ↓
+Occupancy Grid            Odom                Base Link
+              \           |                   /
+                \         |                 /
+                  \       |               /
+                   AMCL (Map to Odom Transform)
+                          ↓
+                   Nav2 Behavior Tree
+                          ↓
+                    Costmap & Planners
+        </div>
+      </div>
+
+      <div class="sys-section">
+        <h3>Implementation</h3>
+        <p>Tuned map resolution, EKF covariance matrices, and particle filter parameters for the high-acceleration environment of Robocon. Engineered custom behavior trees using BehaviorTree.CPP to manage task sequences and recovery behaviors.</p>
+      </div>
+
+      <div class="sys-section">
+        <h3>Result</h3>
+        <p>Consistent sub-centimeter localization enabling repeatable high-speed autonomous runs across various configurations.</p>
+      </div>
+      
+      <div style="margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
+        <a href="https://github.com/manavparikh4905" target="_blank" class="btn btn-solid">View Source on GitHub</a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="margin-top: 4rem;">
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>
+      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="contact.html">Contact</a>
+    </span>
+  </footer>
+</body>
+</html>

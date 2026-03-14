@@ -27,7 +27,8 @@
     </div>
     <ul class="n-nav">
       <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="projects.html">Systems</a></li>
+      <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
         <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
             fill="none" stroke="currentColor" stroke-width="2.5">
@@ -57,10 +58,11 @@
   <main style="padding: 0; max-width: 100%;">
     <!-- Cinematic Hero -->
     <section class="cinematic-hero" id="home">
-      <!-- User should replace this img with a <video autoplay loop muted playsinline> element pointing to local media -->
-      <img class="hero-video-bg"
-        src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=2000&auto=format&fit=crop"
-        alt="Cinematic Hero Background">
+      <video autoplay loop muted playsinline class="hero-video-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        <source src="assets/videos/hero_background.mp4" type="video/mp4">
+        <!-- Fallback image if video fails to load or for mobile -->
+        <img src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=2000&auto=format&fit=crop" alt="Cinematic Hero Background">
+      </video>
 
       <div class="hero-gradient-overlay"></div>
 
@@ -73,7 +75,7 @@
           robotics.
         </p>
         <div class="btn-row" data-aos="fade-up" data-aos-delay="300">
-          <a href="#projects-showcase" class="btn btn-solid">Explore Work</a>
+          <a href="projects.html" class="btn btn-solid">Explore Systems</a>
         </div>
       </div>
     </section>
@@ -91,7 +93,7 @@
             Integration of SLAM Toolbox for live cartography, AMCL for probabilistic Monte Carlo localization, and
             Extended Kalman Filters for robust sensor fusion on differential chassis.
           </p>
-          <a href="topic-ros2.html" class="btn btn-ghost" style="align-self: flex-start;">Deep Dive Overview</a>
+          <a href="sys-ros-nav.html" class="btn btn-ghost" style="align-self: flex-start;">Deep Dive Overview</a>
         </div>
         <div class="split-video" data-aos="fade-left">
           <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop"
@@ -109,7 +111,7 @@
             From-scratch trajectory generation and velocity profiling for differential drive and three-wheel
             omnidirectional swerve robots. Engineered natively as ROS2 Nav2 plugins.
           </p>
-          <a href="topic-pathplanning.html" class="btn btn-ghost" style="align-self: flex-start;">Explore Algorithm</a>
+          <a href="sys-diff-drive.html" class="btn btn-ghost" style="align-self: flex-start;">Explore Algorithm</a>
         </div>
         <div class="split-video" data-aos="fade-right">
           <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop"
@@ -127,7 +129,7 @@
             Two-time National Podium placements at DD Robocon. Led SolidWorks assemblies, structural stress testing,
             motor selection, and competition-grade aluminum chassis fabrication.
           </p>
-          <a href="topic-hardware.html" class="btn btn-ghost" style="align-self: flex-start;">View Hardware Specs</a>
+          <a href="sys-mech.html" class="btn btn-ghost" style="align-self: flex-start;">View Hardware Specs</a>
         </div>
         <div class="split-video" data-aos="fade-left">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
@@ -142,7 +144,8 @@
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
       <a href="about.html">About</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="projects.html">Projects</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>

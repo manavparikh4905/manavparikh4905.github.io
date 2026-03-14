@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Notes — Manav Parikh</title>
+  <meta name="description" content="Technical writeups, thoughts, and deep-dives into robotics problems.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+  <style>
+    .note-card {
+      background: var(--surface-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+    .note-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .note-date { font-size: 0.9rem; color: var(--accent-blue); font-weight: 500; margin-bottom: 0.5rem; display: block; }
+    .note-title { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--ink-1); }
+    .note-excerpt { font-size: 1.1rem; color: var(--ink-2); line-height: 1.5; }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="n-brand">
+      <a href="index.html" class="n-name">Manav Parikh</a>
+      <span class="n-sub">Robotics Engineer</span>
+    </div>
+    <ul class="n-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Systems</a></li>
+      <li><a href="notes.html" class="active">Notes</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-panel">
+          <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <div class="page" style="max-width: 800px; margin: 0 auto; padding-top: 6rem;">
+      <span class="p-eyebrow">Engineering Documentation</span>
+      <h1 class="p-title" style="font-size: 3rem; margin-bottom: 1rem;">Engineering <em>Notes</em></h1>
+      <p class="p-lead" style="margin-bottom: 4rem;">
+        Short explanations, thought processes, and architectural decisions behind the systems I build. 
+        How I approach open problems in robotics.
+      </p>
+
+      <div class="notes-list">
+        
+        <div class="note-card">
+          <span class="note-date">March 2026</span>
+          <h2 class="note-title">Why A* is Not Enough for Differential Drive Robots</h2>
+          <p class="note-excerpt">
+            Discussing the limitations of standard grid-based A* pathfinding. Why kinematic constraints demand continuous state space expansion and how Dubins paths close the gap.
+          </p>
+        </div>
+
+        <div class="note-card">
+          <span class="note-date">February 2026</span>
+          <h2 class="note-title">Implementing a 3WD Custom Kinematics Node in ROS2</h2>
+          <p class="note-excerpt">
+            The math behind decomposing a global Twist command into three independent wheel speeds and orientations for omnidirectional movement.
+          </p>
+        </div>
+
+        <div class="note-card">
+          <span class="note-date">January 2026</span>
+          <h2 class="note-title">Isolating Motor Noise: Hardware Lessons from Robocon</h2>
+          <p class="note-excerpt">
+            How EMI from powerful BLDC motors disrupted our I2C bus and the shielding techniques we implemented to guarantee sensor reliability.
+          </p>
+        </div>
+
+        <div class="note-card">
+          <span class="note-date">December 2025</span>
+          <h2 class="note-title">Tuning the EKF for Slippery Indoor Environments</h2>
+          <p class="note-excerpt">
+            Adjusting covariance matrices in robot_localization to dynamically trust the BNO055 IMU more heavily than wheel odometry when wheel slip is detected.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer style="margin-top: 4rem;">
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>
+      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="contact.html">Contact</a>
+    </span>
+  </footer>
+</body>
+</html>
