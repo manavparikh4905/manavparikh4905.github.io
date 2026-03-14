@@ -21,6 +21,15 @@
 
 <body>
 
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
+    <div class="splash-inner">
+      <div class="splash-name">MANAV PARIKH</div>
+      <div class="splash-line"></div>
+      <div class="splash-role">ROBOTICS ENGINEER</div>
+    </div>
+  </div>
+
   <!-- Custom Cursor -->
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
@@ -351,8 +360,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
   <script>
-    AOS.init({ duration: 900, once: true, offset: 80 });
+    if (typeof gsap === 'undefined') AOS.init({ duration: 900, once: true, offset: 80 });
 
     // Hide media placeholders when actual video/image is present
     document.querySelectorAll('.split-media, .pc-media').forEach(container => {

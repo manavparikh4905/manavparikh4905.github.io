@@ -4,6 +4,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ═══════════════════════════════════════════════
+  //  SPLASH SCREEN
+  // ═══════════════════════════════════════════════
+  const splash = document.getElementById('splash');
+  if (splash) {
+    setTimeout(() => {
+      splash.classList.add('done');
+      setTimeout(() => splash.remove(), 700);
+    }, 1600);
+  }
+
+  // ═══════════════════════════════════════════════
   //  LENIS SMOOTH SCROLLING
   // ═══════════════════════════════════════════════
   let lenis;
@@ -35,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     (function ringLoop() {
-      rx += (mx - rx) * 0.10;
-      ry += (my - ry) * 0.10;
+      rx += (mx - rx) * 0.08;
+      ry += (my - ry) * 0.08;
       ring.style.left = rx + 'px';
       ring.style.top = ry + 'px';
       requestAnimationFrame(ringLoop);
@@ -201,6 +212,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       );
     });
+
+    // ═══════════════════════════════════════════════
+    //  HERO ENTRANCE ANIMATION (GSAP + SplitType)
+    // ═══════════════════════════════════════════════
+    if (document.querySelector('.cinematic-hero')) {
+      const heroDelay = splash ? 1.7 : 0.2;
+      const heroTL = gsap.timeline({ delay: heroDelay, defaults: { ease: 'expo.out' } });
+
+      // Eyebrow
+      heroTL.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.7 }, 0);
+
+      // Title: split into words, stagger with 3D reveal
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle && typeof SplitType !== 'undefined') {
+        heroTitle.style.opacity = '1';
+        const split = new SplitType(heroTitle, { types: 'words' });
+        gsap.set(split.words, { opacity: 0, y: 60, rotateX: -40 });
+        heroTL.to(split.words, {
+          opacity: 1, y: 0, rotateX: 0,
+          duration: 0.9, stagger: 0.12, ease: 'expo.out',
+        }, 0.15);
+      } else if (heroTitle) {
+        heroTL.to(heroTitle, { opacity: 1, y: 0, duration: 0.9 }, 0.15);
+      }
+
+      // Subtitle
+      heroTL.to('.hero-sub', { opacity: 1, y: 0, duration: 0.8 }, 0.6);
+
+      // CTA buttons with elastic easing
+      heroTL.to('.hero-cta', { opacity: 1, duration: 0.1 }, 0.8);
+      heroTL.fromTo('.hero-cta .btn',
+        { opacity: 0, scale: 0.85, y: 15 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'back.out(1.5)' },
+        0.8
+      );
+
+      // Stats stagger
+      heroTL.to('.hero-stats', { opacity: 1, duration: 0.1 }, 1.0);
+      heroTL.fromTo('.hs-item',
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'expo.out' },
+        1.0
+      );
+      heroTL.fromTo('.hs-div', { scaleY: 0 }, { scaleY: 1, duration: 0.4, stagger: 0.1 }, 1.15);
+
+      // Scroll indicator
+      heroTL.to('.hero-scroll', { opacity: 1, duration: 0.6 }, 1.4);
+    }
+
+    // ═══════════════════════════════════════════════
+    //  GSAP SCROLL REVEALS (replacing AOS)
+    // ═══════════════════════════════════════════════
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      if (el.closest('.cinematic-hero')) return;
+      const delayMs = parseInt(el.getAttribute('data-aos-delay') || '0', 10);
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0, duration: 0.8,
+          delay: delayMs / 1000,
+          ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        }
+      );
+    });
   }
 
   // ═══════════════════════════════════════════════
@@ -243,6 +319,24 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
       });
       el.addEventListener('mouseleave', () => el.style.transform = '');
+    });
+  }
+
+  // ═══════════════════════════════════════════════
+  //  VANILLATILT ON PROJECT CARDS & SPLIT MEDIA
+  // ═══════════════════════════════════════════════
+  if (window.innerWidth > 900 && typeof VanillaTilt !== 'undefined') {
+    document.querySelectorAll('.project-card').forEach(card => {
+      VanillaTilt.init(card, {
+        max: 4, speed: 600, scale: 1.01,
+        glare: true, 'max-glare': 0.08, perspective: 1200,
+      });
+    });
+    document.querySelectorAll('.split-media').forEach(el => {
+      VanillaTilt.init(el, {
+        max: 3, speed: 800, scale: 1.0,
+        glare: true, 'max-glare': 0.05, perspective: 1500,
+      });
     });
   }
 
