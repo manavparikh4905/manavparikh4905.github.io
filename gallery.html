@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery — Manav Parikh</title>
-  <meta name="description"
-    content="Competition photos, hardware builds, CAD designs, and field testing media from Manav Parikh's robotics career.">
+  <meta name="description" content="Competition photos, hardware builds, CAD designs, and field testing media from Manav Parikh's robotics career.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger active">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12"
-            height="12" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg></a>
+        <a href="#" class="dropdown-trigger active">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link active"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link active"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -43,10 +40,9 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -56,14 +52,15 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal" data-aos="fade-up">Gallery</span>
-      <h1 class="p-title reveal" data-aos="fade-up">Competition <em>Gallery</em></h1>
-      <p class="p-lead reveal" data-aos="fade-up">
-        Photos and videos from DD Robocon competitions, hardware builds, CAD designs,
-        and field testing sessions. Upload your own media to preview it here!
+      <span class="p-eyebrow" data-aos="fade-up">Visual Archive</span>
+      <h1 class="p-title" data-aos="fade-up" data-aos-delay="60">Competition <em>Gallery</em></h1>
+      <p class="p-lead" data-aos="fade-up" data-aos-delay="120">
+        Photos and videos from DD Robocon competitions, hardware builds, CAD renders, and field
+        testing sessions. Drop your files into <code style="font-family:'DM Mono',monospace;font-size:0.8em;color:var(--accent);">assets/images/gallery/</code> to populate this gallery.
       </p>
 
-      <div class="gallery-filters reveal" data-aos="fade-up">
+      <!-- Filters -->
+      <div class="gallery-filters" data-aos="fade-up">
         <button class="gf-btn active" data-filter="all">All</button>
         <button class="gf-btn" data-filter="competition">Competitions</button>
         <button class="gf-btn" data-filter="hardware">Hardware</button>
@@ -71,75 +68,101 @@
         <button class="gf-btn" data-filter="testing">Field Testing</button>
       </div>
 
-      <div class="gallery-masonry reveal" data-aos="fade-up" id="gallery-masonry">
+      <!-- Gallery grid -->
+      <!-- ════════════════════════════════════════════════════════
+           HOW TO ADD YOUR OWN PHOTOS:
+           1. Drop image files into: assets/images/gallery/
+           2. Add a <div class="gallery-card" data-category="..."> block below
+           3. Set the <img src="assets/images/gallery/your_filename.jpg">
+           4. Supported categories: competition | hardware | cad | testing
+      ════════════════════════════════════════════════════════ -->
+      <div class="gallery-masonry" id="gallery-masonry" data-aos="fade-up">
 
         <div class="gallery-card" data-category="competition">
           <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop"
-              alt="Robot on competition field">
+            <img src="assets/images/gallery/competition_01.jpg" alt="DD Robocon 2024 — National Finals" loading="lazy">
             <div class="gallery-caption"><span>DD Robocon 2024 — National Finals</span></div>
           </div>
         </div>
 
+        <div class="gallery-card" data-category="competition">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/competition_02.jpg" alt="Robocon 2025 — Arena" loading="lazy">
+            <div class="gallery-caption"><span>DD Robocon 2025 — Competition Arena</span></div>
+          </div>
+        </div>
+
         <div class="gallery-card" data-category="hardware">
           <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop"
-              alt="Hardware assembly process">
+            <img src="assets/images/gallery/hardware_01.jpg" alt="Drivetrain Assembly — Swerve Module" loading="lazy">
             <div class="gallery-caption"><span>Drivetrain Assembly — Swerve Module</span></div>
           </div>
         </div>
 
-        <div class="gallery-card" data-category="cad">
-          <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop"
-              alt="CAD design render">
-            <div class="gallery-caption"><span>SolidWorks Full Assembly Render</span></div>
-          </div>
-        </div>
-
-        <div class="gallery-card" data-category="competition">
-          <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?q=80&w=600&auto=format&fit=crop"
-              alt="Robotics competition arena">
-            <div class="gallery-caption"><span>DD Robocon 2025 — Arena Setup</span></div>
-          </div>
-        </div>
-
-        <div class="gallery-card" data-category="testing">
-          <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=600&auto=format&fit=crop"
-              alt="Field testing workshop">
-            <div class="gallery-caption"><span>Autonomous Navigation Field Test</span></div>
-          </div>
-        </div>
-
         <div class="gallery-card" data-category="hardware">
           <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop"
-              alt="Electronics and circuit boards">
+            <img src="assets/images/gallery/hardware_02.jpg" alt="Electronics Layout — Motor Drivers" loading="lazy">
             <div class="gallery-caption"><span>Electronics Layout — Motor Drivers</span></div>
           </div>
         </div>
 
         <div class="gallery-card" data-category="cad">
           <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=600&auto=format&fit=crop"
-              alt="Precision engineering">
+            <img src="assets/images/gallery/cad_01.jpg" alt="SolidWorks Full Assembly Render" loading="lazy">
+            <div class="gallery-caption"><span>SolidWorks Full Assembly Render</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="cad">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/cad_02.jpg" alt="Chassis Design — Differential Drive" loading="lazy">
             <div class="gallery-caption"><span>Chassis Design — Differential Drive</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="cad">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/cad_03.jpg" alt="Swerve Module Detail" loading="lazy">
+            <div class="gallery-caption"><span>Swerve Module — CAD Detail</span></div>
           </div>
         </div>
 
         <div class="gallery-card" data-category="testing">
           <div class="gallery-card-inner">
-            <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?q=80&w=600&auto=format&fit=crop"
-              alt="Lab work">
+            <img src="assets/images/gallery/testing_01.jpg" alt="Autonomous Navigation Field Test" loading="lazy">
+            <div class="gallery-caption"><span>Autonomous Navigation Field Test</span></div>
+          </div>
+        </div>
+
+        <div class="gallery-card" data-category="testing">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/testing_02.jpg" alt="SLAM Mapping Test Session" loading="lazy">
             <div class="gallery-caption"><span>SLAM Mapping Test Session</span></div>
           </div>
         </div>
 
+        <div class="gallery-card" data-category="hardware">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/hardware_03.jpg" alt="Full Robot Assembly" loading="lazy">
+            <div class="gallery-caption"><span>Full Robot Assembly</span></div>
+          </div>
+        </div>
 
+        <div class="gallery-card" data-category="competition">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/competition_03.jpg" alt="Team — Post Match" loading="lazy">
+            <div class="gallery-caption"><span>Team — Post Match</span></div>
+          </div>
+        </div>
 
-      </div>
+        <div class="gallery-card" data-category="testing">
+          <div class="gallery-card-inner">
+            <img src="assets/images/gallery/testing_03.jpg" alt="RViz2 Mapping Visualization" loading="lazy">
+            <div class="gallery-caption"><span>RViz2 Mapping Visualisation</span></div>
+          </div>
+        </div>
+
+      </div><!-- /gallery-masonry -->
 
     </div>
   </main>
@@ -157,9 +180,8 @@
   <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
@@ -168,13 +190,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-    });
-  </script>
+  <script>AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
-
 </html>

@@ -1,123 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3WD Swerve Path Planner — Manav Parikh</title>
-  <meta name="description" content="Technical details on the 3WD Swerve Omnidirectional Path Planner.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="3-Wheel Omnidirectional Swerve Path Planner — holonomic kinematics, heading decoupling, Nav2 plugin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
-  <style>
-    .sys-diagram {
-      background: #111;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 2rem 0;
-      color: #0f0;
-      font-family: monospace;
-      white-space: pre;
-      overflow-x: auto;
-    }
-    .sys-section { margin-bottom: 2rem; }
-    .sys-section h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--ink-1); }
-    .sys-section p { font-size: 1.1rem; color: var(--ink-2); line-height: 1.6; }
-    .video-container { margin: 2rem 0; text-align: center; }
-  </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
-  <header class="navbar">
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html" class="active">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="#" class="dropdown-trigger">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </header>
 
   <main>
-    <div class="page" style="max-width: 800px; margin: 0 auto; padding-top: 6rem;">
-      <a href="projects.html" class="btn btn-ghost" style="margin-bottom: 2rem; display: inline-block;">← Back to Systems</a>
-      
-      <span class="p-eyebrow">Robotics Systems</span>
-      <h1 class="p-title" style="font-size: 3rem; margin-bottom: 1rem;">Path Planner for 3-Wheel Omnidirectional (Swerve) Drive</h1>
-      
-      <div class="video-container">
-        <!-- Replaced placeholder with direct <video> tag as per robotics portfolio best practices -->
-        <video controls width="100%" style="border-radius: 8px; border: 1px solid var(--border-color);">
-          <source src="assets/videos/swerve_demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p style="color: var(--ink-3); margin-top: 0.5rem; font-size: 0.9rem;">Demonstration of independent translation and rotation maneuvering.</p>
-      </div>
+    <div class="page">
+      <div class="sys-page">
 
-      <div class="sys-section">
-        <h3>Problem</h3>
-        <p>Differential drives are constrained by heading-dependent translation, making precise positioning around obstacles slow as it requires stop-and-turn mechanics.</p>
-      </div>
+        <a href="projects.html" class="sys-back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Back to Systems
+        </a>
 
-      <div class="sys-section">
-        <h3>Approach</h3>
-        <p>Developed a custom path planner leveraging the holonomic kinematics of a 3-Wheel Omnidirectional (Swerve) drive, allowing independent translation and rotation.</p>
-      </div>
+        <span class="p-eyebrow" data-aos="fade-up">System 02</span>
+        <h1 class="p-title" data-aos="fade-up" data-aos-delay="60" style="font-size:clamp(2.5rem,6vw,5rem);">
+          3-Wheel Swerve<br><em>Path Planner</em>
+        </h1>
 
-      <div class="sys-section">
-        <h3>System Architecture</h3>
-        <div class="sys-diagram">
-Laptop (ROS2)
-     ↓
-Nav2 Planner Server
-     ↓
-Twist (Vx, Vy, Vθ)
-     ↓
-Kinematics Node (3WD Decomposition)
-     ↓
-Motor Speeds & Steering Angles
-     ↓
-STM32 Microcontroller
-     ↓
-Swerve Modules
+        <div class="tag-row" data-aos="fade-up" data-aos-delay="100" style="margin-bottom:0;">
+          <span class="tag">ROS2</span>
+          <span class="tag">C++</span>
+          <span class="tag">Holonomic Kinematics</span>
+          <span class="tag">3WD Swerve</span>
+          <span class="tag">Heading Decoupling</span>
+          <span class="tag">STM32</span>
+          <span class="tag">Ongoing</span>
         </div>
-      </div>
 
-      <div class="sys-section">
-        <h3>Implementation</h3>
-        <p>C++ node translating global Twist commands into independent wheel speeds and orientations. The planner fully decouples movement from the robot heading, computing inverse kinematics for the 3WD geometry.</p>
-      </div>
+        <!-- Hero media -->
+        <div class="sys-hero-media" data-aos="fade-up">
+          <!-- Drop: assets/videos/swerve_demo.mp4 -->
+          <video controls width="100%" style="height:100%;object-fit:cover;">
+            <source src="assets/videos/swerve_demo.mp4" type="video/mp4">
+          </video>
+          <div class="media-placeholder" id="swerve-ph" style="position:absolute;inset:0;">
+            <div class="mp-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+            <div class="mp-label">Swerve Drive Demo Video</div>
+            <div class="mp-path">assets/videos/swerve_demo.mp4</div>
+          </div>
+        </div>
 
-      <div class="sys-section">
-        <h3>Result</h3>
-        <p>Robot translates freely in any direction while concurrently reorienting to face targets, drastically improving competition task efficiency.</p>
-      </div>
-      
-      <div style="margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
-        <a href="https://github.com/manavparikh4905" target="_blank" class="btn btn-solid">View Source on GitHub</a>
+        <!-- Problem -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Problem</div>
+          <p>Differential drives are constrained by heading-dependent translation — any positional
+          change requires the robot to first orient toward the goal, creating stop-and-turn mechanics
+          that are catastrophically slow in competition scenarios requiring continuous repositioning.</p>
+        </div>
+
+        <!-- Approach -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Approach</div>
+          <p>Developed a custom path planner leveraging the holonomic kinematics of a 3-Wheel
+          Omnidirectional (Swerve) drive — a platform capable of simultaneous independent translation
+          and rotation. The planner fully decouples heading control from translational motion, allowing
+          the robot to translate in any field-relative direction while maintaining an arbitrary orientation.
+          This is critical for competition tasks requiring precise positioning while facing a fixed target.</p>
+        </div>
+
+        <!-- System architecture -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">System Architecture</div>
+          <div class="sys-diagram">Laptop (ROS2 Humble)
+│
+├── Nav2 Planner Server
+│   └── Custom Holonomic Planner Plugin (C++)
+│       └── Twist Commands (Vx, Vy, Vθ)
+│
+├── Kinematics Node — 3WD Decomposition
+│   ├── Wheel 1: Speed + Steering Angle
+│   ├── Wheel 2: Speed + Steering Angle
+│   └── Wheel 3: Speed + Steering Angle
+│
+├── STM32 Microcontroller (Serial / CAN)
+│   ├── Motor Driver 1
+│   ├── Motor Driver 2
+│   └── Motor Driver 3
+│
+└── Swerve Modules × 3</div>
+        </div>
+
+        <!-- Implementation -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Implementation Details</div>
+          <p>C++ Nav2 plugin translating global Twist commands (Vx, Vy, Vθ) into independent wheel speeds
+          and orientations via the inverse kinematic model of the 3WD geometry. The planner computes
+          heading-independent trajectories — the robot can translate in any direction while concurrently
+          reorienting, maximising task efficiency. Integrates with Nav2's lifecycle management and
+          Costmap2D without changes to the broader navigation stack.</p>
+        </div>
+
+        <!-- Photo gallery section -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Hardware & CAD</div>
+          <!-- Drop your hardware/CAD photos into: assets/images/hardware/ -->
+          <div class="sys-gallery">
+            <div class="sys-gallery-item">
+              <img src="assets/images/hardware/swerve_module_01.jpg" alt="Swerve Module Physical" loading="lazy">
+              <div class="sys-gallery-caption">Swerve Module Assembly</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/cad/swerve_cad_01.jpg" alt="Swerve Module CAD" loading="lazy">
+              <div class="sys-gallery-caption">SolidWorks CAD Model</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/hardware/swerve_full_01.jpg" alt="Full Swerve Robot" loading="lazy">
+              <div class="sys-gallery-caption">Complete Robot Assembly</div>
+            </div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-3);margin-top:0.75rem;letter-spacing:0.1em;">
+            Drop photos into assets/images/hardware/ and assets/images/cad/ — they'll appear above automatically.
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Result</div>
+          <p>Robot translates freely in any direction while concurrently reorienting to face targets,
+          drastically improving competition task efficiency. The decoupled heading control eliminates
+          time lost to stop-and-turn mechanics entirely, enabling continuous smooth repositioning in
+          complex field environments.</p>
+        </div>
+
+        <!-- CTA -->
+        <div style="padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;" data-aos="fade-up">
+          <a href="https://github.com/manavparikh4905" target="_blank" class="btn btn-solid">View on GitHub</a>
+          <a href="sys-diff-drive.html" class="btn btn-ghost">Next: Diff Drive Planner →</a>
+        </div>
+
       </div>
     </div>
   </main>
 
-  <footer style="margin-top: 4rem;">
+  <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 60 });
+    const vid = document.querySelector('.sys-hero-media video source');
+    if (vid) {
+      const v = vid.parentElement;
+      const ph = document.getElementById('swerve-ph');
+      v.addEventListener('loadeddata', () => { if(ph) ph.style.display='none'; });
+      v.load();
+    }
+  </script>
 </body>
 </html>

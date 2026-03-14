@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manav Parikh | Robotics & Autonomous Systems Engineer</title>
-  <meta name="description"
-    content="Portfolio of Manav Parikh, a Robotics and Mechanical Engineering student specializing in ROS2, Autonomous Systems, Custom Path Planning, and SLAM.">
-  <meta name="keywords"
-    content="Robotics, ROS2, Autonomous Systems, SLAM, Nav2, Mechanical Engineering, Manav Parikh, DD Robocon, Path Planning">
+  <meta name="description" content="Portfolio of Manav Parikh — Robotics & Mechanical Engineering student. ROS2, Autonomous Navigation, Custom Path Planning, SolidWorks, DD Robocon National Champion.">
+  <meta name="keywords" content="Robotics, ROS2, Autonomous Systems, SLAM, Nav2, Mechanical Engineering, Manav Parikh, DD Robocon, Path Planning">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
 
-  <header class="navbar">
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
-            fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg></a>
+        <a href="#" class="dropdown-trigger">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -45,107 +44,283 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
     </div>
   </header>
 
-  <main style="padding: 0; max-width: 100%;">
-    <!-- Cinematic Hero -->
+  <main class="full-bleed">
+
+    <!-- ══════════════════════════════════════════
+         CINEMATIC HERO
+    ══════════════════════════════════════════ -->
     <section class="cinematic-hero" id="home">
-      <video autoplay loop muted playsinline class="hero-video-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+
+      <!-- Background video — drop your file at assets/videos/hero_background.mp4 -->
+      <video autoplay loop muted playsinline class="hero-video-bg">
         <source src="assets/videos/hero_background.mp4" type="video/mp4">
-        <!-- Fallback image if video fails to load or for mobile -->
-        <img src="https://images.unsplash.com/photo-1544607147-3dc612e6bfaf?q=80&w=2000&auto=format&fit=crop" alt="Cinematic Hero Background">
       </video>
 
       <div class="hero-gradient-overlay"></div>
+      <div class="hero-grid-overlay"></div>
 
-      <div style="position: relative; z-index: 10; text-align: center; max-width: 1000px; padding: 0 2rem;">
-        <span class="p-eyebrow" data-aos="fade-up">Robotics · Systems · Engineering</span>
-        <h1 class="p-title" data-aos="fade-up" data-aos-delay="100">Manav <em>Parikh</em></h1>
-        <p class="p-lead" data-aos="fade-up" data-aos-delay="200"
-          style="margin: 0 auto 3rem; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
-          Architecting autonomous systems, precision hardware, and intelligent navigation for competition-grade
-          robotics.
+      <div class="hero-content">
+        <div class="hero-eyebrow">Robotics · Systems · Engineering</div>
+
+        <h1 class="hero-title">
+          MANAV<br><em>PARIKH</em>
+        </h1>
+
+        <p class="hero-sub">
+          Architecting autonomous systems, competition-grade hardware,<br>
+          and custom path planning algorithms from the ground up.
         </p>
-        <div class="btn-row" data-aos="fade-up" data-aos-delay="300">
+
+        <div class="hero-cta">
           <a href="projects.html" class="btn btn-solid">Explore Systems</a>
+          <a href="about.html"    class="btn btn-ghost">About Me</a>
         </div>
+
+        <div class="hero-stats">
+          <div class="hs-item">
+            <span class="hs-num">2×</span>
+            <span class="hs-label">National Podium</span>
+          </div>
+          <div class="hs-div"></div>
+          <div class="hs-item">
+            <span class="hs-num">#1</span>
+            <span class="hs-label">Robocon 2024</span>
+          </div>
+          <div class="hs-div"></div>
+          <div class="hs-item">
+            <span class="hs-num">4+</span>
+            <span class="hs-label">Systems Built</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
 
-    <!-- Project Presentation -->
-    <div id="projects-showcase" style="width: 100vw;">
-
-      <!-- Project 01 -->
-      <section class="split-section">
-        <div class="split-content" data-aos="fade-right">
-          <span class="hl-label" style="text-align: left;">01 — Autonomous Systems</span>
-          <h2 class="pe-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">ROS2
-            Navigation Stack</h2>
-          <p class="pe-body" style="font-size: 1.1rem; color: var(--ink-2); margin-bottom: 3rem; max-width: 480px;">
-            Integration of SLAM Toolbox for live cartography, AMCL for probabilistic Monte Carlo localization, and
-            Extended Kalman Filters for robust sensor fusion on differential chassis.
-          </p>
-          <a href="sys-ros-nav.html" class="btn btn-ghost" style="align-self: flex-start;">Deep Dive Overview</a>
+    <!-- ══════════════════════════════════════════
+         SKILLS MARQUEE
+    ══════════════════════════════════════════ -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="mq-item">ROS2</span><span class="mq-sep">·</span>
+          <span class="mq-item">Nav2</span><span class="mq-sep">·</span>
+          <span class="mq-item">SLAM Toolbox</span><span class="mq-sep">·</span>
+          <span class="mq-item">AMCL</span><span class="mq-sep">·</span>
+          <span class="mq-item">Extended Kalman Filter</span><span class="mq-sep">·</span>
+          <span class="mq-item">C++</span><span class="mq-sep">·</span>
+          <span class="mq-item">SolidWorks</span><span class="mq-sep">·</span>
+          <span class="mq-item">Hybrid A*</span><span class="mq-sep">·</span>
+          <span class="mq-item">Holonomic Kinematics</span><span class="mq-sep">·</span>
+          <span class="mq-item">Ubuntu</span><span class="mq-sep">·</span>
+          <span class="mq-item">BehaviorTree.CPP</span><span class="mq-sep">·</span>
+          <span class="mq-item">Costmap2D</span><span class="mq-sep">·</span>
+          <span class="mq-item">Embedded Systems</span><span class="mq-sep">·</span>
+          <span class="mq-item">STM32</span><span class="mq-sep">·</span>
         </div>
-        <div class="split-video" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop"
-            alt="ROS2 Demonstration">
+        <div class="marquee-content" aria-hidden="true">
+          <span class="mq-item">ROS2</span><span class="mq-sep">·</span>
+          <span class="mq-item">Nav2</span><span class="mq-sep">·</span>
+          <span class="mq-item">SLAM Toolbox</span><span class="mq-sep">·</span>
+          <span class="mq-item">AMCL</span><span class="mq-sep">·</span>
+          <span class="mq-item">Extended Kalman Filter</span><span class="mq-sep">·</span>
+          <span class="mq-item">C++</span><span class="mq-sep">·</span>
+          <span class="mq-item">SolidWorks</span><span class="mq-sep">·</span>
+          <span class="mq-item">Hybrid A*</span><span class="mq-sep">·</span>
+          <span class="mq-item">Holonomic Kinematics</span><span class="mq-sep">·</span>
+          <span class="mq-item">Ubuntu</span><span class="mq-sep">·</span>
+          <span class="mq-item">BehaviorTree.CPP</span><span class="mq-sep">·</span>
+          <span class="mq-item">Costmap2D</span><span class="mq-sep">·</span>
+          <span class="mq-item">Embedded Systems</span><span class="mq-sep">·</span>
+          <span class="mq-item">STM32</span><span class="mq-sep">·</span>
         </div>
-      </section>
-
-      <!-- Project 02 -->
-      <section class="split-section" style="flex-direction: row-reverse; background: #010101;">
-        <div class="split-content" data-aos="fade-left">
-          <span class="hl-label" style="text-align: left;">02 — Algorithms</span>
-          <h2 class="pe-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Custom Path
-            Planning</h2>
-          <p class="pe-body" style="font-size: 1.1rem; color: var(--ink-2); margin-bottom: 3rem; max-width: 480px;">
-            From-scratch trajectory generation and velocity profiling for differential drive and three-wheel
-            omnidirectional swerve robots. Engineered natively as ROS2 Nav2 plugins.
-          </p>
-          <a href="sys-diff-drive.html" class="btn btn-ghost" style="align-self: flex-start;">Explore Algorithm</a>
-        </div>
-        <div class="split-video" data-aos="fade-right">
-          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop"
-            alt="Path Planning Visualization">
-        </div>
-      </section>
-
-      <!-- Project 03 -->
-      <section class="split-section">
-        <div class="split-content" data-aos="fade-right">
-          <span class="hl-label" style="text-align: left;">03 — Mechatronics</span>
-          <h2 class="pe-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Competition
-            Hardware</h2>
-          <p class="pe-body" style="font-size: 1.1rem; color: var(--ink-2); margin-bottom: 3rem; max-width: 480px;">
-            Two-time National Podium placements at DD Robocon. Led SolidWorks assemblies, structural stress testing,
-            motor selection, and competition-grade aluminum chassis fabrication.
-          </p>
-          <a href="sys-mech.html" class="btn btn-ghost" style="align-self: flex-start;">View Hardware Specs</a>
-        </div>
-        <div class="split-video" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
-            alt="Hardware Assembly">
-        </div>
-      </section>
-
+      </div>
     </div>
+
+    <!-- ══════════════════════════════════════════
+         PROJECT SHOWCASE — CINEMATIC SPLITS
+    ══════════════════════════════════════════ -->
+
+    <!-- 01 · AUTONOMOUS NAVIGATION -->
+    <section class="split-section" data-aos="fade-up" data-aos-duration="800">
+      <div class="split-content">
+        <span class="hl-label">01 — Autonomous Systems</span>
+        <h2 class="pe-title">ROS2 Navigation<br>Stack</h2>
+        <p class="pe-body">
+          Full autonomous navigation stack for competition robots. SLAM Toolbox for live cartography,
+          AMCL for probabilistic Monte Carlo localisation, and an EKF fusing wheel odometry
+          with IMU data into a robust pose estimate.
+        </p>
+        <div class="tag-row" style="margin-bottom: 2.5rem;">
+          <span class="tag">ROS2</span>
+          <span class="tag">SLAM Toolbox</span>
+          <span class="tag">AMCL</span>
+          <span class="tag">EKF</span>
+          <span class="tag">Nav2</span>
+        </div>
+        <a href="sys-ros-nav.html" class="btn btn-ghost" style="align-self: flex-start;">Deep Dive →</a>
+      </div>
+      <div class="split-media">
+        <!-- Drop your video at: assets/videos/ros_nav_demo.mp4 -->
+        <video autoplay loop muted playsinline>
+          <source src="assets/videos/ros_nav_demo.mp4" type="video/mp4">
+        </video>
+        <!-- Shown when video file is absent -->
+        <div class="media-placeholder" id="mp-01">
+          <div class="mp-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </div>
+          <div class="mp-label">Video Demo</div>
+          <div class="mp-path">assets/videos/ros_nav_demo.mp4</div>
+        </div>
+        <span class="split-num">01</span>
+      </div>
+    </section>
+
+    <!-- 02 · PATH PLANNING -->
+    <section class="split-section bg-alt" style="flex-direction: row-reverse;" data-aos="fade-up" data-aos-duration="800">
+      <div class="split-content">
+        <span class="hl-label">02 — Algorithms</span>
+        <h2 class="pe-title">Custom Path<br>Planning</h2>
+        <p class="pe-body">
+          From-scratch trajectory generation as Nav2 plugins. Hybrid A* with Dubins primitives
+          for differential drive; holonomic velocity decomposition for the 3-wheel swerve platform.
+          Engineered for kinematic feasibility from the first line.
+        </p>
+        <div class="tag-row" style="margin-bottom: 2.5rem;">
+          <span class="tag">C++</span>
+          <span class="tag">Hybrid A*</span>
+          <span class="tag">Spline Trajectories</span>
+          <span class="tag">Nav2 Plugin</span>
+        </div>
+        <a href="sys-diff-drive.html" class="btn btn-ghost" style="align-self: flex-start;">Explore Algorithm →</a>
+      </div>
+      <div class="split-media">
+        <!-- Drop your video at: assets/videos/path_planning_demo.mp4 -->
+        <video autoplay loop muted playsinline>
+          <source src="assets/videos/path_planning_demo.mp4" type="video/mp4">
+        </video>
+        <div class="media-placeholder">
+          <div class="mp-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </div>
+          <div class="mp-label">Algorithm Visualisation</div>
+          <div class="mp-path">assets/videos/path_planning_demo.mp4</div>
+        </div>
+        <span class="split-num">02</span>
+      </div>
+    </section>
+
+    <!-- 03 · SWERVE DRIVE -->
+    <section class="split-section" data-aos="fade-up" data-aos-duration="800">
+      <div class="split-content">
+        <span class="hl-label">03 — Kinematics</span>
+        <h2 class="pe-title">3-Wheel Swerve<br>Drive</h2>
+        <p class="pe-body">
+          Holonomic platform capable of simultaneous independent translation and rotation.
+          Fully decoupled heading control — translate in any direction while facing an arbitrary
+          field-relative orientation. Critical for precision competition tasks.
+        </p>
+        <div class="tag-row" style="margin-bottom: 2.5rem;">
+          <span class="tag">Holonomic</span>
+          <span class="tag">3WD Geometry</span>
+          <span class="tag">STM32</span>
+          <span class="tag">Heading Decoupling</span>
+        </div>
+        <a href="sys-swerve.html" class="btn btn-ghost" style="align-self: flex-start;">View System →</a>
+      </div>
+      <div class="split-media">
+        <!-- Drop your video at: assets/videos/swerve_demo.mp4 -->
+        <video autoplay loop muted playsinline>
+          <source src="assets/videos/swerve_demo.mp4" type="video/mp4">
+        </video>
+        <div class="media-placeholder">
+          <div class="mp-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </div>
+          <div class="mp-label">Swerve Demo</div>
+          <div class="mp-path">assets/videos/swerve_demo.mp4</div>
+        </div>
+        <span class="split-num">03</span>
+      </div>
+    </section>
+
+    <!-- 04 · MECHANICAL DESIGN -->
+    <section class="split-section bg-alt" style="flex-direction: row-reverse;" data-aos="fade-up" data-aos-duration="800">
+      <div class="split-content">
+        <span class="hl-label">04 — Mechatronics</span>
+        <h2 class="pe-title">Competition<br>Hardware</h2>
+        <p class="pe-body">
+          End-to-end SolidWorks assemblies, structural stress testing, motor selection,
+          and competition-grade aluminum chassis fabrication.
+          Two-time national podium. These machines work under pressure.
+        </p>
+        <div class="tag-row" style="margin-bottom: 2.5rem;">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Parametric CAD</span>
+          <span class="tag">Drivetrain Design</span>
+          <span class="tag">DD Robocon</span>
+        </div>
+        <a href="sys-mech.html" class="btn btn-ghost" style="align-self: flex-start;">View Hardware →</a>
+      </div>
+      <div class="split-media">
+        <!-- Drop your CAD render / photo at: assets/images/cad/chassis_render.jpg -->
+        <img src="assets/images/cad/chassis_render.jpg" alt="Competition Robot CAD Render" loading="lazy">
+        <div class="media-placeholder">
+          <div class="mp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div class="mp-label">CAD Render / Photo</div>
+          <div class="mp-path">assets/images/cad/chassis_render.jpg</div>
+        </div>
+        <span class="split-num">04</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         STATS BANNER
+    ══════════════════════════════════════════ -->
+    <div class="stats-bar" data-aos="fade-up">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-n accent">7.72</span>
+          <span class="stat-l">CGPA · Nirma University</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-n">2024</span>
+          <span class="stat-l">National Champions · DD Robocon</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-n">#2</span>
+          <span class="stat-l">1st Runners Up · Robocon 2025</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-n">4+</span>
+          <span class="stat-l">Systems Built & Deployed</span>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="about.html">About</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="about.html">About</a> &nbsp;·&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
+      <a href="notes.html">Notes</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
@@ -155,12 +330,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
+    AOS.init({ duration: 900, once: true, offset: 80 });
+
+    // Hide media placeholders when actual video/image is present
+    document.querySelectorAll('.split-media, .pc-media').forEach(container => {
+      const vid = container.querySelector('video source');
+      const img = container.querySelector('img');
+      const placeholder = container.querySelector('.media-placeholder');
+      if (!placeholder) return;
+
+      if (vid) {
+        const v = vid.parentElement;
+        v.addEventListener('loadeddata', () => { placeholder.style.display = 'none'; });
+        v.load();
+      }
+      if (img) {
+        img.onload = () => { if (img.naturalWidth > 0) placeholder.style.display = 'none'; };
+        if (img.complete && img.naturalWidth > 0) placeholder.style.display = 'none';
+      }
     });
   </script>
 </body>
-
 </html>

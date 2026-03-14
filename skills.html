@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skills — Manav Parikh</title>
-  <meta name="description"
-    content="Technical stack including ROS2, Path Planning, SLAM, C++, and SolidWorks mechanical design.">
+  <meta name="description" content="Technical stack: ROS2, Nav2, SLAM, C++, SolidWorks, Path Planning, and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
-      <span class="n-sub">Mechatronics Engineer</span>
+      <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger active">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12"
-            height="12" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg></a>
+        <a href="#" class="dropdown-trigger active">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link active"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link active"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -43,10 +40,9 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -56,98 +52,169 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal" data-aos="fade-up">Skills</span>
-      <h1 class="p-title reveal" data-aos="fade-up">Technical <em>Stack</em></h1>
-      <p class="p-lead reveal" data-aos="fade-up">
-        Robotics middleware, navigation algorithms, mechanical design software, and
-        programming languages — applied in production on competition hardware.
+      <span class="p-eyebrow" data-aos="fade-up">Technical Stack</span>
+      <h1 class="p-title" data-aos="fade-up" data-aos-delay="60">Tools I <em>Wield</em></h1>
+      <p class="p-lead" data-aos="fade-up" data-aos-delay="120">
+        Robotics middleware, navigation algorithms, mechanical design software, and programming languages —
+        all applied on production hardware and deployed to competition floors.
       </p>
 
-      <div class="skills-cols reveal" data-aos="fade-up">
-
-        <!-- LEFT COLUMN -->
-        <div>
-          <div class="skill-group">
-            <div class="sg-title">Robotics Middleware</div>
-            <ul class="sg-list">
-              <li>ROS2 Humble</li>
-              <li>Nav2 Navigation Stack</li>
-              <li>TF2 Transform Library</li>
-              <li>RViz2 Visualisation</li>
-              <li>Gazebo Classic</li>
-              <li>ROS2 Lifecycle Nodes</li>
-              <li>BehaviorTree.CPP (Nav2 BT)</li>
-              <li>ros2_control</li>
-            </ul>
+      <!-- Marquee - double row -->
+      <div class="marquee-section" style="margin: 0 -3.5rem 3rem; border-radius: 0;" data-aos="fade-in">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="mq-item">ROS2 Humble</span><span class="mq-sep">·</span>
+            <span class="mq-item">Nav2</span><span class="mq-sep">·</span>
+            <span class="mq-item">SLAM Toolbox</span><span class="mq-sep">·</span>
+            <span class="mq-item">AMCL</span><span class="mq-sep">·</span>
+            <span class="mq-item">EKF Fusion</span><span class="mq-sep">·</span>
+            <span class="mq-item">C++ · Python</span><span class="mq-sep">·</span>
+            <span class="mq-item">SolidWorks</span><span class="mq-sep">·</span>
+            <span class="mq-item">STM32</span><span class="mq-sep">·</span>
+            <span class="mq-item">Hybrid A*</span><span class="mq-sep">·</span>
+            <span class="mq-item">Holonomic Kinematics</span><span class="mq-sep">·</span>
+            <span class="mq-item">BehaviorTree.CPP</span><span class="mq-sep">·</span>
+            <span class="mq-item">Ubuntu / Linux</span><span class="mq-sep">·</span>
+            <span class="mq-item">TF2</span><span class="mq-sep">·</span>
+            <span class="mq-item">RViz2</span><span class="mq-sep">·</span>
           </div>
-
-          <div class="skill-group" style="margin-top: 2rem;">
-            <div class="sg-title">Navigation &amp; Localisation</div>
-            <ul class="sg-list">
-              <li>SLAM Toolbox (online / lifelong)</li>
-              <li>AMCL — Adaptive Monte Carlo</li>
-              <li>Extended Kalman Filter (EKF)</li>
-              <li>robot_localization package</li>
-              <li>Sensor Fusion (IMU + Odometry)</li>
-              <li>Costmap2D (Global &amp; Local)</li>
-              <li>LIDAR &amp; Encoder Integration</li>
-            </ul>
-          </div>
-
-          <div class="skill-group" style="margin-top: 2rem;">
-            <div class="sg-title">Path Planning</div>
-            <ul class="sg-list">
-              <li>Custom Nav2 Planner Plugins (C++)</li>
-              <li>Spline Trajectory Generation</li>
-              <li>Hybrid A* Planning</li>
-              <li>Holonomic Motion Planning</li>
-              <li>Velocity Profiling &amp; Theta* Smoothing</li>
-              <li>Non-holonomic Constraint Handling</li>
-            </ul>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="mq-item">ROS2 Humble</span><span class="mq-sep">·</span>
+            <span class="mq-item">Nav2</span><span class="mq-sep">·</span>
+            <span class="mq-item">SLAM Toolbox</span><span class="mq-sep">·</span>
+            <span class="mq-item">AMCL</span><span class="mq-sep">·</span>
+            <span class="mq-item">EKF Fusion</span><span class="mq-sep">·</span>
+            <span class="mq-item">C++ · Python</span><span class="mq-sep">·</span>
+            <span class="mq-item">SolidWorks</span><span class="mq-sep">·</span>
+            <span class="mq-item">STM32</span><span class="mq-sep">·</span>
+            <span class="mq-item">Hybrid A*</span><span class="mq-sep">·</span>
+            <span class="mq-item">Holonomic Kinematics</span><span class="mq-sep">·</span>
+            <span class="mq-item">BehaviorTree.CPP</span><span class="mq-sep">·</span>
+            <span class="mq-item">Ubuntu / Linux</span><span class="mq-sep">·</span>
+            <span class="mq-item">TF2</span><span class="mq-sep">·</span>
+            <span class="mq-item">RViz2</span><span class="mq-sep">·</span>
           </div>
         </div>
-
-        <!-- RIGHT COLUMN -->
-        <div>
-          <div class="skill-group">
-            <div class="sg-title">Mechanical Design</div>
-            <ul class="sg-list">
-              <li>SolidWorks — Parametric CAD</li>
-              <li>Full Assembly Design</li>
-              <li>Drivetrain Engineering</li>
-              <li>Swerve Drive Geometry</li>
-              <li>Differential Drive Systems</li>
-              <li>Bearing &amp; Shaft Sizing</li>
-              <li>Manufacturing Tolerancing</li>
-              <li>3D Printing</li>
-            </ul>
-          </div>
-
-          <div class="skill-group" style="margin-top: 2rem;">
-            <div class="sg-title">Programming</div>
-            <ul class="sg-list">
-              <li>C++ &amp; Python — primary ROS2 language</li>
-              <li>Python — scripting &amp; tooling</li>
-              <li>Linux / Bash Shell</li>
-              <li>Git &amp; GitHub</li>
-              <li>Colcon build system</li>
-            </ul>
-          </div>
-
-          <div class="skill-group" style="margin-top: 2rem;">
-            <div class="sg-title">Hardware &amp; Electronics</div>
-            <ul class="sg-list">
-              <li>Motor Driver Integration</li>
-              <li>IMU Calibration &amp; Fusion</li>
-              <li>Quadrature Encoder Interfacing</li>
-              <li>Embedded Microcontrollers</li>
-              <li>Serial Communication</li>
-              <li>Robot Hardware Bring-up</li>
-            </ul>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Skills grid -->
+      <div class="skills-showcase" data-aos="fade-up">
+
+        <!-- Robotics Middleware -->
+        <div class="skill-group">
+          <div class="sg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <div class="sg-title">Robotics Middleware</div>
+          <ul class="sg-list">
+            <li>ROS2 Humble</li>
+            <li>Nav2 Navigation Stack</li>
+            <li>TF2 Transform Library</li>
+            <li>RViz2 Visualisation</li>
+            <li>Gazebo Classic Sim</li>
+            <li>ROS2 Lifecycle Nodes</li>
+            <li>BehaviorTree.CPP (Nav2 BT)</li>
+            <li>ros2_control</li>
+          </ul>
+        </div>
+
+        <!-- Navigation & Localisation -->
+        <div class="skill-group">
+          <div class="sg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+            </svg>
+          </div>
+          <div class="sg-title">Navigation & Localisation</div>
+          <ul class="sg-list">
+            <li>SLAM Toolbox (online / lifelong)</li>
+            <li>AMCL — Monte Carlo</li>
+            <li>Extended Kalman Filter (EKF)</li>
+            <li>robot_localization package</li>
+            <li>Sensor Fusion (IMU + Odometry)</li>
+            <li>Costmap2D (Global & Local)</li>
+            <li>LIDAR & Encoder Integration</li>
+          </ul>
+        </div>
+
+        <!-- Path Planning -->
+        <div class="skill-group">
+          <div class="sg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7z"/><path d="M7 10v4H3m4 0h4v4"/>
+            </svg>
+          </div>
+          <div class="sg-title">Path Planning</div>
+          <ul class="sg-list">
+            <li>Custom Nav2 Planner Plugins (C++)</li>
+            <li>Hybrid A* Planning</li>
+            <li>Spline Trajectory Generation</li>
+            <li>Dubins Path Primitives</li>
+            <li>Holonomic Motion Planning</li>
+            <li>Velocity Profiling & Smoothing</li>
+            <li>Non-holonomic Constraints</li>
+          </ul>
+        </div>
+
+        <!-- Mechanical Design -->
+        <div class="skill-group">
+          <div class="sg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 0-14.14 0"/><path d="M4.93 19.07a10 10 0 0 0 14.14 0"/>
+            </svg>
+          </div>
+          <div class="sg-title">Mechanical Design</div>
+          <ul class="sg-list">
+            <li>SolidWorks — Parametric CAD</li>
+            <li>Full Assembly Design</li>
+            <li>Drivetrain Engineering</li>
+            <li>Swerve Drive Geometry</li>
+            <li>Differential Drive Systems</li>
+            <li>Bearing & Shaft Sizing</li>
+            <li>Manufacturing Tolerancing</li>
+            <li>3D Printing & Fabrication</li>
+          </ul>
+        </div>
+
+        <!-- Programming -->
+        <div class="skill-group">
+          <div class="sg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <div class="sg-title">Programming</div>
+          <ul class="sg-list">
+            <li>C++ — Primary ROS2 Language</li>
+            <li>Python — Scripting & Tooling</li>
+            <li>Linux / Bash Shell</li>
+            <li>Git & GitHub</li>
+            <li>Colcon Build System</li>
+            <li>CMake & ament_cmake</li>
+          </ul>
+        </div>
+
+        <!-- Hardware & Electronics -->
+        <div class="skill-group">
+          <div class="sg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
+            </svg>
+          </div>
+          <div class="sg-title">Hardware & Electronics</div>
+          <ul class="sg-list">
+            <li>STM32 Microcontrollers</li>
+            <li>Motor Driver Integration</li>
+            <li>IMU Calibration & Fusion</li>
+            <li>Quadrature Encoder Interfacing</li>
+            <li>Serial Communication</li>
+            <li>Robot Hardware Bring-up</li>
+          </ul>
+        </div>
+
+      </div><!-- /skills-showcase -->
 
     </div>
   </main>
@@ -155,9 +222,8 @@
   <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
@@ -166,13 +232,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-    });
-  </script>
+  <script>AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
-
 </html>

@@ -1,123 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SolidWorks Mechanical Design — Manav Parikh</title>
-  <meta name="description" content="Technical details on Robocon Mechanical Layouts.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Competition Mechanical Design — Manav Parikh</title>
+  <meta name="description" content="End-to-end SolidWorks mechanical design for DD Robocon competition robots — chassis, drivetrain, fabrication.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
-  <style>
-    .sys-diagram {
-      background: #111;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 2rem 0;
-      color: #0f0;
-      font-family: monospace;
-      white-space: pre;
-      overflow-x: auto;
-    }
-    .sys-section { margin-bottom: 2rem; }
-    .sys-section h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--ink-1); }
-    .sys-section p { font-size: 1.1rem; color: var(--ink-2); line-height: 1.6; }
-    .video-container { margin: 2rem 0; text-align: center; }
-  </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
-  <header class="navbar">
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html" class="active">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="#" class="dropdown-trigger">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </header>
 
   <main>
-    <div class="page" style="max-width: 800px; margin: 0 auto; padding-top: 6rem;">
-      <a href="projects.html" class="btn btn-ghost" style="margin-bottom: 2rem; display: inline-block;">← Back to Systems</a>
-      
-      <span class="p-eyebrow">Robotics Systems</span>
-      <h1 class="p-title" style="font-size: 3rem; margin-bottom: 1rem;">Mechanical Design & Structural Analysis</h1>
-      
-      <div class="video-container">
-        <!-- Replaced placeholder with direct <video> tag as per robotics portfolio best practices -->
-        <video controls width="100%" style="border-radius: 8px; border: 1px solid var(--border-color);">
-          <source src="assets/videos/cad_assembly_demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p style="color: var(--ink-3); margin-top: 0.5rem; font-size: 0.9rem;">SolidWorks assembly teardown and structural view.</p>
-      </div>
+    <div class="page">
+      <div class="sys-page">
 
-      <div class="sys-section">
-        <h3>Problem</h3>
-        <p>Competition robots require high structural rigidity while remaining under strict weight limits, necessitating careful drivetrain and component layouts.</p>
-      </div>
+        <a href="projects.html" class="sys-back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Back to Systems
+        </a>
 
-      <div class="sys-section">
-        <h3>Approach</h3>
-        <p>Adopted parametric CAD methodologies in SolidWorks for the end-to-end mechanical design, ensuring rapid iterative capabilities driven by payload and space constraints.</p>
-      </div>
+        <span class="p-eyebrow" data-aos="fade-up">System 04</span>
+        <h1 class="p-title" data-aos="fade-up" data-aos-delay="60" style="font-size:clamp(2.5rem,6vw,5rem);">
+          Competition<br><em>Mechanical Design</em>
+        </h1>
 
-      <div class="sys-section">
-        <h3>System Architecture</h3>
-        <div class="sys-diagram">
-Parametric Layout Sketch (Master Constraints)
-     ↓
-Subassembly: Drivetrain (Motors, Shafts, Bearings)
-     ↓
-Subassembly: Structural Chassis (Aluminum Profile / Sheet)
-     ↓
-Subassembly: End Effector / Mechanisms
-     ↓
-Top-Level Assembly Integration
-     ↓
-FEA (Stress / Deformation) -> Revision iteration
-     ↓
-Manufacturing Drawings (Tolerancing & GD&T)
+        <div class="tag-row" data-aos="fade-up" data-aos-delay="100" style="margin-bottom:0;">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Parametric CAD</span>
+          <span class="tag">Drivetrain Design</span>
+          <span class="tag">Structural Analysis</span>
+          <span class="tag">Manufacturing Tolerancing</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">DD Robocon</span>
         </div>
-      </div>
 
-      <div class="sys-section">
-        <h3>Implementation</h3>
-        <p>Designed fully custom 3WD swerve modules and robust differential drivetrains. Conducted FEA structural analysis to thin out non-load-bearing components. Defined bearing and shaft sizing based on dynamic shock loads.</p>
-      </div>
+        <!-- Hero media: CAD render or walkthrough video -->
+        <div class="sys-hero-media" data-aos="fade-up">
+          <!-- Option A: CAD animation video → assets/videos/cad_walkthrough.mp4 -->
+          <!-- Option B: High-res CAD render → assets/images/cad/hero_render.jpg -->
+          <video controls width="100%" style="height:100%;object-fit:cover;" id="cad-vid">
+            <source src="assets/videos/cad_walkthrough.mp4" type="video/mp4">
+          </video>
+          <img src="assets/images/cad/hero_render.jpg" alt="CAD Assembly Render" id="cad-img" style="display:none;width:100%;height:100%;object-fit:cover;">
+          <div class="media-placeholder" id="mech-ph" style="position:absolute;inset:0;">
+            <div class="mp-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div class="mp-label">CAD Render / Assembly Video</div>
+            <div class="mp-path">assets/videos/cad_walkthrough.mp4 · assets/images/cad/hero_render.jpg</div>
+          </div>
+        </div>
 
-      <div class="sys-section">
-        <h3>Result</h3>
-        <p>Produced competition-ready custom chassis that secured two-time National Podium placements at DD Robocon, operating reliably under heavy physical stress.</p>
-      </div>
-      
-      <div style="margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
-        <a href="https://github.com/manavparikh4905" target="_blank" class="btn btn-solid">View Source on GitHub</a>
+        <!-- Overview -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Overview</div>
+          <p>End-to-end mechanical design of Robocon competition robots in SolidWorks. Responsible for
+          the full parametric CAD assembly — chassis layout and structural frame, custom drivetrain design
+          for both differential and swerve configurations, bearing and shaft sizing, fastener selection,
+          and subsystem interfaces. Designs are developed against competition constraints with manufacturing
+          tolerances embedded throughout. Final assemblies are fabricated directly and fielded in competition.</p>
+        </div>
+
+        <!-- Design constraints -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Design Constraints</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-align:center;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--accent);">1m²</div>
+              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);">Max Footprint</div>
+            </div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-align:center;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--accent);">25kg</div>
+              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);">Weight Budget</div>
+            </div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-align:center;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--accent);">±0.1</div>
+              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);">Tolerance (mm)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAD Gallery -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">CAD Renders & Assemblies</div>
+          <!--
+            Drop your SolidWorks renders/exports into: assets/images/cad/
+            Recommended filenames:
+              cad_full_assembly.jpg
+              cad_drivetrain.jpg
+              cad_chassis.jpg
+              cad_swerve_module.jpg
+              cad_exploded.jpg
+          -->
+          <div class="sys-gallery" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+            <div class="sys-gallery-item">
+              <img src="assets/images/cad/cad_full_assembly.jpg" alt="Full Assembly" loading="lazy">
+              <div class="sys-gallery-caption">Full Assembly</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/cad/cad_drivetrain.jpg" alt="Drivetrain Detail" loading="lazy">
+              <div class="sys-gallery-caption">Drivetrain Detail</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/cad/cad_chassis.jpg" alt="Chassis Frame" loading="lazy">
+              <div class="sys-gallery-caption">Chassis Frame</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/cad/cad_swerve_module.jpg" alt="Swerve Module" loading="lazy">
+              <div class="sys-gallery-caption">Swerve Module</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/cad/cad_exploded.jpg" alt="Exploded View" loading="lazy">
+              <div class="sys-gallery-caption">Exploded View</div>
+            </div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-3);margin-top:0.75rem;letter-spacing:0.1em;">
+            Drop SolidWorks renders into assets/images/cad/ — they appear above automatically.
+          </div>
+        </div>
+
+        <!-- Hardware Gallery -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Fabricated Hardware</div>
+          <!--
+            Drop your real robot photos into: assets/images/hardware/
+            Recommended filenames:
+              hardware_chassis.jpg
+              hardware_drivetrain.jpg
+              hardware_full_robot.jpg
+              hardware_electronics.jpg
+          -->
+          <div class="sys-gallery">
+            <div class="sys-gallery-item">
+              <img src="assets/images/hardware/hardware_chassis.jpg" alt="Fabricated Chassis" loading="lazy">
+              <div class="sys-gallery-caption">Fabricated Chassis</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/hardware/hardware_drivetrain.jpg" alt="Drivetrain Assembly" loading="lazy">
+              <div class="sys-gallery-caption">Drivetrain Assembly</div>
+            </div>
+            <div class="sys-gallery-item">
+              <img src="assets/images/hardware/hardware_full_robot.jpg" alt="Complete Robot" loading="lazy">
+              <div class="sys-gallery-caption">Complete Robot</div>
+            </div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-3);margin-top:0.75rem;letter-spacing:0.1em;">
+            Drop hardware photos into assets/images/hardware/
+          </div>
+        </div>
+
+        <!-- Design process -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Design Process</div>
+          <p>Design begins with competition rules analysis to extract the footprint, height, weight,
+          and interaction requirements for the season. Parametric SolidWorks assemblies are built
+          top-down — starting with the chassis envelope, then the drivetrain geometry, then subsystem
+          interfaces. Bearing and shaft loads are calculated analytically; structural members are sized
+          with an appropriate safety factor. Manufacturing tolerances are embedded at every interface
+          — press fits, clearance fits, and fastener patterns are specified before fabrication begins.
+          Parts go directly to the workshop and onto the machine tool. The design-to-fabrication cycle
+          typically runs 3–4 weeks per major revision.</p>
+        </div>
+
+        <!-- Result -->
+        <div class="sys-section" data-aos="fade-up">
+          <div class="sys-section-title">Result</div>
+          <p>Two consecutive seasons of competition robots designed from scratch in SolidWorks,
+          fabricated, and fielded at the national level — returning a championship in 2024 and a
+          runners-up finish in 2025. Both robots were structurally reliable across the full competition
+          season, surviving repeated match cycles, field collisions, and transport without mechanical
+          failure of any primary system.</p>
+        </div>
+
+        <div style="padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;" data-aos="fade-up">
+          <a href="https://github.com/manavparikh4905" target="_blank" class="btn btn-solid">View on GitHub</a>
+          <a href="sys-ros-nav.html" class="btn btn-ghost">← ROS2 Navigation Stack</a>
+        </div>
+
       </div>
     </div>
   </main>
 
-  <footer style="margin-top: 4rem;">
+  <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    // Try video first, then fall back to image
+    const vid = document.querySelector('#cad-vid source');
+    const cadImg = document.getElementById('cad-img');
+    const ph = document.getElementById('mech-ph');
+    if (vid) {
+      const v = vid.parentElement;
+      v.addEventListener('loadeddata', () => { if(ph) ph.style.display='none'; });
+      v.addEventListener('error', () => {
+        v.style.display = 'none';
+        if (cadImg) {
+          cadImg.style.display = 'block';
+          cadImg.onload = () => { if(cadImg.naturalWidth > 0 && ph) ph.style.display='none'; };
+          if (cadImg.complete && cadImg.naturalWidth > 0 && ph) ph.style.display='none';
+        }
+      });
+      v.load();
+    }
+  </script>
 </body>
 </html>

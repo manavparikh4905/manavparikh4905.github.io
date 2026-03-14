@@ -1,111 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Notes — Manav Parikh</title>
-  <meta name="description" content="Technical writeups, thoughts, and deep-dives into robotics problems.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Notes — Manav Parikh</title>
+  <meta name="description" content="Engineering notes on ROS2, path planning, SLAM, and robotics systems by Manav Parikh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
-  <style>
-    .note-card {
-      background: var(--surface-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, background 0.3s ease;
-      cursor: pointer;
-    }
-    .note-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .note-date { font-size: 0.9rem; color: var(--accent-blue); font-weight: 500; margin-bottom: 0.5rem; display: block; }
-    .note-title { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--ink-1); }
-    .note-excerpt { font-size: 1.1rem; color: var(--ink-2); line-height: 1.5; }
-  </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
-  <header class="navbar">
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Systems</a></li>
       <li><a href="notes.html" class="active">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="#" class="dropdown-trigger">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <div class="n-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </header>
 
   <main>
-    <div class="page" style="max-width: 800px; margin: 0 auto; padding-top: 6rem;">
-      <span class="p-eyebrow">Engineering Documentation</span>
-      <h1 class="p-title" style="font-size: 3rem; margin-bottom: 1rem;">Engineering <em>Notes</em></h1>
-      <p class="p-lead" style="margin-bottom: 4rem;">
-        Short explanations, thought processes, and architectural decisions behind the systems I build. 
-        How I approach open problems in robotics.
+    <div class="page">
+
+      <span class="p-eyebrow" data-aos="fade-up">Engineering Notes</span>
+      <h1 class="p-title" data-aos="fade-up" data-aos-delay="60">Technical <em>Notes</em></h1>
+      <p class="p-lead" data-aos="fade-up" data-aos-delay="120">
+        Writeups on robotics systems, algorithm implementations, and lessons learned while building
+        competition hardware and navigation software. Raw technical notes — no fluff.
       </p>
 
-      <div class="notes-list">
-        
+      <div class="section-divider accent-line"></div>
+
+      <!-- Topics / deep-dive links -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.5rem;margin-bottom:3rem;" data-aos="fade-up">
+        <a href="topic-ros2.html"         class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">ROS2</a>
+        <a href="topic-pathplanning.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Path Planning</a>
+        <a href="topic-slam.html"         class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">SLAM</a>
+        <a href="topic-hardware.html"     class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Hardware</a>
+        <a href="topic-robocon.html"      class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Robocon</a>
+      </div>
+
+      <!-- Notes grid -->
+      <div class="notes-grid" data-aos="fade-up">
+
         <div class="note-card">
-          <span class="note-date">March 2026</span>
-          <h2 class="note-title">Why A* is Not Enough for Differential Drive Robots</h2>
+          <div class="note-date">Mar 2026 · Path Planning</div>
+          <div class="note-title">Implementing Hybrid A* as a Nav2 Global Planner Plugin</div>
           <p class="note-excerpt">
-            Discussing the limitations of standard grid-based A* pathfinding. Why kinematic constraints demand continuous state space expansion and how Dubins paths close the gap.
+            How to implement the nav2_core::GlobalPlanner interface in C++, wire into the Nav2 lifecycle,
+            and use Costmap2D for collision checking — from scratch.
           </p>
         </div>
 
         <div class="note-card">
-          <span class="note-date">February 2026</span>
-          <h2 class="note-title">Implementing a 3WD Custom Kinematics Node in ROS2</h2>
+          <div class="note-date">Feb 2026 · Kinematics</div>
+          <div class="note-title">3-Wheel Swerve Inverse Kinematics — Derivation</div>
           <p class="note-excerpt">
-            The math behind decomposing a global Twist command into three independent wheel speeds and orientations for omnidirectional movement.
+            Full derivation of the 3WD holonomic inverse kinematics model — from Twist (Vx, Vy, Vθ)
+            to individual wheel speed and steering angle commands.
           </p>
         </div>
 
         <div class="note-card">
-          <span class="note-date">January 2026</span>
-          <h2 class="note-title">Isolating Motor Noise: Hardware Lessons from Robocon</h2>
+          <div class="note-date">Jan 2026 · Localisation</div>
+          <div class="note-title">Tuning AMCL for Competition Field Conditions</div>
           <p class="note-excerpt">
-            How EMI from powerful BLDC motors disrupted our I2C bus and the shielding techniques we implemented to guarantee sensor reliability.
+            Practical guide to tuning AMCL particle count, motion model noise parameters, and
+            sensor models for the reflective floor surfaces common in Robocon competition arenas.
           </p>
         </div>
 
         <div class="note-card">
-          <span class="note-date">December 2025</span>
-          <h2 class="note-title">Tuning the EKF for Slippery Indoor Environments</h2>
+          <div class="note-date">Dec 2025 · Sensor Fusion</div>
+          <div class="note-title">EKF Sensor Fusion with robot_localization — Setup Guide</div>
           <p class="note-excerpt">
-            Adjusting covariance matrices in robot_localization to dynamically trust the BNO055 IMU more heavily than wheel odometry when wheel slip is detected.
+            Step-by-step configuration of robot_localization's EKF node to fuse wheel odometry and
+            IMU data for a reliable odom→base_link transform under competition conditions.
           </p>
         </div>
+
+        <div class="note-card">
+          <div class="note-date">Nov 2025 · SLAM</div>
+          <div class="note-title">SLAM Toolbox Online vs Lifelong Mapping Modes</div>
+          <p class="note-excerpt">
+            When to use online SLAM vs lifelong SLAM in competition, and how to serialize/deserialize
+            maps between rounds to save mapping time at the event.
+          </p>
+        </div>
+
+        <div class="note-card">
+          <div class="note-date">Oct 2025 · Mechanical</div>
+          <div class="note-title">Bearing Selection for Competition Robot Drivetrains</div>
+          <p class="note-excerpt">
+            How to calculate radial and axial loads on drivetrain shafts and select the appropriate
+            bearing type, size, and preload for the dynamic loads seen in competition.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="margin-top:2rem;text-align:center;" data-aos="fade-up">
+        <p style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;color:var(--ink-3);text-transform:uppercase;">More notes on specific topics below</p>
+      </div>
+
+      <!-- Topic sub-pages list -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:1.5rem;" data-aos="fade-up">
+
+        <a href="topic-ros2.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">ROS2 Notes</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">Lifecycle nodes, TF2, ros2_control</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+
+        <a href="topic-pathplanning.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Path Planning</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">Hybrid A*, Dubins, splines</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+
+        <a href="topic-slam.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">SLAM Notes</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">SLAM Toolbox, occupancy grids, AMCL</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+
+        <a href="topic-hardware.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Hardware Notes</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">STM32, encoders, motor drivers</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+
+        <a href="topic-robocon.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Robocon Notes</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">Competition strategy, tuning, lessons</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
 
       </div>
 
     </div>
   </main>
 
-  <footer style="margin-top: 4rem;">
+  <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  <script>AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
 </html>

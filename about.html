@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Manav Parikh</title>
-  <meta name="description"
-    content="Learn more about Manav Parikh, an engineering student at Nirma University focused on ROS2, Path Planning, and Autonomous Systems.">
+  <meta name="description" content="About Manav Parikh — Mechanical Engineering student at Nirma University, specializing in ROS2 autonomous systems and competition robotics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="projects.html">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
-            fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg></a>
+        <a href="#" class="dropdown-trigger">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -43,10 +40,9 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -56,80 +52,132 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal" data-aos="fade-up">About</span>
-      <h1 class="p-title reveal" data-aos="fade-up"><em>Background</em></h1>
-      <p class="p-lead reveal" data-aos="fade-up">Education, research focus, and academic profile.</p>
+      <span class="p-eyebrow" data-aos="fade-up">Background</span>
+      <h1 class="p-title" data-aos="fade-up" data-aos-delay="60">Who I <em>Am</em></h1>
 
-      <div class="prose reveal" data-aos="fade-up">
-        <p>
-          I am a <strong>third-year Mechanical Engineering student</strong> at Nirma University, Ahmedabad, with a
-          strong focus on autonomous robotics, robot navigation systems and designing CAD models for robots.
-          My work spans the full stack — from mechanical assembly design in SolidWorks to low-level sensor fusion and
-          high-level mission planning in ROS2.
-        </p>
-        <p>
-          My primary technical focus is the <strong>ROS2 ecosystem</strong>. I build and tune complete
-          autonomous navigation stacks using Nav2, SLAM Toolbox, and Adaptive Monte Carlo Localisation,
-          with an Extended Kalman Filter fusing wheel odometry and IMU data into a reliable pose estimate.
-          I am currently implementing custom path planning algorithms from scratch — as Nav2 plugins — for both
-          differential drive and three-wheel omnidirectional swerve robot configurations, going meaningfully
-          beyond the default planner behaviour.
-        </p>
-        <p>
-          On the mechanical side, I design full robot assemblies in <strong>SolidWorks</strong> — chassis structures,
-          custom drivetrain geometries and structural subsystems — with manufacturing tolerances built in from the
-          start.
-          These designs go directly to fabrication and onto the competition floor.
-        </p>
-        <p>
-          As a two-time national podium finisher at <strong>DD Robocon</strong>where the 2024 campaign ended in a
-          national championship; the 2025 campaign, with an entirely new robot and theme, ended as first runners up.
-        </p>
-      </div>
+      <div class="about-layout" data-aos="fade-up" data-aos-delay="120">
 
-      <div class="info-grid reveal" data-aos="fade-up">
+        <!-- Sidebar -->
+        <div class="about-sidebar">
+          <div class="profile-card">
+            <div class="profile-img-wrap">
+              <!-- Drop your photo at: assets/images/profile.jpg -->
+              <img src="assets/images/profile.jpg" alt="Manav Parikh" id="profile-img" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='flex';">
+              <div class="profile-placeholder" id="profile-placeholder" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">MP</div>
+            </div>
+            <div class="profile-name">Manav Parikh</div>
+            <div class="profile-role">Robotics & Systems Engineer</div>
+            <div class="profile-badges">
+              <span class="profile-badge">ROS2</span>
+              <span class="profile-badge">Nav2</span>
+              <span class="profile-badge">C++</span>
+              <span class="profile-badge">SolidWorks</span>
+              <span class="profile-badge">Robocon</span>
+            </div>
 
-        <div class="ic">
-          <div class="ic-l">Academic Performance</div>
-          <div class="ic-v">
-            <span class="ic-big" style="color: var(--ink);">7.72</span><span
-              style="font-size:1.2rem; color:var(--ink-3); font-weight: 500;"> / 10</span>
-            <div class="ic-s">Current CGPA</div>
-          </div>
-        </div>
-
-        <div class="ic">
-          <div class="ic-l">Institution</div>
-          <div class="ic-v">Nirma University
-            <div class="ic-s">B.Tech Mechanical Engineering · 2023–2027 · Ahmedabad</div>
-          </div>
-        </div>
-
-        <div class="ic">
-          <div class="ic-l">Current Research Focus</div>
-          <div class="ic-v">Custom Path Planning
-            <div class="ic-s">Differential Drive &amp; 3-Wheel Swerve Algorithms</div>
-          </div>
-        </div>
-
-        <div class="ic">
-          <div class="ic-l">Primary Technical Stack</div>
-          <div class="ic-v">ROS2 · Nav2 · C++
-            <div class="ic-s">SLAM Toolbox · AMCL · EKF · SolidWorks</div>
-          </div>
-        </div>
-
-        <div class="ic full" style="text-align: center;">
-          <div class="ic-l">Competition Record</div>
-          <div class="ic-v">
-            DD Robocon 2024 — <strong style="color: var(--accent);">National Champions</strong> &nbsp;·&nbsp;
-            DD Robocon 2025 — <strong style="color: var(--accent-alt);">1st Runners Up</strong>
-            <div class="ic-s" style="margin-top: 1rem;">Two consecutive years on the national podium · Nirma University
+            <div style="margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.5rem;">Quick Links</div>
+              <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                <a href="https://github.com/manavparikh4905" target="_blank" style="font-family:'Rajdhani',sans-serif;font-size:0.82rem;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-2)'">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/manav-parikh-7a2b44289/" target="_blank" style="font-family:'Rajdhani',sans-serif;font-size:0.82rem;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-2)'">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  LinkedIn
+                </a>
+                <a href="mailto:parikhmanav72@gmail.com" style="font-family:'Rajdhani',sans-serif;font-size:0.82rem;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-2)'">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                  Email
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-      </div>
+        <!-- Main content -->
+        <div>
+          <div class="prose" style="margin-bottom: 3rem;">
+            <p>
+              I am a <strong>third-year Mechanical Engineering student</strong> at Nirma University,
+              Ahmedabad, with a deep focus on autonomous robotics and robot navigation systems.
+              My work spans the full stack — from mechanical assembly design in SolidWorks to
+              low-level sensor fusion and high-level mission planning in ROS2.
+            </p>
+            <p>
+              My primary technical focus is the <strong>ROS2 ecosystem</strong>. I build and tune complete
+              autonomous navigation stacks using Nav2, SLAM Toolbox, and Adaptive Monte Carlo Localisation,
+              with an Extended Kalman Filter fusing wheel odometry and IMU data into a reliable pose estimate.
+              I am currently implementing custom path planning algorithms from scratch — as Nav2 plugins —
+              for both differential drive and three-wheel omnidirectional swerve configurations, going
+              meaningfully beyond default planner behaviour.
+            </p>
+            <p>
+              On the mechanical side, I design full robot assemblies in <strong>SolidWorks</strong> — chassis
+              structures, custom drivetrain geometries and structural subsystems — with manufacturing tolerances
+              built in from the start. These designs go directly to fabrication and onto the competition floor.
+            </p>
+            <p>
+              As a two-time national podium finisher at <strong>DD Robocon</strong> — the 2024 campaign ended
+              in a national championship; the 2025 campaign, with an entirely new robot and theme, ended as
+              first runners up — I understand what it means to engineer under pressure and deliver reliably
+              when it counts.
+            </p>
+          </div>
+
+          <div class="section-divider accent-line"></div>
+
+          <div class="info-grid" style="margin-top: 2rem;">
+            <div class="ic">
+              <div class="ic-l">Academic Performance</div>
+              <div class="ic-v">
+                <span class="ic-big" id="cgpa-count">7.72</span>
+                <span style="font-size:1rem;color:var(--ink-3);font-weight:400;"> / 10</span>
+                <div class="ic-s">Current CGPA</div>
+              </div>
+            </div>
+
+            <div class="ic">
+              <div class="ic-l">Institution</div>
+              <div class="ic-v">Nirma University
+                <div class="ic-s">B.Tech Mechanical Engineering · 2023–2027 · Ahmedabad, Gujarat</div>
+              </div>
+            </div>
+
+            <div class="ic">
+              <div class="ic-l">Current Research Focus</div>
+              <div class="ic-v">Custom Path Planning
+                <div class="ic-s">Differential Drive & 3-Wheel Swerve Nav2 Plugins in C++</div>
+              </div>
+            </div>
+
+            <div class="ic">
+              <div class="ic-l">Primary Technical Stack</div>
+              <div class="ic-v">ROS2 · Nav2 · C++
+                <div class="ic-s">SLAM Toolbox · AMCL · EKF · SolidWorks · STM32</div>
+              </div>
+            </div>
+
+            <div class="ic full">
+              <div class="ic-l">Competition Record</div>
+              <div class="ic-v" style="display:flex;gap:3rem;flex-wrap:wrap;align-items:center;">
+                <div>
+                  <span style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--accent);">#1</span>
+                  <div class="ic-s">DD Robocon 2024 — National Champions</div>
+                </div>
+                <div>
+                  <span style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ink-2);">#2</span>
+                  <div class="ic-s">DD Robocon 2025 — 1st Runners Up</div>
+                </div>
+                <div class="ic-s" style="max-width:360px;">
+                  Two consecutive years on the national podium · Representing Nirma University.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /main content -->
+      </div><!-- /about-layout -->
 
     </div>
   </main>
@@ -137,9 +185,8 @@
   <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
@@ -148,13 +195,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-    });
-  </script>
+  <script>AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
-
 </html>

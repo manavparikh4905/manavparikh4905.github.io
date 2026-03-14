@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Achievements — Manav Parikh</title>
-  <meta name="description" content="DD Robocon achievements and robotics competition awards by Manav Parikh.">
+  <meta name="description" content="DD Robocon 2024 National Champions & 2025 1st Runners Up — Manav Parikh's competition record.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger active">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12"
-            height="12" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg></a>
+        <a href="#" class="dropdown-trigger active">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link active"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -42,10 +40,9 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -55,80 +52,107 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal" data-aos="fade-up">Achievements</span>
-      <h1 class="p-title reveal" data-aos="fade-up">National <em>Recognition</em></h1>
-      <p class="p-lead reveal" data-aos="fade-up">
-        Competition results from DD Robocon — India's national-level robotics championship,
-        broadcast annually on Doordarshan Sports. Competing teams represent top engineering institutions across India.
+      <span class="p-eyebrow" data-aos="fade-up">Competition Record</span>
+      <h1 class="p-title" data-aos="fade-up" data-aos-delay="60">National <em>Recognition</em></h1>
+      <p class="p-lead" data-aos="fade-up" data-aos-delay="120">
+        DD Robocon — India's national-level robotics championship, broadcast on Doordarshan Sports.
+        Competing teams represent top engineering institutions across the country.
       </p>
 
-      <div class="stats reveal" data-aos="fade-up">
+      <!-- Stats -->
+      <div class="stats" data-aos="fade-up" data-aos-delay="180">
         <div class="stat">
-          <div class="stat-n" style="color: var(--accent-alt);">2×</div>
-          <div class="stat-l">National Podium</div>
+          <span class="stat-n" style="color:var(--accent);">2×</span>
+          <span class="stat-l">National Podium</span>
         </div>
         <div class="stat">
-          <div class="stat-n">#1</div>
-          <div class="stat-l">Robocon 2024</div>
+          <span class="stat-n">#1</span>
+          <span class="stat-l">Robocon 2024</span>
         </div>
         <div class="stat">
-          <div class="stat-n">#2</div>
-          <div class="stat-l">Robocon 2025</div>
+          <span class="stat-n">#2</span>
+          <span class="stat-l">Robocon 2025</span>
         </div>
       </div>
 
+      <div class="section-divider accent-line"></div>
+
+      <!-- Media — competition photos -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem;" data-aos="fade-up">
+        <!-- Drop competition photos here -->
+        <div class="sys-gallery-item" style="aspect-ratio:16/9;">
+          <img src="assets/images/competition/robocon_2024.jpg" alt="DD Robocon 2024 — National Champions" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:var(--bg-2);" id="ph-2024">
+            <span style="font-size:2.5rem;">🏆</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;color:var(--ink-3);">DD ROBOCON 2024</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--accent);">assets/images/competition/robocon_2024.jpg</span>
+          </div>
+          <div class="sys-gallery-caption">DD Robocon 2024 — National Champions</div>
+        </div>
+        <div class="sys-gallery-item" style="aspect-ratio:16/9;">
+          <img src="assets/images/competition/robocon_2025.jpg" alt="DD Robocon 2025 — 1st Runners Up" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:var(--bg-2);" id="ph-2025">
+            <span style="font-size:2.5rem;">🥈</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;color:var(--ink-3);">DD ROBOCON 2025</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--accent);">assets/images/competition/robocon_2025.jpg</span>
+          </div>
+          <div class="sys-gallery-caption">DD Robocon 2025 — 1st Runners Up</div>
+        </div>
+      </div>
+
+      <!-- Achievement entries -->
       <div class="ach-container">
-        <!-- ACHIEVEMENT 01 -->
-        <div class="ach-entry reveal" data-aos="fade-up">
+
+        <!-- 2024 -->
+        <div class="ach-entry" data-aos="fade-up">
           <div class="ach-icon">🏆</div>
           <div>
-            <div class="ach-year">DD Robocon 2024 · National Competition</div>
+            <div class="ach-year">DD Robocon 2024 · National Competition · Nirma University</div>
             <div class="ach-title">National Champions — 1st Place</div>
             <p class="ach-desc">
-              Secured first place at DD Robocon 2024, representing Nirma University against
-              the strongest engineering teams from across India. The competition, broadcast nationally
-              on DD Sports, is India's most visible robotics event at the undergraduate level.
+              Secured first place at DD Robocon 2024, representing Nirma University against the strongest
+              engineering teams from across India. The competition, broadcast nationally on DD Sports, is
+              India's most visible robotics event at the undergraduate level.
             </p>
-            <p class="ach-desc" style="margin-top:0.8rem; margin-bottom: 1.2rem;">
-              The result was the product of a full season's work: mechanical design and fabrication
-              in SolidWorks, a complete ROS2 autonomous navigation stack tuned on competition hardware,
-              and extensive field testing under competition-realistic conditions. Every subsystem
-              performed reliably on the day.
+            <p class="ach-desc">
+              The result was the product of a full season's work: mechanical design and fabrication in SolidWorks,
+              a complete ROS2 autonomous navigation stack tuned on competition hardware, and extensive field testing
+              under competition-realistic conditions. Every subsystem performed reliably on the day.
             </p>
-            <div class="pe-tags" style="margin-bottom: 0;">
-              <span class="pe-tag">1st Place National</span>
-              <span class="pe-tag">DD Robocon</span>
-              <span class="pe-tag">Nirma University</span>
-              <span class="pe-tag">2024</span>
+            <div class="tag-row">
+              <span class="tag">1st Place National</span>
+              <span class="tag">DD Robocon</span>
+              <span class="tag">Nirma University</span>
+              <span class="tag">2024</span>
             </div>
           </div>
         </div>
 
-        <!-- ACHIEVEMENT 02 -->
-        <div class="ach-entry reveal" data-aos="fade-up" style="border-bottom: none;">
+        <!-- 2025 -->
+        <div class="ach-entry" data-aos="fade-up" style="border-bottom:none;">
           <div class="ach-icon">🥈</div>
           <div>
-            <div class="ach-year">DD Robocon 2025 · National Competition</div>
+            <div class="ach-year">DD Robocon 2025 · National Competition · Nirma University</div>
             <div class="ach-title">First Runners Up — 2nd Place</div>
             <p class="ach-desc">
-              Returned to the national podium at DD Robocon 2025, finishing as first runners up.
-              Each Robocon season centres on a new international theme — the robot is designed and
-              built entirely from scratch, with different mechanical requirements, field geometry,
-              and task structure.
+              Returned to the national podium at DD Robocon 2025, finishing as first runners up. Each Robocon season
+              centres on a new international theme — the robot is designed and built entirely from scratch, with
+              different mechanical requirements, field geometry, and task structure.
             </p>
-            <p class="ach-desc" style="margin-top:0.8rem; margin-bottom: 1.2rem;">
-              Back-to-back podium finishes across two entirely different competition themes and
-              robot architectures reflect consistent engineering process, team cohesion, and
-              the ability to execute reliably under pressure — qualities that compound across seasons.
+            <p class="ach-desc">
+              Back-to-back podium finishes across two entirely different competition themes and robot architectures
+              reflect consistent engineering process, team cohesion, and the ability to execute reliably under
+              pressure — qualities that compound across seasons.
             </p>
-            <div class="pe-tags" style="margin-bottom: 0;">
-              <span class="pe-tag">2nd Place National</span>
-              <span class="pe-tag">DD Robocon</span>
-              <span class="pe-tag">Nirma University</span>
-              <span class="pe-tag">2025</span>
+            <div class="tag-row">
+              <span class="tag">2nd Place National</span>
+              <span class="tag">DD Robocon</span>
+              <span class="tag">Nirma University</span>
+              <span class="tag">2025</span>
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -137,9 +161,8 @@
   <footer>
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="projects.html">Systems</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="notes.html">Notes</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
@@ -148,13 +171,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-    });
-  </script>
+  <script>AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
-
 </html>

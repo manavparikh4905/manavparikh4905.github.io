@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — Manav Parikh</title>
-  <meta name="description"
-    content="Explore custom Nav2 plugins, sophisticated ROS2 stacks, and competition-ready hardware designs by Manav Parikh.">
+  <title>Systems — Manav Parikh</title>
+  <meta name="description" content="Robotics systems by Manav Parikh: custom Nav2 path planners, autonomous navigation stacks, and competition hardware.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="theme.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="theme.js" defer></script>
 </head>
-
 <body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="n-brand">
       <a href="index.html" class="n-name">Manav Parikh</a>
       <span class="n-sub">Robotics Engineer</span>
     </div>
-    <ul class="n-nav">
+    <ul class="n-nav" id="n-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html" class="active">Systems</a></li>
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-trigger">Showcase <svg class="dd-arrow" viewBox="0 0 24 24" width="12" height="12"
-            fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg></a>
+        <a href="#" class="dropdown-trigger">Showcase
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -43,10 +40,9 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -56,145 +52,226 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal" data-aos="fade-up">Systems Catalogue</span>
-      <h1 class="p-title reveal" data-aos="fade-up">Robotics Systems I <em>Built</em></h1>
-      <p class="p-lead reveal" data-aos="fade-up">
-        A detailed catalogue of robotics engineering projects spanning custom path planning, autonomous navigation stacks,
-        and mechanical design for competition hardware. Built natively and deployed to hardware.
+      <span class="p-eyebrow" data-aos="fade-up">Systems Catalogue</span>
+      <h1 class="p-title" data-aos="fade-up" data-aos-delay="60">Robotics Systems I <em>Built</em></h1>
+      <p class="p-lead" data-aos="fade-up" data-aos-delay="120">
+        Custom path planners, full autonomous navigation stacks, and competition-grade mechanical
+        hardware. Every system deployed to real hardware and tested under competition conditions.
       </p>
 
-      <div class="projects-container">
-        <!-- 01 -->
-        <div class="project-entry reveal" data-aos="fade-up">
-          <div class="pe-header">
-            <span class="pe-num">01</span>
-            <span class="pe-title">Path Planner for Differential Drive Robots</span>
+      <div class="section-divider accent-line"></div>
+
+      <!-- PROJECT GRID -->
+      <div class="projects-grid" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- ─── PROJECT 01 ─────────────────────────────────────── -->
+        <div class="project-card">
+          <div class="pc-info">
+            <div class="pc-num">01</div>
+            <div class="pc-meta">Ongoing · ROS2 · C++ · Nav2 Plugin</div>
+            <h2 class="pc-title">Path Planner for Differential Drive Robots</h2>
+            <p class="pc-body">
+              A from-scratch Hybrid A* path planning algorithm implemented as a drop-in Nav2 global planner
+              plugin in C++. Generates smooth, curvature-continuous trajectories using Dubins primitives
+              with non-holonomic curvature bounds, adaptive lookahead, and dynamic velocity profiling.
+            </p>
+
+            <!-- Problem / Tech / Result -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem;">
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Problem</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Standard A* violates differential drive kinematics — zig-zag paths that require stop-and-turn mechanics.</p>
+              </div>
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Result</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Smooth, dynamically feasible trajectories in highly cluttered environments without stopping.</p>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">ROS2</span>
+              <span class="tag">C++</span>
+              <span class="tag">Hybrid A*</span>
+              <span class="tag">Nav2 Plugin API</span>
+              <span class="tag">Costmap2D</span>
+              <span class="tag">Dubins Paths</span>
+            </div>
+            <div class="btn-row" style="margin-top: 1.5rem;">
+              <a href="sys-diff-drive.html" class="btn btn-solid">View System Details</a>
+            </div>
           </div>
-          <div class="pe-meta">Ongoing · ROS2 · C++ · Nav2 Plugin</div>
-          <p class="pe-body">
-            A from-scratch path planning algorithm for differential drive robots, implemented as a
-            drop-in Nav2 global planner plugin in C++. The planner generates smooth, curvature-continuous
-            trajectories using spline interpolation with non-holonomic curvature bounds, adaptive lookahead
-            distance, and dynamic velocity profiling tuned to the robot's physical constraints.
-          </p>
-          <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
-            The implementation integrates directly with Nav2's lifecycle management and the Costmap2D
-            infrastructure, allowing seamless drop-in replacement in any standard ROS2 navigation setup
-            without changes to the broader stack.
-          </p>
-          <div class="pe-tags">
-            <span class="pe-tag">ROS2</span>
-            <span class="pe-tag">C++</span>
-            <span class="pe-tag">Nav2 Plugin API</span>
-            <span class="pe-tag">Spline Trajectories</span>
-            <span class="pe-tag">Costmap2D</span>
-            <span class="pe-tag">Non-holonomic</span>
-          </div>
-          <div class="btn-row" style="margin-top: 1.5rem;">
-            <a href="sys-diff-drive.html" class="btn btn-solid">View System Details</a>
+
+          <div class="pc-media">
+            <!-- Drop: assets/videos/hybrid_astar_demo.mp4 -->
+            <video autoplay loop muted playsinline>
+              <source src="assets/videos/hybrid_astar_demo.mp4" type="video/mp4">
+            </video>
+            <div class="media-placeholder">
+              <div class="mp-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="mp-label">Hybrid A* Demo</div>
+              <div class="mp-path">assets/videos/hybrid_astar_demo.mp4</div>
+            </div>
           </div>
         </div>
 
-        <!-- 02 -->
-        <div class="project-entry reveal" data-aos="fade-up">
-          <div class="pe-header">
-            <span class="pe-num">02</span>
-            <span class="pe-title">Path Planner for 3-Wheel Omnidirectional (Swerve) Drive</span>
+        <!-- ─── PROJECT 02 ─────────────────────────────────────── -->
+        <div class="project-card">
+          <div class="pc-info">
+            <div class="pc-num">02</div>
+            <div class="pc-meta">Ongoing · ROS2 · C++ · Holonomic Kinematics</div>
+            <h2 class="pc-title">Path Planner — 3-Wheel Omnidirectional Swerve</h2>
+            <p class="pc-body">
+              Extension to the kinematically richer 3-wheel omnidirectional swerve configuration.
+              Custom kinematic modelling of 3WD geometry, holonomic velocity decomposition into
+              per-wheel speed and heading commands, and fully decoupled heading control.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem;">
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Problem</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Differential drive cannot translate independently of heading — limiting competition task precision.</p>
+              </div>
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Result</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Robot translates freely in any direction while reorienting to face targets simultaneously.</p>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">ROS2</span>
+              <span class="tag">C++</span>
+              <span class="tag">Holonomic</span>
+              <span class="tag">3WD Swerve</span>
+              <span class="tag">Heading Decoupling</span>
+              <span class="tag">STM32</span>
+            </div>
+            <div class="btn-row" style="margin-top: 1.5rem;">
+              <a href="sys-swerve.html" class="btn btn-solid">View System Details</a>
+            </div>
           </div>
-          <div class="pe-meta">Ongoing · ROS2 · C++ · Holonomic Kinematics</div>
-          <p class="pe-body">
-            Extension of the path planner to the kinematically richer three-wheel omnidirectional
-            swerve configuration — a holonomic platform capable of simultaneous independent translation
-            and rotation. The work involves custom kinematic modelling of the 3WD geometry, holonomic
-            velocity decomposition into per-wheel speed and heading commands, and heading-independent
-            motion planning.
-          </p>
-          <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
-            The planner supports fully decoupled heading control — the robot can translate in any direction
-            while maintaining an arbitrary field-relative orientation — which is critical for competition
-            tasks requiring precise positioning while facing a fixed target.
-          </p>
-          <div class="pe-tags">
-            <span class="pe-tag">ROS2</span>
-            <span class="pe-tag">C++</span>
-            <span class="pe-tag">Holonomic Kinematics</span>
-            <span class="pe-tag">3WD Swerve Geometry</span>
-            <span class="pe-tag">Heading Decoupling</span>
-          </div>
-          <div class="btn-row" style="margin-top: 1.5rem;">
-            <a href="sys-swerve.html" class="btn btn-solid">View System Details</a>
+
+          <div class="pc-media">
+            <!-- Drop: assets/videos/swerve_demo.mp4 -->
+            <video autoplay loop muted playsinline>
+              <source src="assets/videos/swerve_demo.mp4" type="video/mp4">
+            </video>
+            <div class="media-placeholder">
+              <div class="mp-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="mp-label">Swerve Drive Demo</div>
+              <div class="mp-path">assets/videos/swerve_demo.mp4</div>
+            </div>
           </div>
         </div>
 
-        <!-- 03 -->
-        <div class="project-entry reveal" data-aos="fade-up">
-          <div class="pe-header">
-            <span class="pe-num">03</span>
-            <span class="pe-title">Robocon Autonomous Navigation Stack</span>
+        <!-- ─── PROJECT 03 ─────────────────────────────────────── -->
+        <div class="project-card">
+          <div class="pc-info">
+            <div class="pc-num">03</div>
+            <div class="pc-meta">Completed · ROS2 · Full Stack · DD Robocon</div>
+            <h2 class="pc-title">Robocon Autonomous Navigation Stack</h2>
+            <p class="pc-body">
+              Complete ROS2 autonomous stack built for competition. SLAM Toolbox builds a live occupancy grid.
+              AMCL provides probabilistic Monte Carlo localisation. EKF from robot_localization fuses
+              wheel odometry and IMU. Nav2 BehaviorTree handles high-level mission sequencing.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem;">
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Problem</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Competition robots need reliable autonomous navigation on unknown fields under real-time pressure.</p>
+              </div>
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Result</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Tuned, tested, and deployed on hardware. Contributed to back-to-back national podium finishes.</p>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">SLAM Toolbox</span>
+              <span class="tag">AMCL</span>
+              <span class="tag">EKF</span>
+              <span class="tag">Nav2</span>
+              <span class="tag">BehaviorTree.CPP</span>
+              <span class="tag">robot_localization</span>
+            </div>
+            <div class="btn-row" style="margin-top: 1.5rem;">
+              <a href="sys-ros-nav.html" class="btn btn-solid">View System Details</a>
+            </div>
           </div>
-          <div class="pe-meta">Completed · ROS2 · Full Stack</div>
-          <p class="pe-body">
-            Complete ROS2 autonomous navigation stack built for competition robots at DD Robocon. SLAM Toolbox runs
-            online to build a live occupancy grid of the competition field. Once a map is established, AMCL provides
-            probabilistic Monte Carlo localisation within it. An Extended Kalman Filter from the robot_localization
-            package fuses wheel odometry and IMU data into a robust pose estimate.
-          </p>
-          <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
-            Nav2's BehaviorTree-based mission executor handles high-level task sequencing.
-            The full stack was tuned, tested, and deployed on hardware.
-          </p>
-          <div class="pe-tags">
-            <span class="pe-tag">ROS2</span>
-            <span class="pe-tag">SLAM Toolbox</span>
-            <span class="pe-tag">AMCL</span>
-            <span class="pe-tag">EKF</span>
-            <span class="pe-tag">Nav2</span>
-            <span class="pe-tag">BehaviorTree.CPP</span>
-          </div>
-          <div class="btn-row" style="margin-top: 1.5rem;">
-            <a href="sys-ros-nav.html" class="btn btn-solid">View System Details</a>
+
+          <div class="pc-media">
+            <!-- Drop: assets/videos/ros_nav_demo.mp4 -->
+            <video autoplay loop muted playsinline>
+              <source src="assets/videos/ros_nav_demo.mp4" type="video/mp4">
+            </video>
+            <div class="media-placeholder">
+              <div class="mp-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+              <div class="mp-label">Navigation Demo</div>
+              <div class="mp-path">assets/videos/ros_nav_demo.mp4</div>
+            </div>
           </div>
         </div>
 
-        <!-- 04 -->
-        <div class="project-entry reveal" data-aos="fade-up">
-          <div class="pe-header">
-            <span class="pe-num">04</span>
-            <span class="pe-title">Competition Robot Mechanical Design (SolidWorks)</span>
+        <!-- ─── PROJECT 04 ─────────────────────────────────────── -->
+        <div class="project-card">
+          <div class="pc-info">
+            <div class="pc-num">04</div>
+            <div class="pc-meta">SolidWorks · CAD Assembly · Drivetrain Engineering</div>
+            <h2 class="pc-title">Competition Robot Mechanical Design</h2>
+            <p class="pc-body">
+              End-to-end mechanical design of Robocon competition robots. Full parametric CAD assemblies —
+              chassis layout, custom drivetrain geometry (differential and swerve), bearing and shaft sizing,
+              fastener selection, and manufacturing tolerances built in from the start.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem;">
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Constraints</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Footprint limits, weight budgets, and field interaction requirements with competition-grade tolerances.</p>
+              </div>
+              <div>
+                <div style="font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;">Result</div>
+                <p style="font-size:0.82rem;color:var(--ink-3);line-height:1.6;font-weight:300;">Fabricated directly and fielded. 2× national podium with these designs on the floor.</p>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">SolidWorks</span>
+              <span class="tag">Parametric CAD</span>
+              <span class="tag">Drivetrain Design</span>
+              <span class="tag">Structural Analysis</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Al Fabrication</span>
+            </div>
+            <div class="btn-row" style="margin-top: 1.5rem;">
+              <a href="sys-mech.html" class="btn btn-solid">View Hardware Specs</a>
+            </div>
           </div>
-          <div class="pe-meta">SolidWorks · CAD Assembly · Drivetrain Engineering</div>
-          <p class="pe-body">
-            End-to-end mechanical design of Robocon competition robots in SolidWorks. Responsible
-            for full parametric CAD assembly — chassis layout and structural frame, custom drivetrain
-            design for both differential and swerve configurations, bearing and shaft sizing, fastener
-            selection, and subsystem interfaces.
-          </p>
-          <p class="pe-body" style="margin-top:0; margin-bottom:1.2rem;">
-            Designs are developed against competition constraints — footprint limits, weight budgets,
-            and field interaction requirements — with manufacturing tolerances embedded throughout.
-            Final assemblies are fabricated directly and fielded in competition.
-          </p>
-          <div class="pe-tags">
-            <span class="pe-tag">SolidWorks</span>
-            <span class="pe-tag">Parametric CAD</span>
-            <span class="pe-tag">Drivetrain Design</span>
-            <span class="pe-tag">Structural Analysis</span>
-            <span class="pe-tag">Manufacturing Tolerancing</span>
-          </div>
-          <div class="btn-row" style="margin-top: 1.5rem;">
-            <a href="sys-mech.html" class="btn btn-solid">View System Details</a>
+
+          <div class="pc-media">
+            <!-- Drop: assets/images/cad/mech_design_render.jpg
+                  or: assets/videos/cad_walkthrough.mp4 -->
+            <img src="assets/images/cad/mech_design_render.jpg" alt="Mechanical Design CAD" loading="lazy">
+            <div class="media-placeholder">
+              <div class="mp-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <div class="mp-label">CAD Render</div>
+              <div class="mp-path">assets/images/cad/mech_design_render.jpg</div>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
+      </div><!-- /projects-grid -->
+
+    </div><!-- /page -->
   </main>
 
   <footer>
-    <span>© 2026 Manav Parikh · Mechatronics Engineer</span>
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
-      <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="achievements.html">Achievements</a> &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="achievements.html">Achievements</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
@@ -204,12 +281,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    // Auto-hide placeholders when media loads
+    document.querySelectorAll('.pc-media').forEach(container => {
+      const vid = container.querySelector('video source');
+      const img = container.querySelector('img');
+      const ph  = container.querySelector('.media-placeholder');
+      if (!ph) return;
+      if (vid) { const v = vid.parentElement; v.addEventListener('loadeddata', () => { ph.style.display='none'; }); v.load(); }
+      if (img) { img.onload = () => { if (img.naturalWidth > 0) ph.style.display='none'; }; if (img.complete && img.naturalWidth > 0) ph.style.display='none'; }
     });
   </script>
 </body>
-
 </html>
