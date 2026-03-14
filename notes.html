@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes — Manav Parikh</title>
-  <meta name="description" content="Engineering notes on ROS2, path planning, SLAM, and robotics systems by Manav Parikh.">
+  <meta name="description"
+    content="Engineering notes on ROS2, path planning, SLAM, and robotics systems by Manav Parikh.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="theme.js" defer></script>
 </head>
+
 <body>
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
@@ -27,12 +32,15 @@
       <li><a href="notes.html" class="active">Notes</a></li>
       <li class="has-dropdown">
         <a href="#" class="dropdown-trigger">Showcase
-          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -40,9 +48,10 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -62,12 +71,14 @@
       <div class="section-divider accent-line"></div>
 
       <!-- Topics / deep-dive links -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.5rem;margin-bottom:3rem;" data-aos="fade-up">
-        <a href="topic-ros2.html"         class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">ROS2</a>
-        <a href="topic-pathplanning.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Path Planning</a>
-        <a href="topic-slam.html"         class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">SLAM</a>
-        <a href="topic-hardware.html"     class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Hardware</a>
-        <a href="topic-robocon.html"      class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Robocon</a>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.5rem;margin-bottom:3rem;"
+        data-aos="fade-up">
+        <a href="topic-ros2.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">ROS2</a>
+        <a href="topic-pathplanning.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Path
+          Planning</a>
+        <a href="topic-slam.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">SLAM</a>
+        <a href="topic-hardware.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Hardware</a>
+        <a href="topic-robocon.html" class="gf-btn" style="text-align:center;padding:0.6rem 1rem;">Robocon</a>
       </div>
 
       <!-- Notes grid -->
@@ -130,50 +141,94 @@
       </div>
 
       <div style="margin-top:2rem;text-align:center;" data-aos="fade-up">
-        <p style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;color:var(--ink-3);text-transform:uppercase;">More notes on specific topics below</p>
+        <p
+          style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;color:var(--ink-3);text-transform:uppercase;">
+          More notes on specific topics below</p>
       </div>
 
       <!-- Topic sub-pages list -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:1.5rem;" data-aos="fade-up">
+      <div
+        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:1.5rem;"
+        data-aos="fade-up">
 
-        <a href="topic-ros2.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+        <a href="topic-ros2.html"
+          style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;"
+          onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'"
+          onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">ROS2 Notes</div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">Lifecycle nodes, TF2, ros2_control</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">ROS2 Notes
+            </div>
+            <div
+              style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">
+              Lifecycle nodes, TF2, ros2_control</div>
           </div>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
 
-        <a href="topic-pathplanning.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+        <a href="topic-pathplanning.html"
+          style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;"
+          onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'"
+          onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Path Planning</div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">Hybrid A*, Dubins, splines</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Path
+              Planning</div>
+            <div
+              style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">
+              Hybrid A*, Dubins, splines</div>
           </div>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
 
-        <a href="topic-slam.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+        <a href="topic-slam.html"
+          style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;"
+          onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'"
+          onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">SLAM Notes</div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">SLAM Toolbox, occupancy grids, AMCL</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">SLAM Notes
+            </div>
+            <div
+              style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">
+              SLAM Toolbox, occupancy grids, AMCL</div>
           </div>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
 
-        <a href="topic-hardware.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+        <a href="topic-hardware.html"
+          style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;"
+          onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'"
+          onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Hardware Notes</div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">STM32, encoders, motor drivers</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Hardware
+              Notes</div>
+            <div
+              style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">
+              STM32, encoders, motor drivers</div>
           </div>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
 
-        <a href="topic-robocon.html" style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
+        <a href="topic-robocon.html"
+          style="background:var(--bg);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;color:var(--ink-2);transition:background 0.2s,color 0.2s;"
+          onmouseover="this.style.background='var(--bg-2)';this.style.color='var(--ink)'"
+          onmouseout="this.style.background='var(--bg)';this.style.color='var(--ink-2)'">
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Robocon Notes</div>
-            <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">Competition strategy, tuning, lessons</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);">Robocon
+              Notes</div>
+            <div
+              style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--ink-3);margin-top:0.2rem;">
+              Competition strategy, tuning, lessons</div>
           </div>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
 
       </div>
@@ -195,4 +250,5 @@
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
   <script>AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
+
 </html>

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ═══════════════════════════════════════════════
   //  CUSTOM CURSOR
   // ═══════════════════════════════════════════════
-  const dot  = document.getElementById('cursor-dot');
+  const dot = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
 
   if (dot && ring && window.innerWidth > 900) {
@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mousemove', e => {
       mx = e.clientX; my = e.clientY;
-      dot.style.left  = mx + 'px';
-      dot.style.top   = my + 'px';
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
     });
 
     (function ringLoop() {
       rx += (mx - rx) * 0.10;
       ry += (my - ry) * 0.10;
       ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
+      ring.style.top = ry + 'px';
       requestAnimationFrame(ringLoop);
     })();
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } else {
     // Hide cursor elements on touch/mobile
-    if (dot)  dot.style.display  = 'none';
+    if (dot) dot.style.display = 'none';
     if (ring) ring.style.display = 'none';
   }
 
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ripple = document.createElement('div');
     ripple.className = 'click-ripple';
     ripple.style.left = e.clientX + 'px';
-    ripple.style.top  = e.clientY + 'px';
+    ripple.style.top = e.clientY + 'px';
     document.body.appendChild(ripple);
     setTimeout(() => ripple.remove(), 700);
   });
@@ -214,15 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const num = parseFloat(raw);
       if (isNaN(num)) return;
       countObs.unobserve(el);
-      const isFloat  = raw.includes('.');
-      const prefix   = raw.match(/^[^0-9.]*/)?.[0] || '';
-      const suffix   = raw.match(/[^0-9.]*$/)?.[0]  || '';
+      const isFloat = raw.includes('.');
+      const prefix = raw.match(/^[^0-9.]*/)?.[0] || '';
+      const suffix = raw.match(/[^0-9.]*$/)?.[0] || '';
       const dur = 1400;
       const start = performance.now();
       (function tick(now) {
-        const p    = Math.min((now - start) / dur, 1);
+        const p = Math.min((now - start) / dur, 1);
         const ease = 1 - Math.pow(1 - p, 3);
-        const val  = num * ease;
+        const val = num * ease;
         el.textContent = prefix + (isFloat ? val.toFixed(2) : Math.round(val)) + suffix;
         if (p < 1) requestAnimationFrame(tick);
       })(start);
@@ -237,9 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth > 900) {
     document.querySelectorAll('.skill-group, .ic, .note-card, .contact-icon-card').forEach(el => {
       el.addEventListener('mousemove', e => {
-        const r  = el.getBoundingClientRect();
-        const rx = ((e.clientY - r.top)  / r.height - 0.5) * -5;
-        const ry = ((e.clientX - r.left) / r.width  - 0.5) * 5;
+        const r = el.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - 0.5) * -5;
+        const ry = ((e.clientX - r.left) / r.width - 0.5) * 5;
         el.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
       });
       el.addEventListener('mouseleave', () => el.style.transform = '');
@@ -253,8 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.btn').forEach(el => {
       el.addEventListener('mousemove', e => {
         const r = el.getBoundingClientRect();
-        const dx = (e.clientX - r.left - r.width  / 2) * 0.18;
-        const dy = (e.clientY - r.top  - r.height / 2) * 0.18;
+        const dx = (e.clientX - r.left - r.width / 2) * 0.18;
+        const dy = (e.clientY - r.top - r.height / 2) * 0.18;
         el.style.transform = `translate(${dx}px, ${dy}px)`;
       });
       el.addEventListener('mouseleave', () => el.style.transform = '');
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ═══════════════════════════════════════════════
   //  GALLERY FILTER TABS
   // ═══════════════════════════════════════════════
-  const filterBtns  = document.querySelectorAll('.gf-btn[data-filter]');
+  const filterBtns = document.querySelectorAll('.gf-btn[data-filter]');
   const galleryCards = document.querySelectorAll('.gallery-card[data-category]');
 
   filterBtns.forEach(btn => {
@@ -283,10 +283,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ═══════════════════════════════════════════════
   const lightbox = document.getElementById('lightbox');
   if (lightbox) {
-    const lbImg   = document.getElementById('lb-img');
+    const lbImg = document.getElementById('lb-img');
     const lbClose = lightbox.querySelector('.lb-close');
-    const lbPrev  = lightbox.querySelector('.lb-prev');
-    const lbNext  = lightbox.querySelector('.lb-next');
+    const lbPrev = lightbox.querySelector('.lb-prev');
+    const lbNext = lightbox.querySelector('.lb-next');
     let items = [], idx = 0;
 
     function collectItems() {
@@ -319,9 +319,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape')      closeLB();
-      if (e.key === 'ArrowLeft')   openLB(idx - 1);
-      if (e.key === 'ArrowRight')  openLB(idx + 1);
+      if (e.key === 'Escape') closeLB();
+      if (e.key === 'ArrowLeft') openLB(idx - 1);
+      if (e.key === 'ArrowRight') openLB(idx + 1);
     });
   }
 

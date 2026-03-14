@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,14 @@
   <meta name="description" content="Complete ROS2 Autonomous Navigation Stack — SLAM, AMCL, EKF, Nav2 for DD Robocon.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="theme.js" defer></script>
 </head>
+
 <body>
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>
@@ -27,12 +31,15 @@
       <li><a href="notes.html">Notes</a></li>
       <li class="has-dropdown">
         <a href="#" class="dropdown-trigger">Showcase
-          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <svg class="dd-arrow" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </a>
         <div class="dropdown-panel">
           <a href="achievements.html" class="dropdown-link"><span class="dl-emoji">🏆</span> Achievements</a>
-          <a href="gallery.html"      class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
-          <a href="skills.html"       class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
+          <a href="gallery.html" class="dropdown-link"><span class="dl-emoji">📸</span> Gallery</a>
+          <a href="skills.html" class="dropdown-link"><span class="dl-emoji">⚡</span> Skills</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -40,9 +47,10 @@
     <div class="n-actions">
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"></button>
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
@@ -54,7 +62,9 @@
       <div class="sys-page">
 
         <a href="projects.html" class="sys-back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
           Back to Systems
         </a>
 
@@ -81,7 +91,9 @@
             <source src="assets/videos/ros_nav_demo.mp4" type="video/mp4">
           </video>
           <div class="media-placeholder" id="nav-ph" style="position:absolute;inset:0;">
-            <div class="mp-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+            <div class="mp-icon"><svg viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg></div>
             <div class="mp-label">Autonomous Navigation Demo</div>
             <div class="mp-path">assets/videos/ros_nav_demo.mp4</div>
           </div>
@@ -91,36 +103,36 @@
         <div class="sys-section" data-aos="fade-up">
           <div class="sys-section-title">Overview</div>
           <p>Complete ROS2 autonomous navigation stack built for competition robots at DD Robocon.
-          Designed to operate on unknown competition fields under real-time pressure, the stack
-          chains SLAM, localisation, sensor fusion, and mission planning into a single deployable
-          system that runs on the robot hardware without modification from simulation to field.</p>
+            Designed to operate on unknown competition fields under real-time pressure, the stack
+            chains SLAM, localisation, sensor fusion, and mission planning into a single deployable
+            system that runs on the robot hardware without modification from simulation to field.</p>
         </div>
 
         <!-- System architecture -->
         <div class="sys-section" data-aos="fade-up">
           <div class="sys-section-title">System Architecture</div>
           <div class="sys-diagram">Sensors
-├── LIDAR  ──────────────────→ SLAM Toolbox (online mapping)
-│   (occupancy grid)           └→ /map topic
-│
-├── IMU    ──────┐
-│               ├──→ robot_localization (EKF)
-└── Wheel Odom ─┘    └→ /odometry/filtered → /tf: odom → base_link
-    (encoders)
-                              ↓
-                     AMCL Localisation
-                     (Monte Carlo, 500 particles)
-                     └→ /tf: map → odom  (pose in map frame)
+            ├── LIDAR ──────────────────→ SLAM Toolbox (online mapping)
+            │ (occupancy grid) └→ /map topic
+            │
+            ├── IMU ──────┐
+            │ ├──→ robot_localization (EKF)
+            └── Wheel Odom ─┘ └→ /odometry/filtered → /tf: odom → base_link
+            (encoders)
+            ↓
+            AMCL Localisation
+            (Monte Carlo, 500 particles)
+            └→ /tf: map → odom (pose in map frame)
 
-                              ↓
-                     Nav2 Stack
-                     ├── BT Navigator (mission sequencer)
-                     │   └── BehaviorTree.CPP XML trees
-                     ├── Planner Server (global path)
-                     └── Controller Server (cmd_vel → /cmd_vel)
+            ↓
+            Nav2 Stack
+            ├── BT Navigator (mission sequencer)
+            │ └── BehaviorTree.CPP XML trees
+            ├── Planner Server (global path)
+            └── Controller Server (cmd_vel → /cmd_vel)
 
-                              ↓
-                     Jetson Nano → STM32 → Motors</div>
+            ↓
+            Jetson Nano → STM32 → Motors</div>
         </div>
 
         <!-- Components -->
@@ -128,20 +140,36 @@
           <div class="sys-section-title">Stack Components</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">SLAM Toolbox</div>
-              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">Runs online to build a live occupancy grid of the competition field from LIDAR scans. Lifelong mapping mode allows the map to be refined continuously as the robot navigates.</p>
+              <div
+                style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">
+                SLAM Toolbox</div>
+              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">Runs online to build a
+                live occupancy grid of the competition field from LIDAR scans. Lifelong mapping mode allows the map to
+                be refined continuously as the robot navigates.</p>
             </div>
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">AMCL</div>
-              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">Adaptive Monte Carlo Localisation provides probabilistic pose estimates within the established map. Particle filter converges reliably even from a poor initial pose estimate on competition fields.</p>
+              <div
+                style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">
+                AMCL</div>
+              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">Adaptive Monte Carlo
+                Localisation provides probabilistic pose estimates within the established map. Particle filter converges
+                reliably even from a poor initial pose estimate on competition fields.</p>
             </div>
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">Extended Kalman Filter</div>
-              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">robot_localization package fuses wheel odometry and IMU data into a robust, low-drift pose estimate at high frequency — providing the stable odom→base_link transform required by the navigation stack.</p>
+              <div
+                style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">
+                Extended Kalman Filter</div>
+              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">robot_localization
+                package fuses wheel odometry and IMU data into a robust, low-drift pose estimate at high frequency —
+                providing the stable odom→base_link transform required by the navigation stack.</p>
             </div>
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">BehaviorTree.CPP</div>
-              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">Nav2's BT-based mission executor handles high-level task sequencing — waypoint following, recovery behaviors, and task re-attempts — through composable XML behavior trees.</p>
+              <div
+                style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;">
+                BehaviorTree.CPP</div>
+              <p style="font-size:0.88rem;color:var(--ink-2);line-height:1.7;font-weight:300;">Nav2's BT-based mission
+                executor handles high-level task sequencing — waypoint following, recovery behaviors, and task
+                re-attempts — through composable XML behavior trees.</p>
             </div>
           </div>
         </div>
@@ -163,7 +191,8 @@
               <div class="sys-gallery-caption">Competition Field Test</div>
             </div>
           </div>
-          <div style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-3);margin-top:0.75rem;letter-spacing:0.1em;">
+          <div
+            style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-3);margin-top:0.75rem;letter-spacing:0.1em;">
             Drop screenshots/photos into assets/images/testing/
           </div>
         </div>
@@ -172,10 +201,10 @@
         <div class="sys-section" data-aos="fade-up">
           <div class="sys-section-title">Result</div>
           <p>The full stack was tuned, tested, and deployed on hardware. It contributed directly to
-          back-to-back national podium finishes at DD Robocon 2024 (National Champions) and
-          DD Robocon 2025 (1st Runners Up). The system ran reliably under competition conditions —
-          real-time, on unknown fields, with full autonomous navigation handling task sequences
-          that previously required manual driving.</p>
+            back-to-back national podium finishes at DD Robocon 2024 (National Champions) and
+            DD Robocon 2025 (1st Runners Up). The system ran reliably under competition conditions —
+            real-time, on unknown fields, with full autonomous navigation handling task sequences
+            that previously required manual driving.</p>
         </div>
 
         <div style="padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;" data-aos="fade-up">
@@ -201,7 +230,8 @@
   <script>
     AOS.init({ duration: 900, once: true, offset: 60 });
     const vid = document.querySelector('.sys-hero-media video source');
-    if (vid) { const v=vid.parentElement; const ph=document.getElementById('nav-ph'); v.addEventListener('loadeddata',()=>{if(ph)ph.style.display='none';}); v.load(); }
+    if (vid) { const v = vid.parentElement; const ph = document.getElementById('nav-ph'); v.addEventListener('loadeddata', () => { if (ph) ph.style.display = 'none'; }); v.load(); }
   </script>
 </body>
+
 </html>
