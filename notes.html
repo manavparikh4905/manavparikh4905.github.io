@@ -27,8 +27,9 @@
       <span class="n-sub">Robotics Engineer</span>
     </div>
     <ul class="n-nav" id="n-nav">
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Systems</a></li>
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="notes.html" class="active">Notes</a></li>
       <li class="has-dropdown">
         <a href="#" class="dropdown-trigger">Showcase
@@ -84,59 +85,122 @@
       <!-- Notes grid -->
       <div class="notes-grid" data-aos="fade-up">
 
-        <div class="note-card">
-          <div class="note-date">Mar 2026 · Path Planning</div>
+        <a href="topic-pathplanning.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Mar 2026 · Path Planning</div>
+            <div class="note-tag-dot" style="background:var(--accent);"></div>
+          </div>
           <div class="note-title">Implementing Hybrid A* as a Nav2 Global Planner Plugin</div>
           <p class="note-excerpt">
             How to implement the nav2_core::GlobalPlanner interface in C++, wire into the Nav2 lifecycle,
             and use Costmap2D for collision checking — from scratch.
           </p>
-        </div>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
 
-        <div class="note-card">
-          <div class="note-date">Feb 2026 · Kinematics</div>
+        <a href="topic-ros2.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Feb 2026 · Kinematics</div>
+            <div class="note-tag-dot" style="background:var(--accent-alt);"></div>
+          </div>
           <div class="note-title">3-Wheel Swerve Inverse Kinematics — Derivation</div>
           <p class="note-excerpt">
             Full derivation of the 3WD holonomic inverse kinematics model — from Twist (Vx, Vy, Vθ)
             to individual wheel speed and steering angle commands.
           </p>
-        </div>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
 
-        <div class="note-card">
-          <div class="note-date">Jan 2026 · Localisation</div>
+        <a href="topic-slam.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Jan 2026 · Localisation</div>
+            <div class="note-tag-dot" style="background:var(--accent);"></div>
+          </div>
           <div class="note-title">Tuning AMCL for Competition Field Conditions</div>
           <p class="note-excerpt">
             Practical guide to tuning AMCL particle count, motion model noise parameters, and
             sensor models for the reflective floor surfaces common in Robocon competition arenas.
           </p>
-        </div>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
 
-        <div class="note-card">
-          <div class="note-date">Dec 2025 · Sensor Fusion</div>
+        <a href="topic-ros2.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Dec 2025 · Sensor Fusion</div>
+            <div class="note-tag-dot" style="background:var(--accent-2);"></div>
+          </div>
           <div class="note-title">EKF Sensor Fusion with robot_localization — Setup Guide</div>
           <p class="note-excerpt">
             Step-by-step configuration of robot_localization's EKF node to fuse wheel odometry and
             IMU data for a reliable odom→base_link transform under competition conditions.
           </p>
-        </div>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
 
-        <div class="note-card">
-          <div class="note-date">Nov 2025 · SLAM</div>
+        <a href="topic-slam.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Nov 2025 · SLAM</div>
+            <div class="note-tag-dot" style="background:var(--accent);"></div>
+          </div>
           <div class="note-title">SLAM Toolbox Online vs Lifelong Mapping Modes</div>
           <p class="note-excerpt">
             When to use online SLAM vs lifelong SLAM in competition, and how to serialize/deserialize
             maps between rounds to save mapping time at the event.
           </p>
-        </div>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
 
-        <div class="note-card">
-          <div class="note-date">Oct 2025 · Mechanical</div>
+        <a href="topic-hardware.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Oct 2025 · Mechanical</div>
+            <div class="note-tag-dot" style="background:var(--accent-alt);"></div>
+          </div>
           <div class="note-title">Bearing Selection for Competition Robot Drivetrains</div>
           <p class="note-excerpt">
             How to calculate radial and axial loads on drivetrain shafts and select the appropriate
             bearing type, size, and preload for the dynamic loads seen in competition.
           </p>
-        </div>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
+
+        <a href="topic-robocon.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Sep 2025 · Robocon</div>
+            <div class="note-tag-dot" style="background:var(--accent-2);"></div>
+          </div>
+          <div class="note-title">BehaviorTree.CPP Mission Sequencing for Multi-Phase Tasks</div>
+          <p class="note-excerpt">
+            Using Nav2's built-in BT framework and BehaviorTree.CPP to sequence autonomous field tasks —
+            navigation, docking, payload handling — with fallback and retry logic.
+          </p>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
+
+        <a href="topic-pathplanning.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Aug 2025 · Path Planning</div>
+            <div class="note-tag-dot" style="background:var(--accent);"></div>
+          </div>
+          <div class="note-title">Dubins Paths vs Reeds-Shepp — When to Use Which</div>
+          <p class="note-excerpt">
+            Practical comparison of Dubins and Reeds-Shepp path primitives for non-holonomic robots —
+            forward-only vs reversible, and why it matters for Robocon field tasks.
+          </p>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
+
+        <a href="topic-hardware.html" class="note-card">
+          <div class="note-card-top">
+            <div class="note-date">Jul 2025 · Hardware</div>
+            <div class="note-tag-dot" style="background:var(--accent-alt);"></div>
+          </div>
+          <div class="note-title">STM32 Motor Driver Communication over USB-Serial with ROS2</div>
+          <p class="note-excerpt">
+            Protocol design for reliable bidirectional communication between STM32 motor drivers and
+            ROS2 nodes — checksum framing, timeout recovery, and encoder data streaming.
+          </p>
+          <div class="note-read-more">Read note <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        </a>
 
       </div>
 
@@ -240,14 +304,17 @@
     <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
       <a href="index.html">Home</a> &nbsp;·&nbsp;
-      <a href="projects.html">Systems</a> &nbsp;·&nbsp;
+      <a href="projects.html">Projects</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
     </span>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="three-bg.js"></script>
   <script>if (typeof gsap === 'undefined') AOS.init({ duration: 900, once: true, offset: 60 });</script>
 </body>
 

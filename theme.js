@@ -130,8 +130,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const trigger = dd.querySelector('.dropdown-trigger');
     if (trigger) {
       trigger.addEventListener('click', e => {
-        if (window.innerWidth <= 900) { e.preventDefault(); dd.classList.toggle('open'); }
+        e.preventDefault();
+        const isOpen = dd.classList.contains('open');
+        // Close all other dropdowns first
+        document.querySelectorAll('.has-dropdown.open').forEach(other => {
+          if (other !== dd) other.classList.remove('open');
+        });
+        dd.classList.toggle('open', !isOpen);
       });
+    }
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) {
+      document.querySelectorAll('.has-dropdown.open').forEach(dd => dd.classList.remove('open'));
     }
   });
 
