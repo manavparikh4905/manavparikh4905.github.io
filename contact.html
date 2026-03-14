@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="theme.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,17 +55,17 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal">Contact</span>
-      <h1 class="p-title reveal">Get in <em>Touch</em></h1>
-      <p class="p-lead reveal">
+      <span class="p-eyebrow reveal" data-aos="fade-up">Contact</span>
+      <h1 class="p-title reveal" data-aos="fade-up">Get in <em>Touch</em></h1>
+      <p class="p-lead reveal" data-aos="fade-up">
         Open to conversations about autonomous robotics, competition robotics, robot navigation,
         and collaborative projects. Reach out via any of the channels below.
       </p>
 
-      <div class="section-divider reveal"></div>
+      <div class="section-divider reveal" data-aos="fade-up"></div>
 
       <!-- Icon Card Grid -->
-      <div class="contact-grid reveal">
+      <div class="contact-grid reveal" data-aos="fade-up">
 
         <a href="mailto:parikhmanav72@gmail.com" class="contact-icon-card">
           <div class="cic-icon">
@@ -125,7 +126,7 @@
       </div>
 
       <!-- Send a Message -->
-      <div class="contact-form-section reveal">
+      <div class="contact-form-section reveal" data-aos="fade-up">
         <h2>Send a <em>Message</em></h2>
         <p>Leave your details and I'll get back to you as soon as possible.</p>
         <form class="contact-form" id="contact-form">
@@ -138,10 +139,10 @@
         </form>
       </div>
 
-      <div class="section-divider reveal"></div>
+      <div class="section-divider reveal" data-aos="fade-up"></div>
 
       <!-- QR CODES -->
-      <div class="qr-section reveal">
+      <div class="qr-section reveal" data-aos="fade-up">
         <div
           style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 2rem; border-bottom: 1px solid var(--border-soft); padding-bottom: 1rem; width: 100%; max-width: 700px; margin: 0 auto;">
           SCAN TO CONNECT</div>
@@ -165,7 +166,7 @@
   </main>
 
   <footer>
-    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
       <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="about.html">About</a> &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -180,8 +181,15 @@
     new QRCode(document.getElementById("qr-email"), { ...opts, text: "mailto:parikhmanav72@gmail.com" });
     new QRCode(document.getElementById("qr-github"), { ...opts, text: "https://github.com/manavparikh4905" });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="three-bg.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  </script>
 </body>
 
 </html>

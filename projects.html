@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="theme.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,16 +55,16 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal">Projects</span>
-      <h1 class="p-title reveal">Current <em>Work</em></h1>
-      <p class="p-lead reveal">
+      <span class="p-eyebrow reveal" data-aos="fade-up">Projects</span>
+      <h1 class="p-title reveal" data-aos="fade-up">Current <em>Work</em></h1>
+      <p class="p-lead reveal" data-aos="fade-up">
         Robotics engineering projects spanning custom path planning, autonomous navigation stacks,
         and mechanical design for competition hardware. All active or recently completed.
       </p>
 
       <div class="projects-container">
         <!-- 01 -->
-        <div class="project-entry reveal">
+        <div class="project-entry reveal" data-aos="fade-up">
           <div class="pe-header">
             <span class="pe-num">01</span>
             <span class="pe-title">Path Planner for Differential Drive Robots</span>
@@ -93,16 +94,15 @@
           <div class="pe-media-section">
             <div class="pe-media-title">Project Media Gallery</div>
             <div class="pe-media-grid" id="media-grid-1">
-              <div class="pe-media-dropzone" title="Upload Image or Video">
-                <span>+ Upload Media</span>
-                <input type="file" class="pe-media-input" data-target="media-grid-1" accept="image/*,video/*" multiple>
+              <div class="pe-media-item">
+                <img src="assets/media/demo-project1.jpg" alt="Project 1 Demo Image">
               </div>
             </div>
           </div>
         </div>
 
         <!-- 02 -->
-        <div class="project-entry reveal">
+        <div class="project-entry reveal" data-aos="fade-up">
           <div class="pe-header">
             <span class="pe-num">02</span>
             <span class="pe-title">Path Planner for 3-Wheel Omnidirectional (Swerve) Drive</span>
@@ -132,16 +132,15 @@
           <div class="pe-media-section">
             <div class="pe-media-title">Project Media Gallery</div>
             <div class="pe-media-grid" id="media-grid-2">
-              <div class="pe-media-dropzone" title="Upload Image or Video">
-                <span>+ Upload Media</span>
-                <input type="file" class="pe-media-input" data-target="media-grid-2" accept="image/*,video/*" multiple>
+              <div class="pe-media-item">
+                <img src="assets/media/demo-project2.jpg" alt="Project 2 Demo Image">
               </div>
             </div>
           </div>
         </div>
 
         <!-- 03 -->
-        <div class="project-entry reveal">
+        <div class="project-entry reveal" data-aos="fade-up">
           <div class="pe-header">
             <span class="pe-num">03</span>
             <span class="pe-title">Robocon Autonomous Navigation Stack</span>
@@ -170,16 +169,15 @@
           <div class="pe-media-section">
             <div class="pe-media-title">Project Media Gallery</div>
             <div class="pe-media-grid" id="media-grid-3">
-              <div class="pe-media-dropzone" title="Upload Image or Video">
-                <span>+ Upload Media</span>
-                <input type="file" class="pe-media-input" data-target="media-grid-3" accept="image/*,video/*" multiple>
+              <div class="pe-media-item">
+                <img src="assets/media/demo-project3.jpg" alt="Project 3 Demo Image">
               </div>
             </div>
           </div>
         </div>
 
         <!-- 04 -->
-        <div class="project-entry reveal">
+        <div class="project-entry reveal" data-aos="fade-up">
           <div class="pe-header">
             <span class="pe-num">04</span>
             <span class="pe-title">Competition Robot Mechanical Design (SolidWorks)</span>
@@ -208,9 +206,8 @@
           <div class="pe-media-section">
             <div class="pe-media-title">Project Media Gallery</div>
             <div class="pe-media-grid" id="media-grid-4">
-              <div class="pe-media-dropzone" title="Upload Image or Video">
-                <span>+ Upload Media</span>
-                <input type="file" class="pe-media-input" data-target="media-grid-4" accept="image/*,video/*" multiple>
+              <div class="pe-media-item">
+                <img src="assets/media/demo-project4.jpg" alt="Project 4 Demo Image">
               </div>
             </div>
           </div>
@@ -221,7 +218,7 @@
   </main>
 
   <footer>
-    <span>© 2025 Manav Parikh · Mechatronics Engineer</span>
+    <span>© 2026 Manav Parikh · Mechatronics Engineer</span>
     <span>
       <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="achievements.html">Achievements</a> &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -229,8 +226,15 @@
     </span>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="three-bg.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  </script>
 </body>
 
 </html>

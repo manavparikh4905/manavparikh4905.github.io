@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="theme.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,14 +55,14 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal">Gallery</span>
-      <h1 class="p-title reveal">Competition <em>Gallery</em></h1>
-      <p class="p-lead reveal">
+      <span class="p-eyebrow reveal" data-aos="fade-up">Gallery</span>
+      <h1 class="p-title reveal" data-aos="fade-up">Competition <em>Gallery</em></h1>
+      <p class="p-lead reveal" data-aos="fade-up">
         Photos and videos from DD Robocon competitions, hardware builds, CAD designs,
         and field testing sessions. Upload your own media to preview it here!
       </p>
 
-      <div class="gallery-filters reveal">
+      <div class="gallery-filters reveal" data-aos="fade-up">
         <button class="gf-btn active" data-filter="all">All</button>
         <button class="gf-btn" data-filter="competition">Competitions</button>
         <button class="gf-btn" data-filter="hardware">Hardware</button>
@@ -69,7 +70,7 @@
         <button class="gf-btn" data-filter="testing">Field Testing</button>
       </div>
 
-      <div class="gallery-masonry reveal" id="gallery-masonry">
+      <div class="gallery-masonry reveal" data-aos="fade-up" id="gallery-masonry">
 
         <div class="gallery-card" data-category="competition">
           <div class="gallery-card-inner">
@@ -135,13 +136,7 @@
           </div>
         </div>
 
-        <!-- Upload Card -->
-        <div class="gallery-card gallery-upload-card">
-          <div class="gallery-card-inner">
-            <span>+ Add Media</span>
-            <input type="file" id="gallery-upload-input" accept="image/*,video/*" multiple>
-          </div>
-        </div>
+
 
       </div>
 
@@ -159,7 +154,7 @@
   </div>
 
   <footer>
-    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
       <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="projects.html">Projects</a> &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -167,8 +162,15 @@
     </span>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="three-bg.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  </script>
 </body>
 
 </html>

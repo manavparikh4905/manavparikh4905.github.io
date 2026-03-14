@@ -1562,41 +1562,7 @@ body:hover #cursor-glow {
   display: none;
 }
 
-/* Upload card */
-.gallery-upload-card {
-  cursor: pointer;
-}
 
-.gallery-upload-card .gallery-card-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  border: 2px dashed var(--border);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--ink-3);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.gallery-upload-card:hover .gallery-card-inner {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-glow);
-}
-
-.gallery-upload-card input[type="file"] {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.gallery-upload-card::before {
-  display: none;
-}
 
 /* ══════════════════════════════════
    LIGHTBOX MODAL

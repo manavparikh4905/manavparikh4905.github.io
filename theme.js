@@ -54,64 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ═══════════════════════════════════
-  //  AVATAR UPLOAD
-  // ═══════════════════════════════════
-  const avatarUpload = document.getElementById('avatar-upload');
-  const avatarPreview = document.getElementById('avatar-preview');
-  const avatarPlaceholder = document.getElementById('avatar-placeholder');
 
-  if (avatarUpload && avatarPreview && avatarPlaceholder) {
-    const savedAvatar = sessionStorage.getItem('localUserAvatar');
-    if (savedAvatar) {
-      avatarPreview.src = savedAvatar;
-      avatarPreview.style.display = 'block';
-      avatarPlaceholder.style.display = 'none';
-    }
-    avatarUpload.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (evt) => {
-        avatarPreview.src = evt.target.result;
-        avatarPreview.style.display = 'block';
-        avatarPlaceholder.style.display = 'none';
-        try { sessionStorage.setItem('localUserAvatar', evt.target.result); }
-        catch (err) { console.warn('File too large for sessionStorage'); }
-      };
-      reader.readAsDataURL(file);
-    });
-  }
-
-  // ═══════════════════════════════════
-  //  PROJECT / GALLERY MEDIA UPLOAD
-  // ═══════════════════════════════════
-  document.querySelectorAll('.pe-media-input').forEach(input => {
-    input.addEventListener('change', (e) => {
-      const grid = document.getElementById(input.getAttribute('data-target'));
-      if (!grid) return;
-      Array.from(e.target.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (evt) => {
-          const col = document.createElement('div');
-          col.className = grid.classList.contains('gallery-grid') ? 'gallery-item' : 'pe-media-item';
-          if (file.type.startsWith('video/')) {
-            const vid = document.createElement('video');
-            vid.src = evt.target.result; vid.controls = true; vid.autoplay = true; vid.muted = true; vid.loop = true;
-            col.appendChild(vid);
-          } else {
-            const img = document.createElement('img');
-            img.src = evt.target.result;
-            col.appendChild(img);
-          }
-          const dz = grid.querySelector('.pe-media-dropzone');
-          dz ? grid.insertBefore(col, dz) : grid.appendChild(col);
-        };
-        reader.readAsDataURL(file);
-      });
-      input.value = '';
-    });
-  });
 
   // ═══════════════════════════════════
   //  CURSOR GLOW TRAIL
@@ -161,21 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ═══════════════════════════════════
-  //  STAGGERED REVEAL (IntersectionObserver)
+  //  GSAP HERO STAGGER ANIMATIONS
   // ═══════════════════════════════════
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.classList.add('stagger-' + ((i % 8) + 1));
-    obs.observe(el);
-  });
+  if (typeof gsap !== 'undefined') {
+    gsap.from('.p-title', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.1 });
+    gsap.from('.p-lead', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.2 });
+    gsap.from('.btn-row .btn', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.4, stagger: 0.15 });
+  }
 
   // ═══════════════════════════════════
   //  ANIMATED STAT COUNTERS
@@ -278,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIdx = 0;
 
     function collectItems() {
-      items = Array.from(document.querySelectorAll('.gallery-card:not(.gallery-upload-card):not(.hidden) .gallery-card-inner img'));
+      items = Array.from(document.querySelectorAll('.gallery-card:not(.hidden) .gallery-card-inner img'));
     }
 
     function openLB(idx) {
@@ -297,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Attach click to gallery cards
-    document.querySelectorAll('.gallery-card:not(.gallery-upload-card)').forEach((card, i) => {
+    document.querySelectorAll('.gallery-card').forEach((card, i) => {
       card.addEventListener('click', () => openLB(i));
     });
 
@@ -314,58 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ═══════════════════════════════════
-  //  GALLERY PAGE MEDIA UPLOAD
-  // ═══════════════════════════════════
-  const galleryUploadInput = document.getElementById('gallery-upload-input');
-  const galleryMasonry = document.getElementById('gallery-masonry');
-  if (galleryUploadInput && galleryMasonry) {
-    galleryUploadInput.addEventListener('change', (e) => {
-      const uploadCard = galleryMasonry.querySelector('.gallery-upload-card');
-      Array.from(e.target.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (evt) => {
-          const card = document.createElement('div');
-          card.className = 'gallery-card';
-          card.setAttribute('data-category', 'uploaded');
-          const inner = document.createElement('div');
-          inner.className = 'gallery-card-inner';
-          if (file.type.startsWith('video/')) {
-            const vid = document.createElement('video');
-            vid.src = evt.target.result; vid.controls = true; vid.muted = true; vid.loop = true;
-            inner.appendChild(vid);
-          } else {
-            const img = document.createElement('img');
-            img.src = evt.target.result; img.alt = file.name;
-            inner.appendChild(img);
-          }
-          const caption = document.createElement('div');
-          caption.className = 'gallery-caption';
-          caption.innerHTML = '<span>' + file.name + '</span>';
-          inner.appendChild(caption);
-          card.appendChild(inner);
-          if (uploadCard) {
-            galleryMasonry.insertBefore(card, uploadCard);
-          } else {
-            galleryMasonry.appendChild(card);
-          }
-          // Attach lightbox
-          card.addEventListener('click', () => {
-            const allImgs = Array.from(document.querySelectorAll('.gallery-card:not(.gallery-upload-card) .gallery-card-inner img'));
-            const idx = allImgs.indexOf(card.querySelector('img'));
-            if (idx >= 0 && lightbox) {
-              const lbImg = document.getElementById('lb-img');
-              lbImg.src = allImgs[idx].src;
-              lightbox.classList.add('open');
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        };
-        reader.readAsDataURL(file);
-      });
-      e.target.value = '';
-    });
-  }
+
 
   // ═══════════════════════════════════
   //  CONTACT FORM (cosmetic)

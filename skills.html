@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="theme.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,25 +55,25 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal">Skills</span>
-      <h1 class="p-title reveal">Technical <em>Stack</em></h1>
-      <p class="p-lead reveal">
+      <span class="p-eyebrow reveal" data-aos="fade-up">Skills</span>
+      <h1 class="p-title reveal" data-aos="fade-up">Technical <em>Stack</em></h1>
+      <p class="p-lead reveal" data-aos="fade-up">
         Robotics middleware, navigation algorithms, mechanical design software, and
         programming languages — applied in production on competition hardware.
       </p>
 
-      <div class="skills-cols reveal">
+      <div class="skills-cols reveal" data-aos="fade-up">
 
         <!-- LEFT COLUMN -->
         <div>
           <div class="skill-group">
             <div class="sg-title">Robotics Middleware</div>
             <ul class="sg-list">
-              <li>ROS2 (Humble / Iron)</li>
+              <li>ROS2 Humble</li>
               <li>Nav2 Navigation Stack</li>
               <li>TF2 Transform Library</li>
               <li>RViz2 Visualisation</li>
-              <li>Gazebo Classic / Ignition</li>
+              <li>Gazebo Classic</li>
               <li>ROS2 Lifecycle Nodes</li>
               <li>BehaviorTree.CPP (Nav2 BT)</li>
               <li>ros2_control</li>
@@ -97,10 +98,9 @@
             <ul class="sg-list">
               <li>Custom Nav2 Planner Plugins (C++)</li>
               <li>Spline Trajectory Generation</li>
-              <li>A* / Dijkstra Global Planning</li>
-              <li>DWA / TEB Local Planning</li>
+              <li>Hybrid A* Planning</li>
               <li>Holonomic Motion Planning</li>
-              <li>Velocity Profiling &amp; Smoothing</li>
+              <li>Velocity Profiling &amp; Theta* Smoothing</li>
               <li>Non-holonomic Constraint Handling</li>
             </ul>
           </div>
@@ -118,18 +118,18 @@
               <li>Differential Drive Systems</li>
               <li>Bearing &amp; Shaft Sizing</li>
               <li>Manufacturing Tolerancing</li>
-              <li>FDM / 3D Printing</li>
+              <li>3D Printing</li>
             </ul>
           </div>
 
           <div class="skill-group" style="margin-top: 2rem;">
             <div class="sg-title">Programming</div>
             <ul class="sg-list">
-              <li>C++ — primary ROS2 language</li>
+              <li>C++ &amp; Python — primary ROS2 language</li>
               <li>Python — scripting &amp; tooling</li>
               <li>Linux / Bash Shell</li>
               <li>Git &amp; GitHub</li>
-              <li>CMake / colcon build system</li>
+              <li>Colcon build system</li>
             </ul>
           </div>
 
@@ -140,7 +140,7 @@
               <li>IMU Calibration &amp; Fusion</li>
               <li>Quadrature Encoder Interfacing</li>
               <li>Embedded Microcontrollers</li>
-              <li>Serial / CAN Communication</li>
+              <li>Serial Communication</li>
               <li>Robot Hardware Bring-up</li>
             </ul>
           </div>
@@ -152,7 +152,7 @@
   </main>
 
   <footer>
-    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
       <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="projects.html">Projects</a> &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -160,8 +160,15 @@
     </span>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="three-bg.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  </script>
 </body>
 
 </html>

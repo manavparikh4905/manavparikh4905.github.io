@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="theme.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,11 +55,11 @@
   <main>
     <div class="page">
 
-      <span class="p-eyebrow reveal">About</span>
-      <h1 class="p-title reveal"><em>Background</em></h1>
-      <p class="p-lead reveal">Education, research focus, and academic profile.</p>
+      <span class="p-eyebrow reveal" data-aos="fade-up">About</span>
+      <h1 class="p-title reveal" data-aos="fade-up"><em>Background</em></h1>
+      <p class="p-lead reveal" data-aos="fade-up">Education, research focus, and academic profile.</p>
 
-      <div class="prose reveal">
+      <div class="prose reveal" data-aos="fade-up">
         <p>
           I am a <strong>third-year Mechanical Engineering student</strong> at Nirma University, Ahmedabad, with a
           strong focus on autonomous robotics, robot navigation systems and designing CAD models for robots.
@@ -85,7 +86,7 @@
         </p>
       </div>
 
-      <div class="info-grid reveal">
+      <div class="info-grid reveal" data-aos="fade-up">
 
         <div class="ic">
           <div class="ic-l">Academic Performance</div>
@@ -133,7 +134,7 @@
   </main>
 
   <footer>
-    <span>© 2025 Manav Parikh · Autonomous Systems Engineer</span>
+    <span>© 2026 Manav Parikh · Autonomous Systems Engineer</span>
     <span>
       <a href="index.html">Home</a> &nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="projects.html">Projects</a> &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -141,8 +142,15 @@
     </span>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="three-bg.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  </script>
 </body>
 
 </html>
